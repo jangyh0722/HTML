@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>미디어쿼리 이해하기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        html {font-size: 14px;}
+        body {background-color: #808080;font-family: 'Montserrat', sans-serif;color: #666;}
+        h1, h3{font-weight:100;}
+        h1{font-size:70px;}
+        h3{font-size:20px;}
+        .shadow{box-shadow:1px 2px 5px rgba(0,0,0,0.3);}
+        .row{width:100%;}
+        .header, .section{margin-bottom:40px;}
+        .container{width:80%; margin:auto;}
+        /*header*/
+        .header{text-align:center; padding-top:100px;}
+        .header h1{
+            color:#81bb03;
+            text-shadow:1px 2px 5px rgba(0,0,0,0.3);
+            margin-bottom:50px;
+        }
+        .header > span{
+            color:#999;
+            display:inline-block;
+            text-transform:uppercase;
+            font-size:12px;
+            letter-spacing:8px;
+            margin-bottom:40px;
+        }
+        .nav{
+            width:100%;
+            overflow:hidden;
+            background-color:#fff;
+            border-bottom:5px solid #000;
+            border-radius:10px 10px 0 0;
+        }
+        .nav li{
+            float:left;
+            width:20%;
+        }
+        .nav li a{
+            padding:12px 0;
+            color:#666;
+        }
+        .nav li:first-child a{
+            background-color:#000;
+            color:#fff;
+        }
+        /*section*/
+        /*컨텐츠 사이 여백 .cont*/
+        .cont{margin-bottom:40px;}
+        .banner{
+            width:100%;
+            background-color:#999;
+            height:300px;
+            border:10px solid #fff;
+            box-sizing:border-box;
+            
+        }
+        .content{
+            width:100%;
+            overflow:hidden;
+            background-color:#fff;
+        }
+        .content li{
+            /*
+                li사이즈 960/3칸=320px
+            */
+            width:33.33333333333333%;
+            float:left;
+            text-align:justify;
+        }
+        .content li .block{
+            width:90%;
+            margin:auto;
+            padding:20px 0;
+        }
+        .content li .block h3{margin-bottom:10px; text-align:center;}
+        .content li .block p{margin-bottom:20px;}
+        .content li .block a{
+            width:40%;
+            text-align:center;
+            padding:12px 0;
+            color:#fff;
+            background-color:#000;
+            margin:auto;
+        }
+        .site{
+            background-color:#fff;
+            
+        }
+        .site-txt{
+            width:96%;
+            margin:auto;
+            text-align:justify;
+            padding:20px 0;
+        }
+        .site-txt h3{
+            margin-bottom:10px;
+        }
+        .site-txt p{
+            margin-bottom:30px;
+        }
+        .site-txt a{
+            width:12%;
+            text-align:center;
+            color:#fff;
+            background-color:#000;
+            padding:12px  0;
+        }
+
+        .footer{text-align:center; padding-bottom:40px;}
+        .footer p{color:#999;}
+        @media screen and (max-width:960px) {
+            h1{font-size:50px;}
+            h3{font-size:18px;}
+            .container{width:90%;}
+            .content li .block a {width: 60%; }
+            .site-txt a{width:20%;}
+        }
+
+        @media screen and (max-width:768px) {
+            h1{font-size:40px; margin-bottom:30px;}
+            h3{font-size:16px;}
+            .container{width:90%;}
+            .nav{border-radius:10px 10px 0 0;}
+            .nav li{
+                /*
+                    li는 여백이 없는 부모영역안에서의 칸 갯수를 나눈 퍼센트
+                    , 첫번째 구조는 100% 나머지는 부모 안에서 반을 차지하는 부분으로 작업
+                */
+                width:50%;
+                box-sizing:border-box;
+            }
+
+             .nav li:first-child{width:100%;}
+             .nav li:nth-child(2n){border-right:1px solid #000;}
+             .nav li:nth-child(2), .nav li:nth-child(3){border-bottom:1px solid #000;}
+             .nav li a{padding:12px 0; color:#666;}
+
+             .content li{width:100%; float:none;}
+             .content li:first-child .block, .content li:nth-child(2).block{
+                 border-bottom:1px solid #ccc;
+             }
+            .content li .block a{width:30%;}
+            .site-txt a{width:30%; margin:auto;}
+            .site-txt{width:90%;}
+            .footer p{line-height:22px;}
+            .footer p span{display:block;}
+        }
+
+        @media screen and (max-width:480px) {
+            h1{margin-bottom:10px;}
+            h3{font-size:15px;}
+            p{font-size:13px;}
+            .nav li{
+                width:100%;
+                float:none;
+            }
+             .nav li:first-child{width:100%;}
+             .nav li:nth-child(2n){border-right:0;}
+             .nav li:nth-child(4){border-bottom:1px solid #000;}
+
+
+
+
+
+            .content li .block a{
+            width:40%;
+            text-align:center;
+            padding:12px 0;
+            color:#fff;
+            background-color:#000;
+            margin:auto;
+        }
+        .site{
+            background-color:#fff;
+            
+        }
+        .site-txt{
+            width:96%;
+            margin:auto;
+            text-align:justify;
+            padding:20px 0;
+        }
+
+
+
+        .content li .block a{
+            width:35%;
+            font-size:13px; padding:10px 0;
+        }
+        .site-txt a{
+            width:35%;
+            font-size:13px; margin:auto; padding:10px 0;
+        }
+        .footer {font-size:13px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header row">
+            <h1>WebResponsive</h1>
+            <p>Design by Templated</p>
+            <ul class="nav">
+                <li><a href="#">Homepage</a></li>
+                <li><a href="#">services</a></li>
+                <li><a href="#">ourclients</a></li>
+                <li><a href="#">aboutus</a></li>
+                <li><a href="#">contactus</a></li>
+            </ul>
+        </div>
+        <div class="section row">
+            <div class="banner shadow cont">
+                <ul class="content shadow cont">
+                    <li>
+                        <div class="block">
+                            <h3></h3>
+                            <p>
+                                Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem semper eleifend.
+                                Donec mattis libero eget urna. Duis pretium velit ac mauris.
+                            </p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <h3></h3>
+                            <p>
+                                Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem semper eleifend.
+                                Donec mattis libero eget urna. Duis pretium velit ac mauris.
+                            </p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block">
+                            <h3></h3>
+                            <p>
+                                Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem semper eleifend.
+                                Donec mattis libero eget urna. Duis pretium velit ac mauris.
+                            </p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="site shadow">
+                <div class="site-txt">
+                    <h3>WELCOME TO OUR WEBSITE</h3>
+                    <p>
+                        This is WellFormed, a free, fully standards-compliant CSS template designed by TEMPLATED.
+                        The photos in this template are from Fotogrph.
+                        This free template is released under the Creative Commons Attribution license,
+                        so you're pretty much free to do whatever you want with it (even use it commercially)
+                        provided you give us credit for it. Have fun :)
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer row">
+            <p>
+                <span>&copy; UNTITLED. ALL RIGHTS RESERVED. |</span> 
+                <span>PHOTOS BY FOTOGRPH | DESIGN BY TEMPLATED.</span>
+</p>
+        </div>
+    </div>
+</body>
+</html>

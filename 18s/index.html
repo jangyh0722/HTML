@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Robotics</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+        /*
+            한글일반 : font-family: 'Nanum Gothic', sans-serif;
+            영문일반 : font-family: 'Montserrat', sans-serif;
+        */
+
+        html,body{height:100%;}
+        body{font-size:14px; font-family:'Montserrat', sans-serif; color:#666;}
+
+        /*header style*/
+
+        .header{width:100%; height:100%; position:relative; overflow:hidden;}
+
+        .top-mov, .header-over, .top-menu, .logo-txt{position:absolute;}
+        .top-mov{width:100%; height:100%; top:0; left:0; z-index:11;}
+        .top-mov video{width:100%; }
+        .header-over{background-color:rgba(0,0,0,0.5); z-index:111; top:0; left:0; width:100%; height:100%;}
+        .top-menu{width:1010px; z-index:1111; padding-top:20px; left:50%; -webkit-transform:translateX(-50%);}
+        .top-menu img{width:15%; display:inline-block; padding-top:4.5px;}
+        .top-menu .top-nav{float:right;}
+        .top-menu .top-nav li{display:inline-block; padding-top:6.5px; margin:0 15px;}
+        .top-menu .top-nav li a{color:#fff; font-size:16px; font-weight:bold; text-transform:uppercase;}
+        .top-menu .top-nav li:last-child{border:1px solid #fff; width:100px; text-align:center; padding-bottom:6.5px;}
+        .top-menu .top-nav li:last-child a{font-weight:100;}
+        .logo-txt{z-index:1111; top:55%; left:50%;
+                  text-align:center;
+                  -webkit-transform:translate(-50%, -55%);
+                  -moz-transform:translate(-50%, -55%);
+                  -o-transform:translate(-50%, -55%);
+                  transform:translate(-50%, -55%);}
+        .logo-txt h2{font-size:50px; color:#fff; font-weight:bold; letter-spacing:5px; margin-bottom:50px;}
+        .logo-txt p{color:#ccc; font-size:16px; line-height:18px; margin-bottom:30px;}
+        .logo-txt span a{color:#fff; border:1px solid #fff; width:150px; margin:0 auto; padding:15px 0;}
+
+        /*section style*/
+
+        .section {}
+        .sec-top{width:1010px; margin:0 auto; padding:80px 0;}
+        .sec-top .top-txt{}
+        .sec-top .top-txt h3{font-size:36px; font-weight:bold; line-height:36px; color:#000; margin-bottom:30px;}
+        .sec-top .top-txt p{line-height:26px;}
+        .sec-top .top-img{}
+        .sec-top .top-img img{width:30%; }
+        .sec-top .top-img img:last-child{width:20%;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="top-mov">
+            <video autoplay loop muted>
+                <source src="movie/labs.mp4" type="video/mp4" />
+                <source src="movie/labs.webm" type="video/webm" />
+                <source src="movie/labs.ogg" type="video/ogg" />
+            </video>
+        </div>
+        <div class="header-over"></div>
+        <div class="top-menu">
+            <img src="common/NAVERLABS_LOGO_WHITE.png" alt="img" class="logo" />
+            <ul class="top-nav"> 
+                <li><a href="#" target="_self">story</a></li>
+                <li><a href="#" target="_self">showroom</a></li>
+                <li><a href="#" target="_self">publications</a></li>
+                <li><a href="#" target="_self">career</a></li>
+                <li><a href="#" target="_self">contact</a></li>
+                <li><a href="#" target="_self">english</a></li>
+            </ul>
+        </div>
+        <div class="logo-txt">
+            <h2>ROBOTICS</h2>
+            <p>
+                AI와 로봇기술의 조화로운 융합을 위해<br />
+                수많은 가능성을 현실로 만들어 갑니다.
+            </p>
+            <span><a href="#">PLAY VIDEO</a></span>
+        </div>
+    </div>
+    <div class="section">
+        <div class="sec-top">
+            <div class="top-txt">
+                <h3>
+                    WE ARE<br />
+                    AN AMBIENT INTELLIGENCE<br />
+                    COMPANY
+                </h3>
+                <p>
+                    네이버랩스의 비전인 생활환경지능은 사용자의 환경을 먼저 이해하고,<br />
+                    사용자가 요구하기 전에 필요한 정보와 서비스를 앞서 제공할 수 있는 기술을 의미합니다.
+                </p>
+                <br/>
+                <p>
+                    실제 사람들의 삶이 펼쳐지는 location에 대한 이해, 그리고 그 공간과 공간 사이를<br />
+                    연결해주는 mobility의 지능화에 집중하며 삶에 스며드는 솔루션을 제공하고자 합니다.
+                </p>
+            </div>
+            <div class="top-img">
+                <img src="images/main_company_car.png" alt="img" />
+                <img src="images/main_company_robot.png" alt="img" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

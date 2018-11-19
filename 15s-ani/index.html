@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>animation속성 알아보기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        body{
+            font-size:14px;
+            color:#666;
+            background-color:#e1e1e1;
+        }
+        /*선택자 속성이 공통일때 선택자와 선택자 사이에 쉼표(,)를 넣고 해당 부분의 스타일을 저의하는 방법으로 사용 가능*/
+        .att-content, .att-transform, .att-trasiton{
+            width:1200px;
+            margin:0 auto;
+        }
+        h2{
+            font-size:24px; 
+            font-weight:100;/*폰드의 굵기. 100~400~900사이의 값을 넣어줌.*/
+            margin-bottom:20px;
+        }
+        .title p{font-size:16px;}
+        /*att-content*/
+        .att-content{margin-bottom:40px;}
+        .att-content .title{padding:80px 0;}
+        .title-txt{}
+        .title-txt li{margin-bottom:20px;}
+        .title-txt li p{font-weight:bold; color:#333; margin-bottom:20px;}
+        .title-txt li .box{
+            width:150px; 
+            height:80px; 
+            background-color:#333;
+            cursor:pointer;
+        }
+        /*att-content*/
+        /*
+            애니메이션을 요소에게 적용할 때 순서를 잘 지키면 쉽게 접근이 가능한데
+            애니메이션을 적용할 요소한테는 애니메이션 속성들을 적어주고, 반대로 이벤트가 발생될때는
+            값을 지정해주는 방식으로 사용할 함.
+            1. 요소한테 애니메이션 속성을 지정한다.
+            2. 이벤트를 적용할 요소에게 애니메이션에 적용될 값을 지정한다.
+        */
+        .title-txt li .one{/**/
+            /*
+                밴더프리픽스(브라우저 접두사)
+                -각각의 다른 브라우저에서도 동일한 속성이 적용될 수 있도록 하기 위해 해당 브라우저의 접두사를 넣어줌.
+
+                transiton:0.5s ease;
+            */
+            -webkit-transition:width 0.5s ease;
+            transition:width 0.5s ease;
+        }
+        .title-txt li .one:hover{width:300px;}
+        .title-txt li .two { /*넓이와 높이를 바꾼다*/
+                -webkit-transition: width 0.5s ease, height 0.5s ease;
+                transition: width 0.5s ease, height 0.5s ease;
+            }
+        .title-txt li .two:hover{width:300px; height:120px;}
+        .title-txt li .three{/*넓이와 회전:transform*/
+                -webkit-transition: width 0.5s ease, height 0.5s ease, -webkit-transform 0.5s;
+                transition: width 0.5s ease, height 0.5s ease, transform 0.5s;
+        }
+        .title-txt li .three:hover {
+                width:300px;
+                height:300px;
+                -webkit-transform:rotate(45deg);
+                transform:rotate(45deg);
+            }
+        .title-txt li .four{/*풀어쓰는 방식으로 애니메이션 적용하기*/
+                            /*
+                            -webkit-transition-delay:1s; 내가 지정한 시간뒤에 애니메이션이 실행됨
+                            -webkit-transition-duration:0.5s; 애니메이션 실행 시간
+                            -webkit-transition-property:width; 애니메이션 속성 값
+                            -webkit-transition-property:height; 애니메이션 속성 값
+                            -webkit-transition-timing-function:ease; 애니메이션 실행 효과
+                            transition-delay:1s;
+                            transition-duration:0.5s;
+                            transition-property:width;
+                            transition-property:height;
+                            transition-timing-function:ease;
+                            */
+                            -webkit-transition:width 0.5s ease, height 0.5s ease;
+                            transition:width 0.5s ease, height 0.5s ease;
+        }
+        .title-txt li .four:hover{
+            width:500px;
+            height:300px;
+        }
+
+
+
+        .att-trasiton{margin-bottom:40px;}
+        .timing{overflow:hidden; margin-bottom:40px;}
+        .timing li{
+            float:left; 
+            box-sizing:border-box; 
+            border:1px solid #ccc;
+            padding:10px;
+        }
+        .timing li.left{
+            width:180px;
+            border-right:0; 
+            border-bottom:0;
+            text-align:center;
+            color:#333;
+            font-weight:bold;
+        }
+        .timing li.right{width:920px;border-bottom:0;}
+        .timing li:nth-child(2){text-align:center; font-weight:bold;}
+        .timing li:nth-child(11), .timing li:last-child{border-bottom:1px solid #ccc;}
+        .ani{}
+        .ani div{
+            width:150px;
+            height:50px; 
+            line-height:50px;
+            text-align:center;
+            color:#fff;
+            margin-bottom:10px; 
+            background-color:#333;
+            /*애니메이션이 현 위치에서 실행하기 위한 포지션을 설정함*/
+            position:relative;
+            /*
+                애니메이션 속성 만들기
+                -webkit-animation:mymove 0.5s infinity;
+                사용자가 지정한 애니메이션을 만들때 사용하는 방법으로 애니메이션의
+                이름을 지정한 후 애니메이션 실행시간과 운동효롸 부분을 넣어주는 순서로
+                사용을 하는데 이때, infinity는 무한 반복으로 애니메이션을 실행시킬때 사용함.
+                @keyframes:from ~ to
+            */
+            -webkit-animation:mymove 0.5s infinite;
+            animation:mymove 0.5s infinite;
+        }
+        /*ani운동효과 애니메이션*/
+        .ani{}
+        .ani .ease{-webkit-animation-timing-function:ease;}
+        .ani .linear{-webkit-animation-timing-function:linear;}
+        .ani .ease-in{-webkit-animation-timing-function:ease-in;}
+        .ani .ease-out{-webkit-animation-timing-function:ease-out;}
+        .ani .ease-in-out{-webkit-animation-timing-function:ease-in-out;}
+        .ani .ease{animation-timing-function:ease;}
+        .ani .linear{animation-timing-function:linear;}
+        .ani .ease-in{animation-timing-function:ease-in;}
+        .ani .ease-out{animation-timing-function:ease-out;}
+        .ani .ease-in-out{animation-timing-function:ease-in-out;}
+        /*사용자 애니메이션 만들기*/
+        @-webkit-keyframes mymove{
+            /*위치를 지정해서 어디서부터 어디까지 움직임을 만들지를 지정해줌. from~to */
+            from{left:0px;}
+            to{left:900px;}
+        }
+        @keyframes mymove{
+             from{left:0px;}
+            to{left:900px;}
+        }
+
+        .att-transform{overflow:hidden; padding-bottom:80px;}
+        .att-transform li{
+            width:300px; 
+            float:left;
+            border-right:1px solid #ccc;
+            box-sizing:border-box;
+        }
+        .att-transform li:last-child{border-right:0;}
+        .att-transform li h4{color:#333; margin-bottom:15px; margin-left:20px;}
+        .att-transform li p{padding:0 20px 50px;}
+        .att-transform li .content{
+            width:180px; 
+            height:100px; 
+            background-color:#333;
+            margin:auto;
+        }
+        .att-transform li:nth-child(3) p{padding-bottom:36px;}
+        .late {
+            /*
+                translate(X,Y);
+                translate X();
+                translate Y();
+            */
+            -webkit-transform: translate(100px, 40px);
+            transform: translate(100px, 40px);
+        }
+        .rotate {/*양수 시계방향, 음수 반시계방향*/
+            -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+        }
+        .scale {
+            /*하나만 지정하면 내가 지정한 만큼 정비율로 늘어나고, 값을 두가지로 지정하면
+                지정한 사이즈만큼 늘어남. 하지만 두 값을 잘못지정하면 이미지일 경우 이미지가 깨짐
+                -webkit-transform: scale(2, 1.2); <-넓이와 높이를 따로 지정 가능
+                -webkit-transform: scaleX(값);
+                -webkit-transform: scaleY(값);
+                */
+            -webkit-transform: scale(2);
+            transform: scale(2);
+        }
+        .skew { /*
+                   기울일 때 사용
+                   -webkit-transform: skew(수평, 수직)
+                   -webkit-transform: skewX(수평)
+                   -webkit-transform: skewY(수직)
+               */
+            -webkit-transform: skew(30deg);
+            transform: skew(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="att-content">
+        <div class="title">
+            <h2>The Transition Property</h2>
+            <p>Hover over the div element below, to see the transition effect:</p>
+        </div>
+        <ul class="title-txt">
+            <li>
+                <p>
+                    01. 트랜지션(transition)효과주기 : 넓이
+                </p>
+                <div class="box one"></div>
+            </li>
+            <li>
+                <p>02. 트랜지션(transition)효과주기 : 넓이와 높이</p>
+                <div class="box two"></div>
+            </li>
+            <li>
+                <p>03. 트랜지션(transition)효과주기 : 넓이와 회전</p>
+                <div class="box three"></div>
+            </li>
+            <li>
+                <p>04. 트랜지션(transition)효과주기 : 풀어쓰기</p>
+                <div class="box four"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="att-trasiton">
+        <h2>Animation Timing[transition-timing-function 속성 설명]</h2>
+        <ul class="timing">
+            <li class="left">속성</li>
+            <li class="right">값</li>
+            <li class="left">ease</li>
+            <li class="right">기본값입니다. 느리게 시작하여 점점 빨라졌다가 느리게 끝납니다. 일반적으로 이 속성을 사용하면 대부분의 움직임이 자연스러움을 갖습니다.</li>
+            <li class="left">linear</li>
+            <li class="right">모든 속도가 같은 등속운동입니다.</li>
+            <li class="left">ease-in</li>
+            <li class="right">느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동합니다.</li>
+            <li class="left">ease-out</li>
+            <li class="right">일정한 속도의 등속으로 시작해서 점점 느려지면서 끝납니다.</li>
+            <li class="left">ease-in-out</li>
+            <li class="right">ease와 비슷한 속성으로 느리게 시작하여 느리게 끝납니다.</li>
+        </ul>
+        <div class="ani">
+            <div class="ease">ease</div>
+            <div class="linear">linear</div>
+            <div class="ease-in">ease-in</div>
+            <div class="ease-out">ease-out</div>
+            <div class="ease-in-out">ease-in-out</div>
+        </div>
+    </div>
+    <ul class="att-transform">
+        <li>
+            <h4>01.transform:translate</h4>
+            <p>트랜스폼 기능중 좌표를 이용한 애니메이션 처리 가능.</p>
+            <div class="late content"></div>
+        </li>
+        <li>
+            <h4>02.transform:rotate</h4>
+            <p>트랜스폼 기능중 회전을 이용한 애니메이션 처리 가능.</p>
+            <div class="rotate content"></div>
+        </li>
+        <li>
+            <h4>03.transform:scale(값, 값), scaleX(값), scaleY(값)</h4>
+            <p>트랜스폼 기능중 넓이를 이용한 애니메이션 처리 가능.</p>
+            <div class="scale content"></div>
+        </li>
+        <li>
+            <h4>04.transform:skewX(값), skewY(값)</h4>
+            <p>트랜스폼 기능중 기울기를 이용한 애니메이션 처리 가능.</p>
+            <div class="skew content"></div>
+        </li>
+
+    </ul>
+</body>
+</html>

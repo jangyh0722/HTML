@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>La Casa</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+        /*
+            해상도를 활용한 컨텐츠 작업을 할때 반드시 필요한 스타일은 최상위 부모요소의 높이를 100%로 지정한 후
+            스타일 작업을 하면 해상도가 바뀐 상태가 되더라도 모든 화면에서 공통으로 적용된 스타일을 유지시킬 수 있음.
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        */
+        body {font-family: 'Open Sans', sans-serif;font-size:14px;}
+        *{box-sizing:border-box;}
+        html, body{height:100%;}
+        .title{font-family: 'Great Vibes', cursive;}
+        .row{width:100%;}
+        /*header*/
+        /*
+            메뉴와 로고를 높이 지정없이 여백을 활용한 방법으로 높이를 만들기
+            1. main-top을 이용한 로고와메뉴를 수평의 중앙에 위피시킨다.(main-to)
+            2. float을 활용해서 로고와 메뉴를 수평에 왼쪽과 오른쪽에 위치시킨다.
+            3. 메뉴를 수평으로 만들고 메뉴의 앵커를 이용해서 각각의 li의 영역을 확장시킴.
+            4. 요소검사를 해서 전체 헤더의 높이값을 구한 후 로고의 높이를 헤더의 중앙으로 맞춘다.
+            5. 가장 큰 구조인 헤더 또는 main-top을 padding의 top과 bottom을 이용해서 높이를 만들어준다.
+        */
+        .header{
+            background-color:#c6c6c6;
+            position:fixed;
+            z-index:999;
+        }
+        .main-top{width:1010px; margin:0 auto; overflow:hidden; padding:20px 0;}
+        /*
+            헤더의 높이는 자식의 전체 여백을 넣은 후 검사를 통해 확인 결과 40px 이라는 값을 확인할 수 있었음,
+            이때 로고의 위치를 현재 헤더의 높이 중앙으로 정렬하려면 다음과 같은 계산을 통해 맞출 수 있음
+            (헤더의 높이 - 로고 이미지의 높이)/2
+        */
+        .main-top .logo{float:left; padding-top:13px;}
+        .main-top .nav{width:auto; float:right;}
+        .main-top .nav li{display:inline-block;}
+        .main-top .nav li:last-child{border: 1px solid #fff;}
+        .main-top .nav li a{font-size:16px; color:#fff; padding:12px 25px;}
+        .main-top .nav li a:hover{
+            background-color:rgba(255,255,255,0.3);
+            color:#333;
+        }
+        /*main banner와 메인 타이틀 맞추기*/
+        .main-ban{/*main-ban을 display속성을 table로 변경해준 이유는 타이틀을 수직의 중앙으로 잡아주기 위해 속성값을 변경해준 것.*/
+            display:table;
+            width:100%;
+            height:100%;
+            background-image:url("images/hero.jpg");
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-size:cover;
+        }
+        .ma-ban{
+            display:table-cell;
+            vertical-align:middle;
+            text-align:center;
+        }
+        .ma-ban h1{font-size:60px;color:#fff;font-weight:100; margin-bottom:24px;}
+        .ma-ban p{color:#fff; margin-left:80px;}
+        /*section*/
+        .section{padding-bottom:80px;}
+        .se-bar{background-color:#bfd9f2; width:inherit;}
+        .sea-bar{width:1010px; margin:0 auto; overflow:hidden;padding:30px 0;}
+        .sea-bar h2, .sea-bar .fa{display:inline-block; font-size:30px;color:#93b6d8;}
+        .sea-bar h2{font-weight:100;text-transform:uppercase;padding-top:8px;}
+        .sea-bar .fa{float:right;}
+        .list{overflow:hidden; width:1010px; margin:0 auto; z-index:99;padding:80px 0;}
+        /*이미지가 위치할 부분에서의 요소의 사이즈가 이미지보다 작을때
+            이미지의 사이즈를 유동 낣이로 바뀌 요소안에 넣을 수 있음
+            이떄 사용되는 값은 %단위를 이용하여 이미지를 사이즈에 맞춰줌.
+
+            다른 방법은 이미지 사이즈를 직접 줄여주는 방법이 있음.
+        */
+        .list li img{width:100%;}
+        .list li{width:320px; float:left; margin-bottom:25px;}
+        .list li.center{margin:0 25px;}
+        .list li.bott{margin-bottom:0;}
+        /*
+            포지션을 사용하게 되면 요소의 순번이 바뀌는 현상이 나타나는데
+            이때 요소의 순번을 정해주는 방법으로 이같은 현상을 해결할 수 있다.
+            z-index:999999999999999999;
+        */
+        .list li .img-title{position:relative;}
+        .list li .img-title span{
+            position:absolute; 
+            top:10px; 
+            left:10px;
+            background-color:#fff;
+            padding:7px;
+            color:#999;
+        }
+        .list li .img-txt{
+            border:1px solid #e0e0e0;
+            border-top:0;
+        }
+        .list li .img-txt .block{
+            width:260px;
+            margin:0 auto;
+            padding:20px 0;
+        }
+        .list li .img-txt .block h4{margin-bottom:10px;color:#666;}
+        .list li .img-txt .block p{color:#999;}
+        .section a {
+            width: 270px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px 0;
+            border: 1px solid #a5c4e3;
+            border-radius: 28px;
+            color: #a5c4e3;
+        }
+        .section a:hover{
+            background-color:#a5c4e3;color:#0676ff;
+        }
+        /*footer*/
+        .footer{background-color:#96b9df; padding-top:80px;}
+        .foot-cont{width:1010px; margin:0 auto;}
+        .foot-nav{overflow:hidden; width:inherit; padding-bottom:40px;}
+        .foot-nav ul, .foot-nav .foot-info{width:252.5px; float:left;}
+        .foot-nav ul li{width:200px;}
+        .foot-nav ul li a{color:#fff; padding:5px 0;}
+        .foot-nav ul li a:hover{
+            background-color:rgba(255,255,255,0.3);
+            color:#0676ff;
+            padding-left:10px;
+        }
+        .foot-nav .foot-info p{color:#fff;}
+        .foot-nav .foot-info:nth-of-type(1){line-height:17px; margin-bottom:12px;}
+        .foot-nav .foot-info:nth-of-type(2) .fa{font-size:18px; padding:0 5px;}
+        .foot-copy{
+            padding:40px 0;
+            border-top:1px solid #81abd5;
+            text-align:center;
+            color:#fff;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class=" header row">
+        <div class="main-top">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="logo" />
+            </a>
+            <ul class="nav">
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">Rent</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-ban row">
+        <div class="ma-ban">
+            <h1 class="title">Find You Dream Home</h1>
+            <p>Appartements - Houses - Mansions</p>
+        </div>
+    </div>
+    <div class="section row">
+        <div class="se-bar">
+            <div class="sea-bar">
+                <h2>What are you looking for?</h2>
+                <i class="fa fa-cog" aria-hidden="true"></i>
+            </div>
+        </div>
+        <ul class="list">
+            <li>
+                <div class="img-title">
+                    <span>&#36;1,000</span>
+                    <img src="images/property_1.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li>
+            <li class="center">
+                <div class="img-title">
+                    <span>&#36;2,000</span>
+                    <img src="images/property_2.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="img-title">
+                    <span>&#36;5,000</span>
+                    <img src="images/property_3.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li><!--첫번째 리스트-->
+            <li>
+                <div class="img-title">
+                    <span>&#36;1,000</span>
+                    <img src="images/property_4.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li>
+            <li class="center">
+                <div class="img-title">
+                    <span>&#36;2,000</span>
+                    <img src="images/property_5.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="img-title">
+                    <span>&#36;5,000</span>
+                    <img src="images/property_6.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li><!--두번째 리스트-->
+            <li class="bott">
+                <div class="img-title">
+                    <span>&#36;1,000</span>
+                    <img src="images/property_7.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li>
+            <li class="center bott">
+                <div class="img-title">
+                    <span>&#36;2,000</span>
+                    <img src="images/property_8.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li>
+            <li class="bott">
+                <div class="img-title">
+                    <span>&#36;5,000</span>
+                    <img src="images/property_9.jpg" alt="img" />
+                </div>
+                <div class="img-txt">
+                    <div class="block">
+                        <h4>
+                            Fuisque dictum tortor at purus libero
+                        </h4>
+                        <p>2 kitchens, 2 bed, 2 bath... (288ftsq)</p>
+                    </div>
+                </div>
+            </li><!--세번째 리스트-->
+        </ul>
+        <a href="#">VIEW MORE LISTINGS</a>
+    </div>
+    <div class="footer row">
+        <div class="foot-cont">
+            <div class="foot-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Appartements</a></li>
+                    <li><a href="#">Houses</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Mansions</a></li>
+                    <li><a href="#">...</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">New York</a></li>
+                    <li><a href="#">Los Anglos</a></li>
+                    <li><a href="#">Miami</a></li>
+                    <li><a href="#">Washington</a></li>
+                    <li><a href="#">...</a></li>
+                </ul>
+                <div class="foot-info">
+                    <p>
+                        La Casa is real estate minimal html5 website template, 
+                        designed and coded by pixelhint, tellus varius, 
+                        dictum erat vel, maximus tellus. 
+                        Sed vitae auctor ipsum
+                    </p>
+                    <p>
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <i class="fa fa-glide-g" aria-hidden="true"></i>
+                        <i class="fa fa-html5" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="foot-copy">
+                <address>Copyright ⓒ 2015 Pixelhint.com. All Rights Reserved.</address>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

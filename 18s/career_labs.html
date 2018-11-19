@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Robotics</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        /*
+            한글일반 : font-family: 'Nanum Gothic', sans-serif;
+            영문일반 : font-family: 'Montserrat', sans-serif;
+        */
+
+         html,body{height:100%; }
+        
+        /*웹폰트 및 본문 폰트 전체 지정 부분*/
+        body{font-size:14px; font-family:'Nanum Gothic', sans-serif; color:#666;}
+
+        /*본문 영문 서체 관련 스타일 지정*/
+        .eng{font-family:'Montserrat', sans-serif;}
+        h1, h2, h3, h4{font-weight:100;}
+        h1{font-size:50px;}
+        h2{font-size:32px;}
+        h3{font-size:24px;}
+        h4{font-size:16px;}
+        .row{width:100%}
+
+       /*top-main 로고와 메뉴 부분*/
+       .main{width:100%; background-color:#fff; border-bottom:1px solid #666; padding:60px 0;}
+       .top-main{width:1010px; /*로고와 메뉴의 전체 넓이*/
+                 overflow:hidden;/*높이를 모르기 때문에 지정한 스타일값*/ margin:auto; }
+       .top-main .logo img{/*이미지 사이즈를 유동넓이 변경*/
+                           width:100%;}
+       .top-main .logo{width:170px; float:left;}
+       .top-main .nav{float:right; width:auto;}
+       .top-main .nav li{display:inline-block;}
+       .top-main .nav li a{color:#666; text-transform:uppercase; padding:5px 20px;}
+       .top-main .nav li a:hover{background-color:#333; color:#fff;}
+       .top-main .nav li.line{box-sizing:border-box; border:1px solid #666;}
+
+       /*section*/
+       section{background-color:#fff; padding-bottom:100px;}
+       .slogan{width:1010px; margin:auto; overflow:hidden; padding:100px 0; border-bottom:1px solid #e5e5e5;}
+       .left-slogan{float:left; width:750px;}
+       .left-slogan li{width:365px; float:left; margin-right:20px; margin-bottom:20px;}
+       .left-slogan li img{width:100%;}
+       .left-slogan li:nth-child(2), .left-slogan li:last-child{margin-right:0;}
+       .left-slogan li:nth-child(3), .left-slogan li:last-child{margin-bottom:0;}
+       .left-slogan li .outer{display:table; width:100%; height:250px;}
+       .left-slogan li .inner{display:table-cell; vertical-align:middle; height:inherit;}
+       .left-slogan li .inner h4{color:#666; margin-bottom:15px; font-weight:bold;}
+       .left-slogan li .inner h3{color:#333; margin-bottom:20px;}
+       .left-slogan li .inner hr{width:15%; border-top-color:#333; border-width:2px; margin-bottom:20px;}
+       .left-slogan li .inner p{line-height:19px; margin-bottom:20px;}
+       .left-slogan li .inner a{color:#999; font-size:12px;}
+       .left-slogan li .inner a:after{content:"\f105"; font-family:FontAwesome; margin-left:10px;}
+       .right-slogan{float:right; width:240px;}
+       .right-slogan img{width:100%;}
+       
+       /*
+           이미지 위에 두개의 버튼을 올려주는 구조를 만들어야 하기 때문에 반드시 포지션을 이용한 스타일로
+           작업을 해줌. 
+           부모 position:relative; peo-btn: position:absolute;
+       */
+       .right-slogan .women{position:relative;}
+       /*
+           버튼의 경우는 두개의 좌측과 우측 버튼의 넓이를 고려해서 부모의 넓이를 만든후, 포지션을 이용한 좌표 고정을
+           시켜주고, 다시 두개의 버튼은 부모영역안에서 좌측과 우측을 플룻을 이용한 방법으로 붙여줌.
+       */
+       .right-slogan .women .peo-btn{position:absolute; bottom:0; right:0; width:100px; height:40px; background-color:#ededed;
+                                     overflow:hidden;
+       }
+       .right-slogan .women .peo-btn a{width:50px; height:inherit; float:left; text-align:center;
+                                       line-height:40px; color:#333; font-size:24px;}
+       .right-slogan .women .peo-btn a.left-btn{box-sizing:border-box; border-right:1px solid #ccc;}
+       .right-slogan .women .peo-btn a:hover{background-color:#333; color:#fff;}
+       /*
+           .peo-txt는 포지션 좌표를 이용해서, 아이콘, p태그, span을 영역안에서 배치시키는 구조로
+           작업을 해줘야함.
+           구조의 포지션 좌표시 순서상 z-index는 필수적으로 적용을 해주면 좋음.
+
+           사이트 설계시 포지션 좌표를 이용한 부분에서의 주의사항.
+           1. 나보다 먼저 시작한 구조에서 포지션을 쓰고 있는지!
+              header{position:fixed; height:100px;}
+              header 다음에 오는 컨텐츠 부터는 100px만큼 영역이 가려진 상태로 시작을 하게됨.
+              이때 해결 방법은 header다음에 오는 요소한테 가상선택자 before를 이용해 높이를 만들어주거나,
+              또는 똑같이 포지션 구조로 레이아웃을 잡아줌.
+
+           2. 포지션 좌표는 순번을 정하는 z-index를 이용해서 컨텐츠 순번을 잡아줌
+
+           3. 처음 시작하는 레이아웃 아니고, 컨텐츠 구조안에서의 좌표들을 이용할때는 반드시 포지션을 적용하고자
+              하는 부모 박스에게 position:relative를 적용하고, 자식인 요소에게는 position:absolute를 사용하여
+              좌표를 설정해줌.
+       */
+       .right-slogan .peo-txt{position:relative;}
+       .right-slogan .peo-txt .fa, .right-slogan .peo-txt p, .right-slogan .peo-txt > span{position:absolute;}
+       .right-slogan .peo-txt .fa{top:30px; left:10px; color:#ccc; font-size:40px; z-index:1;}
+       .right-slogan .peo-txt p{z-index:11; top:45px; left:35px; font-size:18px; color:#333; line-height:24px;}
+       .right-slogan .peo-txt p span{display:block;}
+       .right-slogan .peo-txt > span{top:200px; left:35px; color:#ccc; font-size:12px;}
+
+       .recent{width:1010px; margin:auto; padding-top:100px;}
+       .recent h3{font-size:18px; color:#333;}
+       .iframe{width:inherit; text-align:center; border-bottom:1px solid #e5e5e5;}
+       .iframe-btn{padding-top:50px; text-align:center;}
+       .iframe-btn a{display:inline-block; width:35px; height:35px; text-align:center; line-height:35px;
+                     border:1px solid #e5e5e5; color:#999;}
+       .iframe-btn a:hover{background-color:#666; color:#fff; border:1px solid #666;}
+
+
+       /*footer*/
+
+       footer{background-color:rgba(0,0,0,1); padding:40px 0;}
+        .foot-content{overflow:hidden; width:1010px; margin:auto;}
+        .foot-content ul li{display:inline-block; color:#fff; font-size:13px;}
+        .foot-content ul li a{color:#fff; font-size:13px;}
+        .foot-content ul{width:auto;}
+        .foot-content ul li{padding:3px 6px;}
+        .foot-content .sns{float:left;}
+        .foot-content .sns .fa{margin-right:3px;}
+        .foot-content .foot-navi{float:right;}
+        .foot-content .foot-navi li:last-child{border:1px solid #fff;}
+        .foot-content .foot-navi li:last-child a:after{
+        content:"\f107"; font-family:FontAwesome; margin-left:10px;}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="top-main">
+            <a href="main.html" target="_self" class="logo">
+                <img src="common/NAVERLABS_LOGO_BLACK.png" alt="img" />
+            </a>
+            <ul class="nav">
+                <li><a href="#" target="_self">story</a></li>
+                <li><a href="#" target="_self">showroom</a></li>
+                <li><a href="#" target="_self">publications</a></li>
+                <li><a href="career_labs.html" target="_self">career</a></li>
+                <li><a href="#" target="_self">contact</a></li>
+                <li class="line"><a href="#" target="_self" class="eng">english</a></li>
+            </ul>
+        </div>
+    </div>
+    <section class="container row">
+        <div class="slogan">
+            <ul class="left-slogan">
+                <li class="img">
+                    <img src="images/career/career_culture_1.jpg" alt="img" />
+                </li>
+                <li class="txt">
+                    <div class="outer">
+                        <div class="inner">
+                            <h4>열정, 자유, 성장</h4>
+                            <h3>네이버랩스의 조직문화</h3>
+                            <hr />
+                            <p>
+                                자율적인 책임근무제와 주말대체휴무,
+                                수평문화와 오피스어드민 제도 등을 통해
+                                오로지 연구와 개발에만 집중할 수 있습니다.
+                            </p>
+                            <a href="#" target="_self" class="eng">Related Article</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="txt">
+                    <div class="outer">
+                        <div class="inner">
+                            <h4 class="eng">Self-motivated team player</h4>
+                            <h3>네이버랩스의 인재상</h3>
+                            <hr />
+                            <p>
+                                최고의 기술력은 기본입니다. 스스로 결정권을
+                                가지고 열정적으로 주도하되 유연하게 열린 마인드로
+                                함께 성장할 수 있는 자기주도적 팀 플레이어를 기다립니다.
+                            </p>
+                            <a href="#" target="_self" class="eng">Related Article</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="img">
+                    <img src="images/career/career_culture_2.jpg" alt="img" />
+                </li>
+            </ul>
+            <div class="right-slogan">
+                <div class="women">
+                    <img src="images/career/career_interview_2.jpg" alt="img" />
+                    <div class="peo-btn">
+                        <a href="#" class="left-btn">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="right-btn">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="peo-txt">
+                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    <p>
+                        <span>스스로 결정하고</span>
+                        <span>선택하며 더 큰 가치를</span>
+                        <span>찾아 몰입합니다.</span>
+                    </p>
+                    <span>장혜원/PDX</span>
+                </div>
+            </div>
+        </div>
+        <div class="recent">
+            <h3 class="eng">RECENT</h3>
+            <div class="iframe">
+                <!--아이프레임을 불러올 코드작성-->
+                <iframe src="onepage.html" width="900" height="330" frameborder="0" scrolling="no" name="page">
+
+                </iframe>
+            </div>
+            <div class="iframe-btn">
+                <a href="onepage.html" target="page" class="one">1</a>
+                <a href="twopage.html" target="page" class="two">2</a>
+                <a href="threepage.html" target="page" class="three">3</a>
+                <a href="fourpage.html" target="page" class="four">4</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer row">
+        <div class="foot-content">
+            <ul class="sns">
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <span>instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        <span>youtube</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <span>linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-behance-square" aria-hidden="true"></i>
+                        <span>behance</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="foot-navi">
+                <li><a href="#" target="_self">개인정보처리방침</a></li>
+                <li>|</li>
+                <li><a href="#" target="_self">기업윤리센터</a></li>
+                <li>|</li>
+                <li class="eng">&copy;NAVER LABS Corp.</li>
+                <li><a href="#" target="_self">사이트 바로가기</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

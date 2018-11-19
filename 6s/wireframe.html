@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>쇼핑몰 와이어프레임</title>
+    <style type="text/css">
+        body, div, ul, li, p, address{margin:0; padding:0;}
+        body{
+            background-color:#fff;
+            font-size:14px;
+        }
+        ul li{list-style:none;}
+        a{display:block; text-decoration:none;}
+        /*header style*/
+        .header{width:100%;border-top:2px solid #666;}
+        .gnb, .logo{width:1010px; margin:0 auto;}
+        .gnb{text-align:right; padding:10px 0;}
+        .gnb li{display:inline-block;}
+        .gnb li a{
+            font-size:12px;
+            color:#999;
+            padding:2px 5px;
+        }
+        .gnb li:first-child a{
+            background-color:red;
+            color:#fff;
+        }
+        .logo{
+            text-align:center;
+            font-size:30px;
+            text-transform:uppercase;
+            padding:90px 0;
+        }
+        /*nav style*/
+        .nav{}
+        .navi{
+            border-top:1px solid #ccc; 
+            border-bottom:1px solid #ccc;
+            width:inherit;
+        }
+        .lnb, .lnb-two{
+            width:1010px;
+            margin:0 auto;
+        }
+        .lnb li{
+            display:inline-block; 
+            height:40px;
+            line-height:40px;
+        }
+        .lnb li a, .lnb-two li a{
+            padding:0 6px;
+            color:#333;
+            font-size:16px;
+        }
+        .lnb-two{padding:10px 0;}
+        .lnb-two li{
+            border-right:1px solid #ccc;
+            display:inline;
+        }
+        .lnb-two li a{display:inline;} 
+        .lnb-two li:last-child{border-right:none;}
+
+        /*section*/
+        .section{padding:40px 0;}
+        .content{width:1010px;margin:0 auto; overflow:hidden;}
+        .main-banner{margin-bottom:10px;}
+        .left, .right {
+            border:1px solid #ccc; 
+            box-sizing:border-box;
+            text-align:center;
+            padding:130px 0;
+        }
+        .left{float:left; width:800px;}
+        .right{float:right; width:200px;}
+        .list{}
+        .list li{
+            width:245px; 
+            padding:100px; 
+            text-align:center;
+            float:left;
+            border:1px solid #ccc;
+            margin-right:10px;
+            box-sizing:border-box;
+            margin-bottom:10px;
+        }
+        .list li.rig-ma{margin-right:0;}
+        .list li.bot{margin-bottom:0;}
+        /*footer style*/
+        .footer{border-top:1px solid #ccc; padding:40px 0;}
+        .foot-cont{width:1010px; margin:0 auto;}
+        .foot-nav{overflow:hidden; margin-bottom:40px;}
+        .foot-nav li{
+            width:194px;
+            float:left;
+            border:1px solid #ccc;
+            text-align:center;
+            margin-right:10px;
+            box-sizing:border-box;
+        }
+        .foot-nav li:last-child{margin-right:0;}
+        .foot-nav li a{padding:7px 0; color:#999;}
+        .admin{text-align:center;}
+        .admin p{margin-bottom:15px;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul class="gnb">
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">고개센터</a></li>
+            <li><a href="#">주문조회</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">마이페이지</a></li>
+
+        </ul>
+        <div class="logo">sitelogo</div>
+    </div>
+    <div class="nav"><!--메누의 전체 레이아웃-->
+        <div class="navi"><!--자체 레이아웃 부분에서 위 아래 테두리를 지정할 부분-->
+            <ul class="lnb">
+                <li><a href="#">무료배송</a></li>
+                <li><a href="#">BEST</a></li>
+                <li><a href="#">NEW5%</a></li>
+                <li><a href="#">OUTER</a></li>
+                <li><a href="#">KNIT</a></li>
+                <li><a href="#">TOP</a></li>
+                <li><a href="#">DRESS</a></li>
+                <li><a href="#">BOTTOM</a></li>
+                <li><a href="#">SHOES&BAG</a></li>
+                <li><a href="#">ACC</a></li>
+                <li><a href="#">JEWERLY</a></li>
+                <li><a href="#">PACKAGE 1+1=5%</a></li>
+                <li><a href="#">SALE~50%</a></li>
+            </ul>
+        </div>
+        <ul class="lnb-two">
+            <li><a href="#">자체제작</a></li>
+            <li><a href="#">워킹맘</a></li>
+            <li><a href="#">캐주얼</a></li>
+            <li><a href="#">통통맘</a></li>
+            <li><a href="#">코티set10%</a></li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="main-banner content">
+            <div class="left">main-banner</div>
+            <div class="right">sub-banner</div>
+        </div>
+        <ul class="list content">
+            <li>product1</li>
+            <li>product2</li>
+            <li>product3</li>
+            <li class="rig-ma">product4</li>
+            <li>product5</li>
+            <li>product6</li>
+            <li>product7</li>
+            <li class="rig-ma">product8</li>
+            <li class="bot">product9</li>
+            <li class="bot">product10</li>
+            <li class="bot">product11</li>
+            <li class="rig-ma bot">product12</li>
+        </ul>
+    </div>
+    <div class="footer">
+        <ul class="foot-nav foot-cont">
+            <li><a href="#">YJCOSMETICS</a></li>
+            <li><a href="#">회원가입약관</a></li>
+            <li><a href="#">개인정보취급정책</a></li>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">이용안내(FAQ)</a></li>
+        </ul>
+        <div class="admin foot-cont">
+            
+            <p>
+                <strong>법인명(상호)</strong> : YJ COSMETICS |
+                <strong>대표자(성명)</strong> : 홍길동 |
+                <strong>사업자 등록번호</strong> : 000-000-00443 |
+                <strong>통신판매업신고</strong> : 신고준비중
+            </p>
+            <p>
+                <strong>개인정보보호책임자</strong> : 홍길동(naver@yjenterprise.com) | 
+                <ins>contact</ins> : naver@yjenterprise.com for more information
+            </p>
+            <p>
+                ( International Circulation Center, Hogye-dong ) 237, 4-dong , 92 , LS-ro , Dongan-gu, Anyang-si , Gyeonggi-do
+                <br />(주)YJenterprise | 경기도 안양시 동안구 엘에스로92 , 4동 237호(호계동 , 국제유통단지)
+            </p>
+            <address>Copyright(c) 2011 YJENTERPRISE. All rights reserved.</address>
+        </div>
+    </div>
+</body>
+</html>

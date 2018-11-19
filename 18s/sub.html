@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Robotics</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        /*
+            한글일반 : font-family: 'Nanum Gothic', sans-serif;
+            영문일반 : font-family: 'Montserrat', sans-serif;
+        */
+
+        html,body{height:100%;}
+        body{font-size:14px; font-family:'Nanum Gothic', sans-serif; color:#666;}
+
+        /*고정버튼*/
+       .top{z-index:111111; position:fixed; bottom:110px; right:10px; width:35px; height:35px; }
+       .top-btn{width:inherit; height:inherit; background-color:#000; color:#666; text-align:center; line-height:35px;
+                font-size:20px;}
+       .top-btn:hover{background-color:#666; color:#fff;}
+
+         /*header style*/
+
+         .top-main{width:1010px; margin:auto; overflow:hidden; padding:24px 0;}
+         .top-main .logo img{width:100%;}
+         .top-main .logo{width:170px; float:left;}
+         .top-main .nav{float:right; width:auto;}
+         .top-main .nav li{display:inline-block;}
+         .top-main .nav li a{color:#000; text-transform:uppercase; padding:5px 20px; font-weight:bold;}
+         .top-main .nav li a:hover{background-color:#000; color:#fff;}
+
+         /*section style*/
+         
+         .section{border-top:1px solid #333;}
+         .sec-cont{width:1010px; margin:auto; overflow:hidden; padding:60px 0;}
+         
+         .top-cont{padding-bottom:60px; margin-bottom:60px; overflow:hidden; border-bottom:1px solid #999;}
+         .left-cont{width:690px;float:left;}
+         .left-cont ul li{width:330px; height:234px; float:left;}
+         .left-cont ul li:first-child, .left-cont ul li:nth-child(3){margin-right:20px;}
+         .left-cont ul li:first-child, .left-cont ul li:nth-child(2){margin-bottom:20px;}
+         .cont-box li h3{padding-top:20px; margin-bottom:10px; color:#000;}
+         .cont-box li h2{font-size:24px; margin-bottom:20px; color:#000;}
+         .cont-box li p{font-weight:700; margin-bottom:30px;}
+         .cont-box li .bar{width:30px; height:2px; background-color:#000; margin-bottom:20px;}
+         .cont-box li .slash a{color:#000;}
+         .cont-box li .slash a:hover{text-decoration:underline;}
+
+
+         .right-cont{width:280px; float:right;}
+         .right-cont p{font-size:26px; font-weight:bold; line-height:30px; color:#000; margin-bottom:12px;}
+         .right-cont img{width:100%; margin-bottom:20px;}
+         .right-cont .interimg{position:relative;}
+         .interimg .imgbtn{width:100px; height:50px; background-color:#fff; text-align:center;
+                           position:absolute; bottom:0; right:0; font-size:36px; color:#000; line-height:50px;
+                           letter-spacing:10px;}
+         .interimg .imgbtn .fa{padding-left:10px;}
+         .cont-box li img{width:100%;}
+
+         .bot-cont{}
+         .bot-cont > p{margin-bottom:40px; font-size:18px; color:#000; font-weight:bold;}
+
+         /*footer style*/
+
+        footer{background-color:rgba(0,0,0,1); padding:40px 0; }
+        .foot-content{overflow:hidden; width:1010px; margin:auto;}
+        .foot-content ul li{display:inline-block; color:#fff; font-size:13px;}
+        .foot-content ul li a{color:#fff; font-size:13px;}
+        .foot-content ul{width:auto;}
+        .foot-content ul li{padding:3px 6px;}
+        .foot-content .sns{float:left;}
+        .foot-content .sns .fa{margin-right:3px;}
+        .foot-content .foot-navi{float:right;}
+        .foot-content .foot-navi li:last-child{border:1px solid #fff;}
+        .foot-content .foot-navi li:last-child a:after{content:"\f107"; font-family:FontAwesome; margin-left:10px;}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a href="#" class="top-btn">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="top-main">
+        <a href="#" target="_self" class="logo">
+            <img src="common/NAVERLABS_LOGO_BLACK.png" alt="img" />
+        </a>
+        <ul class="nav">
+            <li><a href="#" target="_self">story</a></li>
+            <li><a href="#" target="_self">showroom</a></li>
+            <li><a href="#" target="_self">publications</a></li>
+            <li><a href="#" target="_self">career</a></li>
+            <li><a href="#" target="_self">contact</a></li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="sec-cont">
+            <div class="top-cont">
+                <div class="left-cont">
+                    <ul class="cont-box">
+                        <li>
+                            <img src="images/career/career_culture_1.jpg" alt="img" />
+                        </li>
+                        <li>
+                            <h3>열정, 자유, 성장</h3>
+                            <h2>네이버랩스의 조직문화</h2>
+                            <hr class="bar" />
+                            <p>
+                                자율적인 책임근무제와 주말대체휴무, 
+                                수평문화와 오피스어드민 제도 등을 통해
+                                오로지 연구와 개발에만 집중할 수 있습니다.
+                            </p>
+                            <span class="slash"><a href="#" target="_self">Related Article ></a></span>
+                        </li>
+                        <li>
+                            <h3>Self-motivated team player</h3>
+                            <h2>네이버랩스의 인재상</h2>
+                            <hr class="bar" />
+                            <p>
+                                최고의 기술력은 기본입니다.
+                                스스로 결정권을 가지고 열정적으로
+                                주도하되 유연하게 열린 마인드로
+                                함께 성장할 수 있는 자기주도적 팀 플레이어를 기다립니다.
+                            </p>
+                            <span class="slash"><a href="#" target="_self">Related Article ></a></span>
+                        </li>
+                        <li>
+                            <img src="images/career/career_culture_2.jpg" alt="img" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-cont">
+                    <div class="interimg">
+                        <img src="images/career/career_interview_2.jpg" alt="img" />
+                        <div class="imgbtn">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <p>
+                        스스로 결정하고<br />
+                        선택하며 더 큰 가치를<br />
+                        찾아 몰입합니다.
+                    </p>
+                    <span>장혜원/PDX</span>
+                </div>
+            </div>
+            <div class="bot-cont">
+                <p>
+                    RECENT
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </p>
+                <ul class="bot-content">
+                    <li>
+                        <div class="left-txt">
+                            <h2>에어카트, 삶 속으로 더 가까이 - 삼송캐스터 양산 협력</h2>
+                            <p>
+                                작년 DEVIEW 컨퍼런스에서 근력증강 로봇기술을 응용한 에어카트(AIRCART)를
+                                공개한 이후 여러 단체에서 관심을 보내주었습니다. 운송장비 제조사인 삼송캐스터도
+                                그 중 하나입니다. 우리는 삼송캐스터와 함께 서점/도서관용 에어카트의 양산 협력을
+                                하려고 합니다. 작년 부산의 Yes24 서점에 납품했던 바로 그 모델입니다. 그 사이 레드닷과
+                                IF 디자인 어워드의 프러덕트 디자인 부문에 연달아 수상을 한 제품이기도 합니다.
+                                우리의 파트너인 삼송캐스터는 캐스터, 바퀴, 운반장비 등의 제조에 40년에 가까운 
+                                긴 역사를 쌓아온 회사입니다. 국내외 유수의 자동차 생산라인에서 사용되는 산업용
+                                캐스터를 양산하고 있으며, 의료기기용 바퀴를 국산화하여 국내 의료장비 발전에도 기여해 왔습니다.
+                            </p>
+                            <p>
+                                2018.07.23 Robotics
+                            </p>
+                            <span class="btn">AIRCART</span><span class="btn">로보틱스</span>
+                        </div>
+                        <div class="right-img">
+                            <img src="images/1532308738111.png" alt="img" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left-txt">
+                            <h2>에어카트 오픈키트를 공개합니다</h2>
+                            <p>
+                                수레는 인류의 기념비적인 발명품 중 하나입니다.
+                                나무를 굴려 돌을 옮기거나 말이나 낙타로 식량을 
+                                옮기던 시기에 수레는 이동의 속도와 반경에 혁명을
+                                일으키고 문명 발전의 원동력이 되었습니다. 수레를
+                                완전히 대체할 발명품은 수레 밖에 없다는 말도 있을
+                                정도니까요. 수레의 탄생 배경엔 이런 단순한 질문이 
+                                있습니다. “어떻게 무거운 짐을 더 쉽고 빠르게 이동시킬
+                                수 있을까?” 작년 네이버랩스는 에어카트(AIRCART)라는 제품을
+                                공개했습니다. 로봇 기술을 응용해 만든 이 전동카트는 위 질문에
+                                두 가지를 더했습니다. “어떻게 무거운 짐을 ‘누구나’ 더 쉽고 빠르고
+                                ‘안전하게’ 이동시킬 수 있을까?” 에어카트는 네이버랩스의 인턴 프로젝트로
+                                시작되었습니다.
+                            </p>
+                            <p>
+                                2018.06.29 Robotics
+                            </p>
+                            <span class="btn">AIRCART</span><span class="btn">로보틱스</span>
+                        </div>
+                        <div class="right-img">
+                            <img src="images/1530153360167.jpg" alt="img" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left-txt"></div>
+                        <div class="right-img">
+                            <img src="images/1527471012217.png" alt="img" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left-txt"></div>
+                        <div class="right-img">
+                            <img src="images/sweet.png" alt="img" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="footer row">
+        <div class="foot-content">
+            <ul class="sns">
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <span>instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        <span>youtube</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <span>linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-behance-square" aria-hidden="true"></i>
+                        <span>behance</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="foot-navi">
+                <li><a href="#" target="_self">개인정보처리방침</a></li>
+                <li>|</li>
+                <li><a href="#" target="_self">기업윤리센터</a></li>
+                <li>|</li>
+                <li class="eng">&copy;NAVER LABS Corp.</li>
+                <li><a href="#" target="_self">사이트 바로가기</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>태그연습</title>
+    <style>/*스타일 주석*/</style>
+    <!--주석, <head)</head>사이는 사이트 정보를 담는 곳으로 CSS, javascript&jQuery등 사이트 초기에 필요한 파일들을 정의할 수 있다.-->
+    <link rel="stylesheet" href="1.css"/>
+    <script src="test.js"></script>
+
+
+</head>
+<body>
+    <!--내용-->
+    <!--태그 중 제목을 나타내는 h태그는 블럭요소
+        제목에 관련된 태그들의 특징은 폰트서체에 따라 약간의
+        차이는 있지만 기본 bold속성을 갖고있음
+    -->
+    <h1>타이틀 폰트 크기</h1>
+    <h2>타이틀 폰트 크기</h2>
+    <h3>타이틀 폰트 크기</h3>
+    <h4>타이틀 폰트 크기</h4>
+    <h5>타이틀 폰트 크기</h5>
+    <h6>타이틀 폰트 크기</h6>
+    <p>웹표준에 관련된 기본 태그를 연습합니다.</p>
+    <span>웹 표준에서 단락에서 특정부분의 스타일이나 또는 독립적으로 혼자서 내용을 나타낼때 사용되는 태그</span><br />
+    <span>인라인</span>
+    <span>인라인</span>
+    <p><span>웹표준</span><strong>입니다.</strong></p>
+    <p><ins>밑줄태그</ins></p>
+    <!--수평선 태그, 블럭요소-->
+    <hr />
+    <p><del>취소선</del></p>
+    <p><em>이탤릭체</em></p>
+    <p><sup>윗첨자</sup></p>
+    <p><sub>아래첨자</sub></p>
+    <hr />
+    <h3>페이지 전환하는 앵커태그</h3>
+    <!--<a href="" target="" title="앵커속성의 설명을 정의 할때" class="사용자가 이름을 지정하여 스타일을 줄때 사용">
+         타겟 방식 : _self 기본값, _blank 새창, 제휴, 상관없는 사이트 등
+    -->
+    <a href="http://www.naver.com" target="_blank" title="네이버123123" class="mc">
+        네이버
+    </a><br />
+
+    <!--이미지태그, 웹이나 앱에서의 이미지는 크게 2가지 방법으로 사용
+        1:일반컨텐츠
+        2:배경이미지(background-Image:url("이미지경로")
+        - 이미지는 빈요소이면서, 인라인 레벨 요소
+        - 이미지 속성 및 값
+          :width
+          :height
+          :alt
+          :title(말풍선)
+          :class(사용자지정 식별자)
+          :src
+    -->
+    <img src="images/banner1.jpg" alt="가구" title="가구입니다." class="ban-img" width="571" height="496" />
+
+    <!--목록을 나타내는 태그1, 블럭레벨요소-->
+    <ul>
+        <li>사과</li>
+        <li>배</li>
+        <li>감자</li>
+    </ul>
+
+    <ol>
+        <li>사과</li>
+        <li>배</li>
+        <li>감자</li>
+    </ol>
+
+    <dl>
+        <dt>과일</dt>
+        <dd>배</dd>
+        <dt>과일</dt>
+        <dd>배</dd>
+    </dl>
+
+
+</body>
+</html>

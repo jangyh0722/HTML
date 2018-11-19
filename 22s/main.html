@@ -1,0 +1,895 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Responsiv Web</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        html{font-size:100%}/*16px*/
+        body {font-family: 'Nanum Gothic', sans-serif; font-size:14px;}
+        h1, h2, h3, h4{font-weight:100;}
+        .eng{font-family: 'Montserrat', sans-serif;}
+        .row{width:100%;}
+        /*header*/
+        .header{border-bottom:2px solid #bb0000;}
+        .header-row{width:100%;}
+        .top-gnb{background-color:#bb0000;padding:0.625rem 0;}
+        .top-main{background-color:#111111;}
+        .gnb, .top{width:90%; margin:auto;}
+        .gnb{overflow:hidden;}
+        .gnb li{
+            float:left;
+            font-size:0.75rem;
+            color:#fff;
+        }
+        .gnb li:nth-child(2), .gnb li:last-child{float:right;}
+        .gnb li:last-child{margin-right:0.75rem;}
+        .gnb li a{color:#fff;}
+        .gnb li a:hover{color:#ffd800;}
+        .top-main{padding:0.75rem 0;}/*메뉴 레이아웃*/
+        .top{overflow:hidden;}
+        .top img{max-width:100%;}/*이미지의 원본 사이즈 사용, 이미지보다 화면 넓이가 줄어들면 반응*/
+        label, input[type=checkbox]{display:none;}
+        .top .logo{float:left;}/*앵커안에 로고 사이즈의 높이는 40px*/
+        .nav{float:right; width:auto;}/*ul의 높이는 16px*/
+        .nav li{display:inline-block;margin-right:0.75rem;}
+        .nav li:last-child{margin-right:0;}
+        .nav li a{color:#fff; padding:0.75rem 0;}
+        /*
+            a의 padding을 이용한 높이 생성
+            (40-16)/2= 값/16px= rem
+        */
+        .nav li a:hover{color:#b5ffb4;}
+
+        /*토글 클릭 이벤트*/
+        /*
+            아이디 값이 토글인 요소를 클릭 시 토글과 인접해있는 .nav를 블럭으로 보여줌
+            + : 인접 선택자
+        */
+        #toggle:checked + .nav{display:block;}
+        /*section banner*/
+        .section{}
+        .section img{width:100%;}
+        .content{width:100%;}
+        /*
+            .banner구조에서 포지션을 사용해야하는데 이때 .banner의 높이를 유지시키려면
+            .banner 안쪽에 있는 이미지에는 포지션을 적용하면 안됨.
+            이미지의 높이로 인해 부모의 포지션 높이를 만들어줄 수 있음
+        */
+        .banner{position:relative; background-color:#000;}
+        .ban-caption {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+        }
+        .banner img{
+            opacity:0.4;
+            filter:alpha(opacity=40);
+        }
+        .ban-caption h3{
+            font-size:1.5rem;
+            color:#ff9c00;
+            font-style:italic;
+            margin-bottom:3rem;
+        }
+        .ban-caption .title-bg{
+            background-color:rgba(0,0,0,0.5);
+            width:40%;
+            margin:auto;
+            text-align:center;
+            padding:2rem 0;
+        }
+        .ban-caption .title-bg h1{font-size:2.5rem; color:#fff;}
+        .pro-list-info{overflow:hidden;}
+        .pro-list-info li{
+            width:33.33333333333333%;
+            float:left;
+            background-color:#000;
+            position:relative;
+            cursor:pointer;
+            overflow:hidden;/*이미지 확대 시 li밖으로 나가지 못하도록 마스크*/
+        }
+        .pro-list-info li img {/*애니메이션 만들어준 부분의 과정값*/
+                opacity: 0.4;
+                filter: alpha(opacity=40);
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+         .pro-list-info li:hover img {
+                -webkit-transform: scale(1.3);
+                -moz-transform: scale(1.3);
+                -o-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+         .pro-list-info li:hover .pro-btn{
+            background-color:#fff;
+            color:#333;
+        }
+            .pro-list-info .list-txt {
+                /*좌표를 설정해서 컨텐츠 중앙으로 배치하는 구조를 만듦*/
+                position: absolute;
+                width: 100%;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                text-align:center;
+            }
+        .pro-list-info .list-txt h3{color:#ff9c00; font-size:1.5rem; margin-bottom:2rem;}
+        .pro-list-info .list-txt .pro-btn{
+            border:1px solid #fff;
+            text-align:center;
+            color:#fff;
+            width:40%;
+            padding:0.5rem 0;
+            margin:auto;
+        }
+        
+        .pro-guide{
+            background-color:#111111;
+            padding:6rem 0;
+            text-align:center;
+        }
+        .pro-guide h3{color:#fff;font-size:1.5rem; margin-bottom:1.5rem;}
+        .pro-guide > h4{color:#fff; font-size:1.25rem;margin-bottom:4rem;}
+        .pro-list-guide{width:70%; margin:auto; overflow:hidden;}
+        .pro-list-guide li{
+            width:24.25%;
+            float:left;
+            margin-right:1%;
+            position:relative;
+            cursor:pointer;
+            background-color:#000;
+        }
+        .pro-list-guide li:last-child{margin-right:0;}
+        .pro-list-guide li img{
+            opacity:0.5;
+            filter:alpha(opacity=50);
+        }
+            .pro-list-guide li h4 {
+                position: absolute;
+                top: 50%;
+                width:100%;/*left:50% 대신 사용, 줄어들어도 개행하지 않음 */
+                text-align:center;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                color:#fff;
+                font-size:1.25rem;
+                z-index:1;
+            }
+            .pro-list-guide li .guide-hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                z-index: 11;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+        .guide-hover .guide-table{display:table; width:100%; height:100%;}
+        .guide-table .guide-cell{display:table-cell; vertical-align:middle;}
+        .guide-cell p{color:#999; line-height:23px;}
+        .guide-cell p span{display:block;}
+
+        .pro-list-guide li:hover .guide-hover {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        .information{background-color:#efefef; padding:6rem 0;text-align:center;}
+        .information h3{font-size:1.5rem;color:#666; margin-bottom:1.5rem;}
+        .information > h4{font-size:1.25rem;margin-bottom:4rem;color:#666;}
+        .info-list{width:70%; margin:auto;overflow:hidden;}
+        .info-list li{
+            width:32%;
+            margin-right:2%;
+            margin-bottom:2%;
+            float:left;
+            background-color:#000;
+            cursor:pointer;
+            overflow:hidden;
+        }
+        .info-list li:nth-child(3), .info-list li:last-child{margin-right:0;}
+            .info-list li img {
+                opacity: 0.2;
+                filter: alpha(opacity=20);
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+            .info-list li a:hover img {
+                opacity: 0.5;
+                filter: alpha(opacity=50);
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+            .info-list li a{position:relative; color:#fff;}
+        .imfo-pos{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+        }
+        .imfo-pos .info-table{display:table; width:100%; height:100%;text-align:center;}
+        .imfo-pos .info-table .info-cell{display:table-cell; vertical-align:middle;}
+        .info-table .info-cell h4{font-size:1.25rem;margin-bottom:1rem;}
+        .info-table .info-cell p{font-size:1rem; line-height:1.375rem;}
+        .info-table .info-cell p span{display:block;}
+
+        .data-info{padding:6rem 0 3rem; width:70%; margin:auto;}
+        .data-list{position:relative;}
+        .data-list:before{
+            content:"";
+            display:block;
+            padding-top:31.25%;/*오른쪽 요가이미지 기준 높이가 300px(300/960)*100 */     
+        }
+        .data-left, .data-pic{position:absolute; top:0; height:100%;}
+        .data-left{width:60%;border:1px solid #ccc;}
+        .data-pic {
+            width: 38%;
+            left: 62%;
+            background-image:url("assets/images/h.jpg");
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        .data-left .data-table{width:96%; margin:auto; height:100%;display:table;}
+        .data-table .data-inner{display:table-cell; vertical-align:middle;}
+        .data-inner h3{font-size:1.5rem; padding:2% 0;}
+        .data-inner .pic-txt{overflow:hidden;}
+        .pic-txt .pic{float:left; width:45%;}
+        .pic-txt .txt{float:right; width:53%;}
+        .pic-txt .txt h4{font-size:1.2rem; color:#666; margin-bottom:1rem;}
+        .pic-txt .txt p{font-size:1rem; color:#999;line-height:1.25rem;}
+
+
+        .contact{width:70%; margin:0 auto 3rem;}
+        .contact-list{position:relative;}
+        .contact-list:before{
+            content:"";
+            display:block;
+            padding-top:27%;
+        }
+        .contact-list p{color:#999;}
+        .contact-list > li{
+            position:absolute;
+            top:0;
+            height:100%;
+            width:33.33333333333333%;
+        }
+        .contact-list > li:nth-child(2){left:33.33333333333333%;}
+        .contact-list > li:nth-child(3){left:66.66666666666667%;}
+        .list-table{width:100%; height:100%; display:table;}
+        .list-inner{display:table-cell; vertical-align:middle;}
+        .center{width:70%; margin:auto;}
+        .list-inner .title{font-size:1.25rem; color:#666; margin-bottom:1.25rem;}
+        /*공지사항*/
+        .contact-list > li:first-child h4{text-align:center;}
+        .contact-list > li:first-child hr{margin-bottom:1.25rem;}
+        .notice{width:100%; overflow:hidden;}
+        .notice li{
+            float:left;
+            color:#999;
+            padding:0.5rem 0;
+        }
+        .notice li.not-left{width:60%; float:left;}
+        .notice li.not-day{width:40%; float:right;text-align:right;}
+        /*고객센터*/
+        .list-inner .sub-title{line-height:1.25rem;}
+        .list-inner .sub-title span{display:block;}
+        .list-inner .num{color:#333; font-size:2rem; padding:3.4rem 0;}
+        .list-inner a{
+            width:100%;
+            text-align:center;
+            color:#333;
+            background-color:#ffc000;
+            padding:1rem 0;
+            border-radius:50px;
+        }
+        .list-inner a:hover{background-color:#000; color:#ffc000;}
+        /*폼*/
+        .contact-list > li:last-child{background-color:#111111;}
+        .list-center{width:80%;margin:auto;}
+        .list-center p{margin-bottom:3rem;}
+        .form{width:100%;}
+        input[type=text], button{
+            border:0;
+            outline:none;
+            box-sizing:border-box;
+            width:100%;
+            padding:0.8125rem 1.25rem;
+        }
+        input[type=text]{margin-bottom:0.5rem;}
+        button{background-color:#ffc000; color:#fff;cursor:pointer;}
+
+        .pro-navi{background-color:#e6e6e6; padding:3rem 0;}
+        .pro-navi-list{width:70%; margin:auto;overflow:hidden;}
+        .pro-navi-list ul{width:23.5%;margin-right:2%; float:left;text-align:center;}
+        .pro-navi-list .community{margin-right:0;}
+        .pro-navi-list ul .title{border-bottom:1px solid #ccc; padding:1rem 0;}
+        .pro-navi-list ul .title h4{font-size:1.25rem;color:#666;}
+        .pro-navi-list ul li a{color:#999; padding:0.8rem 0;}
+        .pro-navi-list ul li a:hover{background-color:#999; color:#fff; padding-left:0.8rem;}
+
+        .footer{background-color:#111111; padding:3rem 0;}
+        .foot-content{width:70%; margin:auto; overflow:hidden;}
+        .foot-content .bot-logo{width:12%; float:left;}
+        .foot-content .bot-logo img{max-width:100%;}
+        .foot-content .foot-admin{width:auto; float:right;}
+        .foot-admin .fot-nav{margin-bottom:1rem;}
+        .fot-nav a{display:inline-block; color:#666;}
+        .fot-nav a.left{margin-right:0.5rem;}
+        .foot-admin .copyright{color:#666;}
+        .copyright p:nth-of-type(1){margin-bottom:0.5rem;}
+        .copyright p:nth-of-type(2){margin-bottom:1rem;}
+        /*media style*/
+        @media screen and (max-width:1440px){
+            .center{width:80%;}
+            .contact-list > li:first-child{width:35%;}
+            .contact-list > li:nth-child(2){width:35%; left:35%;}
+            .contact-list > li:nth-child(3){width:35%; left:70%;}
+        .notice li{padding:0.25rem 0;}
+        /*고객센터*/
+        .list-inner .num{padding:2rem 0;} 
+        /*폼*/
+        .list-center p{margin-bottom:2rem;}
+        input[type=text], button{padding:0.625rem 1rem;}
+        input[type=text]{margin-bottom:0.3125rem;}
+        .contact-list:before{padding-top:35%;}
+        }
+        @media screen and (max-width:1280px) {
+            html{font-size:93.8%;}/*15px*/
+
+           .ban-caption h3{font-size:1.5rem; margin-bottom:3rem; }
+           .ban-caption .title-bg{width:40%;padding:2rem 0;}
+           .ban-caption .title-bg h1{font-size:2rem;}
+           .guide-cell p{font-size:0.8rem;}
+           .info-table .info-cell p{font-size:0.8rem;}
+           .pic-txt .txt p{display:none;}
+
+           .foot-content .bot-logo{width:12%; float:none;margin-bottom:1rem;}
+           .foot-content .foot-admin{width:auto; float:none;}
+        }
+        @media screen and (max-width:960px){
+            html{font-size:87.5%;}/*14px*/
+           .ban-caption h3{font-size:1.2rem; margin-bottom:2rem; }
+           .ban-caption .title-bg{width:45%;padding:2rem 0;}
+           .ban-caption .title-bg h1{font-size:1.8rem;}
+           .pro-list-info .list-txt h3{font-size:1.5rem; margin-bottom:1.5rem;}
+           .pro-list-info .list-txt .pro-btn{width:40%;padding:0.5rem 0;}
+           .pro-guide{padding:6rem 0;}
+           .pro-guide h3{font-size:1.5rem; margin-bottom:1.5rem;}
+           .pro-guide > h4{font-size:1.25rem;margin-bottom:4rem;}
+           .pro-list-guide{width:80%;}
+           .pro-list-guide li{width:49.5%;margin-bottom:1%;}
+           .pro-list-guide li:nth-child(2){margin-right:0;}
+           .pro-list-guide li:nth-child(3){margin-bottom:2%;}
+           .pro-list-guide li:nth-child(2), .pro-list-guide li:last-child{margin-right:0;}
+           .guide-cell p{font-size:1rem;}
+           .info-list{width:80%;}
+           .info-list li{width:49%;}
+           .info-list li:nth-child(2), .info-list li:nth-child(4){margin-right:0;}
+           .info-list li:nth-child(3){margin-right:2%;}
+           .data-info{width:80%;}
+
+           .contact{width:80%;}
+           .contact-list:before{padding-top:70%;}
+           .contact-list > li:first-child{width:60%;height:50%;}
+           .contact-list > li:first-child h4{text-align:left;}
+           .contact-list > li:nth-child(2){height:50%; width:38%; left:62%; }
+           .contact-list > li:nth-child(3){height:50%; width:100%; left:0; top:50%;}
+
+           
+            }
+        @media screen and (max-width:768px) {
+            html {font-size: 81.3%;}
+            /*13px*/
+            .top-main {padding: 0.75rem 0;}
+            /*메뉴 레이아웃*/
+            label { /*화면에서 토글버튼을 노출시키고 사이즈와 위치를 지정해준 부분*/
+                display: block;
+                float: right;
+                color: #fff;
+                font-size: 3.5rem;
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+            .nav {
+                float: none;
+                width: 100%;
+                margin-top: 3.8rem;
+                display: none;
+            }
+            .nav li {
+                    display: block;
+                    margin-right: 0;
+                    width: 96%;
+                    margin: 0 auto;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                }
+            .nav li:last-child {margin-right: 0;}
+            .nav li a {padding: 0.75rem 0 0.75rem 0.625rem;}
+            .nav li a:hover {color: #b5ffb4;background-color: rgba(255,255,255,0.1);padding-left: 2rem;}
+            .ban-caption h3 {font-size: 1.2rem;margin-bottom: 2rem;}
+            .ban-caption h3 span {display: block;padding: 0.5rem 0;}
+            .ban-caption .title-bg {display: none;}
+            .info-list li:nth-child(2), .info-list li:nth-child(4) {margin-right: 0;}
+            .info-list li:nth-child(3) {margin-right: 2%;}
+            .pro-list-info .list-txt h3 {font-size: 1.5rem;margin-bottom: 1.5rem;}
+            .pro-list-info .list-txt .pro-btn {width: 20%;padding: 0.5rem 0;}
+            .pro-list-info li {width: 100%;float: none;}
+
+            .data-list:before{padding-top:45%;}
+            .data-pic {display:none;}
+            .data-left {width:100%;border:1px solid #ccc;}
+            .pic-txt .pic {float: left;width: 45%;}
+
+            .contact-list{position:static;}
+            .contact-list:before{padding-top:0;}
+            .contact-list > li{position:static;}
+            .contact-list > li:first-child{width:100%; margin-bottom:3rem;}
+            .notice li{padding:0.5rem 0;}
+            .contact-list > li:first-child h4{text-align:left;}
+            .contact-list > li:nth-child(2){width:100%; margin-bottom:3rem;}
+            .center{width:100%;}
+            .list-inner .sub-title span{display:inline;}
+            .contact-list > li:nth-child(3){}
+            .list-center{width:95%; padding:1.5rem 0;}
+
+            .pro-navi{display:none;}
+            .foot-content{width:80%;}
+           .foot-content .bot-logo{display:none;}
+           .foot-admin .fot-nav{text-align:center;}
+           .copyright p:nth-of-type(1){line-height:1.1875rem;}
+        }
+        @media screen and (max-width:480px){
+            html{font-size:75%;}/*12px*/
+           .pro-list-guide{width:90%;}
+           .pro-list-guide li{width:100%;margin-right:0%; float:none;}
+           .pro-list-guide li:nth-child(2){margin-right:0;}
+           .pro-list-guide li:nth-child(3){margin-bottom:1%;}
+           .info-list{width:90%;}
+           .info-list li{width:100%;float:none; margin-right:0;}
+           .info-list li a{position:static;}
+           .imfo-pos{position:relative;}
+           imfo-pos, .info-table{display:block; width:100%;height:auto;text-align:center;position:absolute; bottom:0;}
+           imfo-pos, .info-table, .info-cell{display:block;}
+           .info-table .info-cell h4{margin-bottom:0; width:100%; background-color:#000; padding:1rem 0;}
+           .info-table .info-cell p{display:none;}
+
+           .data-list:before{padding-top:0%;}
+           .data-left{position:static;}
+           .data-list{position:static;}
+           .data-info{width:90%;}
+           .pic-txt .pic{float:none; width:100%; margin-bottom:4%;}
+           .pic-txt .txt{float:none; width:100%;}
+           .data-inner h3{padding:4% 0;}
+           .pic-txt .txt p{margin-bottom:4%;}
+           .pic-txt .txt p span{display:block;}
+
+           .contact{width:90%;}
+           }
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div class="header row">
+        <div class="top-gnb header-row">
+            <ul class="gnb">
+                <li>
+                    <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span>070-1234-1234</span>
+                </li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </div>
+        <!--로고와 주메뉴 그리고 반응형 햄버거 버튼(toggle)-->
+        <div class="top-main header-row">
+            <div class="top">
+                <a href="index.html" class="logo">
+                    <img src="assets/common/logo1503029668.png" alt="logo" />
+                </a>
+                <!--toggle btn-->
+                <label for="toggle" onclick="">&equiv;</label>
+                <input type="checkbox" id="toggle" />
+                <!--//toggle btn-->
+                <ul class="nav">
+                    <li><a href="centerinfo.html">센터소개</a></li>
+                    <li><a href="#">프로그램</a></li>
+                    <li><a href="traning.html">트레이너</a></li>
+                    <li><a href="#">세일 &amp; 프로모션</a></li>
+                    <li><a href="#">커뮤니티</a></li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+    <!--section-->
+    <div class="section row">
+        <div class="content banner">
+            <img src="assets/images/banner/banner.jpg" alt="banner"/>
+            <div class="ban-caption">
+                <h3>
+                    <span>에쓰라인과 몸짱이 되는 날까지 회원 한 분 한 분께</span> 
+                    <span>운동법을 알려드립니다.</span>
+                </h3>
+                <div class="title-bg">
+                    <h1>최고의 전문가와 함께 하세요.</h1>
+                </div>
+            </div>
+        </div>
+        <div class="content pro-info">
+            <ul class="pro-list-info">
+                <li>
+                    <img src="assets/images/event/event01.png" alt="event" />
+                    <div class="list-txt">
+                        <h3>7일 무료체험신청</h3>
+                        <a href="#" class="pro-btn">자세히보기</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/event/event02.png" alt="event" />
+                    <div class="list-txt">
+                        <h3>트레이너소개</h3>
+                        <a href="#" class="pro-btn">자세히보기</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/event/event03.png" alt="event" />
+                    <div class="list-txt">
+                        <h3>찾아오는길</h3>
+                        <a href="#" class="pro-btn">자세히보기</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content pro-guide">
+            <h3 class="eng">Program Guide</h3>
+            <h4>- 프로그램 안내 -</h4>
+            <ul class="pro-list-guide">
+                <li>
+                    <img src="assets/images/sub01.jpg" alt="img" />
+                    <h4>퍼스널트레이닝</h4>
+                    <div class="guide-hover">
+                        <div class="guide-table">
+                            <div class="guide-cell">
+                                <p>
+                                    <span>트레이너와 1:1로</span>
+                                    <span>효과적이고 체계적인 운동</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/sub02.jpg" alt="img" />
+                    <h4>필라테스</h4>
+                    <div class="guide-hover">
+                        <div class="guide-table">
+                            <div class="guide-cell">
+                                <p>
+                                    <span>몸의 중심을 바로 잡아주고</span>
+                                    <span>군살제거에 효과적인 운동</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/sub03.jpg" alt="img" />
+                    <h4>스피닝</h4>
+                    <div class="guide-hover">
+                        <div class="guide-table">
+                            <div class="guide-cell">
+                                <p>
+                                    <span>고강도 유산소운동으로 심폐</span>
+                                    <span>기능 향상 및 전신운동 효과</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/sub04.jpg" alt="img" />
+                    <h4>스크린골프</h4>
+                    <div class="guide-hover">
+                        <div class="guide-table">
+                            <div class="guide-cell">
+                                <p>
+                                    <span>순간적인 힘과 민첩성을 발달</span>
+                                    <span>시키는 전신운동</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="content information">
+            <h3 class="eng">Facility Information</h3>
+            <h4>- 시설안내 -</h4>
+            <ul class="info-list">
+                <li>
+                    <a href="#" class="info-box">
+                        <img src="assets/images/m_faci11508894627.jpg" alt="img" />
+                        <div class="imfo-pos">
+                            <div class="info-table">
+                                <div class="info-cell">
+                                    <h4>스피닝룸</h4>
+                                    <p>
+                                        <span>스피닝룸100여대의 운동기구가 있고</span>
+                                        <span>우퍼스피커가 설치되어 있습니다. </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="info-box">
+                        <img src="assets/images/m_faci21508894627.jpg" alt="img" />
+                        <div class="imfo-pos">
+                            <div class="info-table">
+                                <div class="info-cell">
+                                    <h4>무산소운동기구</h4>
+                                    <p>
+                                        <span>근력운동을 할수 있는 다양한 종류의</span>
+                                        <span>최신식 무산소 운동기구들입니다.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="info-box">
+                        <img src="assets/images/m_faci31508894627.jpg" alt="img" />
+                        <div class="imfo-pos">
+                            <div class="info-table">
+                                <div class="info-cell">
+                                    <h4>유산소운동기구</h4>
+                                    <p>
+                                        <span>체지방을 태워버릴 다양한 유산소 운동을</span>
+                                        <span>할수있는 기구들입니다.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="info-box">
+                        <img src="assets/images/m_faci41508894627.jpg" alt="img" />
+                        <div class="imfo-pos">
+                            <div class="info-table">
+                                <div class="info-cell">
+                                    <h4>필라테스</h4>
+                                    <p>
+                                        <span>기구일반기구들 보다 더욱 효과적으로 균형을</span>
+                                        <span>잡을수 있는 기구들이 준비되어 있습니다.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="info-box">
+                        <img src="assets/images/m_faci51508894627.jpg" alt="img" />
+                        <div class="imfo-pos">
+                            <div class="info-table">
+                                <div class="info-cell">
+                                    <h4>파우더 룸</h4>
+                                    <p>
+                                        <span>스넓고 쾌적하여 파우더룸이용시 편안하게</span>
+                                        <span>사용하실 수 있습니다.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="info-box">
+                        <img src="assets/images/m_faci61508894628.jpg" alt="img" />
+                        <div class="imfo-pos">
+                            <div class="info-table">
+                                <div class="info-cell">
+                                    <h4>락커룸</h4>
+                                    <p>
+                                        <span>전자식 락커룸이 300여개 설치되어 있으며</span>
+                                        <span>옷을 구김없이 보관할수있습니다.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content data-info">
+            <div class="data-list">
+                <div class="data-left">
+                    <div class="data-table">
+                        <div class="data-inner">
+                            <h3 class="eng">Before&amp;After</h3>
+                            <div class="pic-txt">
+                                <div class="pic">
+                                    <img src="assets/images/55fe1195256f2979461751891010641a_water__c1_w220_h180.jpg" alt="img" />
+                                </div>
+                                <div class="txt">
+                                    <h4>센터 덕분에 20kg 감량했어요!</h4>
+                                    <p>
+                                        예전에 혼자 운동하면서 다이어트를 했는데
+                                        매일 운동해도 살이 별로 빠지지 않아 고민이
+                                        많았어요. 근데 여기 다녀보니 그때 왜 그랬는
+                                        지 알겠더라구요. 
+                                        <span>
+                                            잘못된 자세와 운동법으로
+                                            제자리 걸음만 했었던거였어요. 여기서 운동을
+                                            제대로 배우고 꾸준히 식단관리했더니 살이
+                                            많이 빠졌어요. 정말 감사드립니다.
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-pic"></div>
+            </div>
+        </div>
+        <div class="content contact">
+            <ul class="contact-list">
+                <li>
+                    <div class="list-table">
+                        <div class="list-inner">
+                            <h4 class="title">공지사항</h4>
+                            <hr />
+                            <ul class="notice">
+                                <li class="not-left">- 홈페이지 리뉴얼 안내</li>
+                                <li class="not-day">2018.04.25</li>
+                                <li class="not-left">- 고객성원 이벤트를 안내</li>
+                                <li class="not-day">2018.04.25</li>
+                                <li class="not-left">- 홈페이지 이용시 주의사항</li>
+                                <li class="not-day">2018.04.25</li>
+                                <li class="not-left">- 불량회원 제재 안내</li>
+                                <li class="not-day">2018.04.25</li>
+                                <li class="not-left">- 카드사 무이자 할부 변경</li>
+                                <li class="not-day">2018.04.25</li>
+                                <li class="not-left">- 서버정기점검 안내</li>
+                                <li class="not-day">2018.04.25</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-table center">
+                        <div class="list-inner">
+                            <h4 class="title">전화상담</h4>
+                            <p class="sub-title">
+                                <span>상담이 필요하신가요?</span>
+                                <span>친절하고 정확하게 상담해드립니다.</span>
+                            </p>
+                            <p class="num"><strong>070.1234.5678</strong></p>
+                            <a href="#">
+                            카카오톡<span class="eng">ID killer</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-table">
+                        <div class="list-inner">
+                            <div class="list-center">
+                                <h4 class="title">간편상담 신청</h4>
+                                <p>오전 9시부터 오후 10시까지 언제나</p>
+                                <div class="form">
+                                    <input type="text" placeholder="이름" name="user" />
+                                    <input type="text" placeholder="연락처" name="tel" />
+                                    <button type="submit" value="상담신청하기">상담신청하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content pro-navi">
+            <div class="pro-navi-list">
+                <ul class="cen-info">
+                    <li class="title"><h4>센터소개</h4></li>
+                    <li><a href="#">센터소개</a></li>
+                    <li><a href="#">시설안내</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+                <ul class="program">
+                    <li class="title"><h4>프로그램</h4></li>
+                    <li><a href="#">퍼스널트레이닝</a></li>
+                    <li><a href="#">필라테스</a></li>
+                    <li><a href="#">스피닝</a></li>
+                    <li><a href="#">스크린골프</a></li>
+                </ul>
+                <ul class="sale">
+                    <li class="title"><h4>세일 &amp; 프로모션</h4></li>
+                    <li><a href="#">무료체험 신청</a></li>
+                    <li><a href="#">이벤트</a></li>
+                </ul>
+                <ul class="community">
+                    <li class="title"><h4>커뮤니티</h4></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#" class="eng">Before &amp; After</a></li>
+                    <li><a href="#" class="eng">FAQ</a></li>
+                    <li><a href="#">상담신청</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!--footer-->
+    <div class="footer row">
+        <div class="foot-content">
+            <a href="#" class="bot-logo">
+                <img src="assets/common/logo1503029668.png"alt="logo" />
+            </a>
+            <div class="foot-admin">
+                <div class="fot-nav">
+                    <a href="#" class="left">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                </div>
+                <div class="copyright">
+                    <p>
+                        <span class="eng">The Gym.</span> 대표: 홍길동	 서울특별시 강남구 역삼동 858 (강남역) 123-123  고객센터: 070-1234-1234
+                    </p>
+                    <p>
+                        사업자등록번호: 000-00-00000    
+                    </p>
+                    <p>
+                        &copy;Copyright The Gym. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--javascript library file-->
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/ie-checker-min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/respond.min.js"></script>
+</body>
+</html>

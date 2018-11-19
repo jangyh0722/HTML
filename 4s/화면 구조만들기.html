@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>화면 구조 만들기</title>
+
+    <style type="text/css">
+        /*초기화*/
+        body, div, p, ul, li, h1, h2{margin:0; padding:0;}
+
+        body{
+            font-size:14px;
+            font-family:'Malgun Gothic';
+            background-color:#fff;
+            color:#666;
+        }
+
+        ul li{list-style:none;}
+        a{text-decoration:none; color:#666;}
+        /*공통 스타일*/
+        .main-section, .section, .footer{
+            width:1000px; margin:0 auto;
+        }
+        /*헤더 스타일*/
+        .header{border-bottom:1px solid #ccc; width:100%;}
+        .main-section p{
+            text-align:right;
+            font-size:12px;
+            padding:10px 0;
+        }
+        .logo{text-align:center; padding:70px 0;}
+        .logo h1{text-transform:uppercase; font-size:30px;}
+        .nav{width:inherit; overflow:hidden;}
+        .nav li{float:left; width:200px; text-align:center;}
+        .nav li a{display:block; padding:10px 0;}
+        .nav li a:hover{background-color:#666; color:#fff;}
+        /*섹션 스타일*/
+        .section{padding:40px 0;}
+        .section .banner{
+            background-color:#666; 
+            text-align:center;
+            padding:70px 0;
+            margin-bottom:40px;
+        }
+        .section .banner h2{
+            color:#fff;
+            text-transform:uppercase;
+
+        }
+        .content{
+            width:980px;
+            padding:10px;
+            background-color:#ccc;
+        }
+        .content p{margin-bottom:20px;}
+        .content ul{width:inherit; overflow:hidden;}
+        .content ul li{
+            float:left;
+            background-color:#fff;
+            width:320px;
+            text-align:center;
+            padding:130px 0;
+        }
+        .content ul li:nth-child(2){margin:0 10px;}
+        /*푸터 스타일*/
+        .footer{
+            background-color:#ccc;
+            width:100%;
+            text-align:center;
+            padding:40px 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="main-section">
+            <!--상단 작은 메뉴 구조-->
+            <p>
+                <a href="#" target="_self"><apan>Login</apan></a>
+                <apan>&#921;</apan>
+                <a href="#" target="_self"><apan>회원가입</apan></a>
+                <apan>&#921;</apan>
+                <a href="#" target="_self"><apan>사이트맵</apan></a>
+            </p>
+            <!--로고의 구조-->
+            <div class="logo"><h1>Site Logo</h1></div>
+            <!--주메뉴의 구조-->
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">business</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Notice</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="banner">
+            <h2>main banner</h2>
+        </div>
+        <div class="contone content">
+            <p>본문 컨텐츠입니다.</p>
+            <ul>
+                <li>content1</li>
+                <li>content2</li>
+                <li>content3</li>
+            </ul>
+        </div>
+        <div class="conttwo content">
+            <p>본문 컨텐츠입니다.</p>
+            <ul>
+                <li>content1</li>
+                <li>content2</li>
+                <li>content3</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <p>와이어프레임 화면구성입니다.</p>
+    </div>
+</body>
+</html>

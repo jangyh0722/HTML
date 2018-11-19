@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <title>banner</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script');
+        body{
+            font-family: 'Nanum Brush Script', cursive;
+            font-size:24px;
+            background-color:#dddddd;
+        }
+        a{color:#ff6a00;}
+        /*배너의 사이즈는 이미지 사이즈를 기본으로 작업*/
+        .banner{
+            width:729px;
+            height:176px;
+            margin:80px auto 0;
+            border:2px solid #fff;
+            background-image:url("images/2/arrow.png"),
+                             url("images/2/photo.png"),
+                             url("images/2/09.png"),
+                             url("images/2/bg.png");
+            /*배경이미지의 기본은 패턴*/
+            background-repeat:no-repeat;
+            /*배경이미지를 넣었을때 순번에 따른 좌표를 아래와 같이 설정해 줄 수 있음*/
+            background-position:-80px 145px, -20px 200px, -50px -400px, 0 0 ;
+             /*과정값에 관련된 애니메이션 속성 만들기*/
+            -webkit-transition:all 0.5s ease;
+            -moz-transition:all 0.5s ease;
+            -o-transition:all 0.5s ease;
+            transition:all 0.5s ease;
+            /*좌표를 써야하는 요소들의 좌표제공하는 포지션 설정*/
+            position:relative;
+        }
+        /*로고와 내용의 고통으로 적용하는 스타일*/
+
+        .logo { /*
+                    수평에 가운데 수직에 가운데로 정렬이 필요함
+                    블럭요소를 수직에 가운데로 위치할 때 쓰는 방법 중 포지션을 이용한 방법으로 가장 많이 사용되는 방법중 하나
+                    이때 포지션과 같이 테이블 방식도 많이 사용이 됨
+                    주의 사항은 %로 지정해도 수평과 수직에서의 정렬은 내가 원하는데로 나오지 않기 때문에 해당 부분을 잡아줄 
+                    translate의 좌표를 음수로 지정하여 정렬을 맞춰야함
+                */
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .logo, .txt {
+            position: absolute;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        .txt {
+            top: 50%;
+            left: 5%;
+            -webkit-transform: translate(-5%, -50%);
+            -moz-transform: translate(-5%, -50%);
+            -o-transform: translate(-5%, -50%);
+            transform: translate(-5%, -50%);
+            opacity:0;
+            filter:alpha(opacity=0);
+        }
+        .banner:hover {
+            /*마우스가 올라갔을때의 배경이미지 좌표를 넣어줌
+                좌표는 이미지의 위치에 따라 이미지를 보면서 결과값에 대한 좌표를 미리 메모하여 적어둠
+            */
+            background-position:20px 145px, 1px 20px, 30px -100px, 0 0;
+        }
+        /*로고와 텍스트는 마우스가 올라갔을때 해당 좌표가 바뀌기 때문에 로고는 좌표값만 입력해주고, 
+            텍스트는 좌표와 투명도를 적용하여 화면 중앙에 우치할 수 있도록 설정을 해줌
+        */
+            .banner:hover .logo {
+                top: 50%;
+                left: 90%;
+                -webkit-transform: translate(-90%, -50%);
+                -moz-transform: translate(-90%, -50%);
+                -o-transform: translate(-90%, -50%);
+                transform: translate(-90%, -50%);
+            }
+            .banner:hover .txt {
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                opacity:1;
+                filter:alpha(opacity=100);
+            }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <a href="#" class="mainbanner">
+            <img src="images/2/logo.png" alt="logo" class="logo" />
+            <p class="txt">
+                모든 일에 결과는..<br />
+                마음 가짐에 달려있다.
+            </p>
+        </a>
+    </div>
+</body>
+</html>

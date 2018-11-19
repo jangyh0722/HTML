@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="Keywords" content="웹표준, html5, 반응형웹" />
+<meta name="description" content="검색에서 노출되는 설명부분입니다." />
+<meta name="author" content="사이트주소를 적는 부분입니다." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<title>iloveweb</title><!--
+<link rel="stylesheet" href="assets/css/reset.css" />-->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+<!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+<style>
+    body{font-family: 'Noto Sans KR', sans-serif;}
+    .header{
+        background-image:url("assets/images/wine14.jpg");
+        background-repeat:no-repeat;
+        background-size:100%;
+        height:1066px;
+        position:relative;
+    }
+    .navbar-header a img {
+        width: 20%;
+        margin-left:5%;  
+    }
+    .ban-img p span {
+        display: block;
+        text-align: center;
+    }
+    .ban-img p{
+        margin-top:50px;
+    }
+    .ban-img {
+        color: #fff;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .navbar-inverse {background-color: rgba(0,0,0,0.0);border-color: rgba(0,0,0,0.0); padding-right:1%;}
+    .navbar-inverse .navbar-nav>li>a{color:#fff;}
+    .navbar-inverse .navbar-nav>.active>a, 
+    .navbar-inverse .navbar-nav>.active>a:focus, 
+    .navbar-inverse .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,0.0); color:#fff;}
+    .navbar{border: 1px solid rgba(255,255,255,0.3);}
+    .dropdown-menu{background-color:rgba(0,0,0,0.0); box-shadow:0 0 0 rgba(0,0,0,0.0);}
+    .dropdown-menu>li>a{color:#fff;}
+    .sns{
+        color: #fff;
+        font-size: 20px;
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -10%);
+        -moz-transform: translate(-50%, -10%);
+        -o-transform: translate(-50%, -10%);
+        transform: translate(-50%, -10%);
+        padding-left:0;
+        width:10%;
+        text-align:center;
+    }
+    .sns-list{padding:0; margin:0;}
+    .sns .sns-list li{display:inline-block; }
+    .sns-list li:nth-child(2){margin:0 10%;}
+    
+    @media screen and (max-width:992px) {
+    }
+    @media screen and (max-width:768px) {}
+</style>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="assets/images/logo-light.png" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li class="dropdown">                     
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">PAGES <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">ELEMENTS</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">PORTFOLIO<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">SHOP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="ban-img">
+            <img src="assets/images/wine1.png" />
+            <div class="ban-txt">
+                <p>
+                    <span>“Without doubt, one of the most consistently</span>
+                    <span>high-quality wineries in the Barossa region”</span>
+                    <span>David Halladay - Respected Wino</span>
+                </p>
+            </div>
+        </div>
+        <div class="sns">
+            <ul class="sns-list">
+                <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+                <li><i class="fa fa-vimeo" aria-hidden="true"></i></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--javascript library file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/ie-checker-min.js"></script>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+</body>
+</html>

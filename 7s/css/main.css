@@ -1,0 +1,397 @@
+﻿@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans');
+/*
+            kr:font-family: 'Nanum Gothic', sans-serif;
+            eng:font-family: 'Open Sans', sans-serif;
+        */
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px;
+    color: #333;
+    letter-spacing: 1px;
+    background-image: url("../images/best-bg.gif");
+}
+
+.eng {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+    font-size: 24px;
+    color: #0094ff;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.row {
+    width: 100%;
+}
+/*header style*/
+.header {
+    background-color: #fff;
+    border-top: 3px solid #ff6a00;
+}
+
+.gnb, .main-top {
+    width: 1010px;
+    margin: 0 auto;
+}
+
+.gnb {
+    text-align: right;
+    padding: 10px 0 80px;
+}
+
+    .gnb li {
+        display: inline-block;
+    }
+
+        .gnb li a {
+            font-size: 11px;
+            color: #999;
+            padding: 2px 5px 3px;
+        }
+
+        .gnb li:first-child a {
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        .gnb li a:hover {
+            text-decoration: underline;
+            color: #333;
+        }
+
+        .gnb li:first-child a:hover {
+            background-color: #333;
+            text-decoration: none;
+            color: #fff;
+        }
+
+.main-top {
+    overflow: hidden;
+    height: 99px;
+}
+
+.logo {
+    float: left;
+}
+
+.top-ban {
+    float: right;
+}
+/*nav style*/
+.nav {
+}
+
+.navi {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.lnb, .lnb-two {
+    height: 50px;
+    width: 1010px;
+    margin: 0 auto;
+}
+
+    .lnb li, .lnb-two li {
+        display: inline-block;
+        line-height: 50px;
+    }
+
+        .lnb li a, .lnb-two li a {
+            font-size: 16px;
+            color: #333;
+            padding: 0 3px;
+        }
+
+            .lnb li a:hover {
+                background-color: #333;
+                color: #fff;
+            }
+
+            .lnb-two li a:hover {
+                color: #000;
+                font-weight: bold;
+            }
+/*section style*/
+.banner {
+    width: 100%;
+    height: 401px;
+    background-color: #e6e6e6;
+    margin-bottom: 30px;
+}
+
+    .banner img {
+        margin: 0 auto;
+    }
+
+.content {
+    width: 1010px;
+    margin: 0 auto;
+}
+/*이벤트 컨텐츠 스타일*/
+.event {
+    overflow: hidden;
+    height: 188px;
+    margin-bottom: 80px;
+}
+    /*
+            각각의 li에서 여백을 오른쪽으로 지정할때 여백은 전체 넓이에서 
+            이미지 전체를 더한 값을 3으로 나눠주면 됨
+            (1010-984)/3=8.6px;
+        */
+    .event li {
+        float: left;
+        margin-right: 8.6px;
+        background-color: rgba(0,0,0,1);
+        /*
+                컬러를 지정해주는 방식 3가지
+                1. 컬러의 이름을 써줌
+                2. 16진수 활용
+                3. rgba컬러를 활용하는 방법
+                -background-color:rgba(0,0,0,1);
+                투명값의 수치는 0~1
+            */
+    }
+
+        .event li:last-child {
+            margin-right: 0;
+        }
+        /*
+            애니메이션 처리를 하기 위해서는 결과값이전의 과정이 필요한데
+            해당 부분은 이미지에 마우스가 올라갔을 때의 투명값 처리를 만들어준
+            부부능로 결과값만 나타나게 된다. 이때 더 자연스러운 효과를 주기 위해 미리 과정을 만들어준다.
+        */
+        .event li a img {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            -webkit-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
+        }
+
+        .event li a:hover img {
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+/*컨텐츠 안에서의 투명값을 적용할때는 opacity를 이용한 방법으로 투명도를
+            적용할 수 있는데 Qpacity의 값은 0~1까지 사용, 하위 브라우저 호환성을 위해 filter라는
+            값을 같이 적용해준다.
+        */
+/*주간베스트 스타일*/
+.day {
+    margin-bottom: 80px;
+}
+
+    .day .subtitle {
+        margin-bottom: 50px;
+    }
+
+.day-nav {
+    width: inherit;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+    .day-nav li {
+        width: 168.3px;
+        float: left;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    .day-nav li {
+        border-right: 0;
+    }
+
+        .day-nav li:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        .day-nav li a {
+            color: #333;
+        }
+
+            .day-nav li a:hover {
+                background-color: #ccc;
+                color: #fff;
+                font-weight: bold;
+            }
+
+.day-prod {
+    width: inherit;
+    height: 389px;
+    overflow: hidden;
+}
+
+    .day-prod img {
+        width: 100%;
+    }
+
+.left-prod, .right-prod {
+    float: left;
+}
+
+.left-prod {
+    width: 413px;
+    background-color: rgba(0,0,0,1);
+    margin-right: 3px;
+}
+
+    .left-prod a img {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+    }
+
+    .left-prod a:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+.right-prod {
+    width: 594px;
+    height: inherit;
+}
+
+    .right-prod li {
+        width: 196px;
+        height: 193px;
+        float: left;
+        background-color: rgba(0,0,0,1);
+        overflow: hidden;
+    }
+
+        .right-prod li.center {
+            margin: 0 3px;
+        }
+
+        .right-prod li.bot {
+            margin-bottom: 3px;
+        }
+
+        .right-prod li a img {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            -webkit-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
+        }
+
+        .right-prod li a:hover img {
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+/*신상품 스타일*/
+.new {
+    padding-bottom: 50px;
+}
+
+    .new .subtitle {
+        margin-bottom: 50px;
+    }
+
+.new-prod {
+    width: inherit;
+    overflow: hidden;
+}
+
+    .new-prod li {
+        float: left;
+        width: 236px;
+        margin-right: 22px;
+        margin-bottom: 30px;
+    }
+
+        .new-prod li img {
+            width: 100%;
+        }
+
+        .new-prod li.rig-ma {
+            margin-right: 0;
+        }
+
+        .new-prod li .block {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+            .new-prod li .block h4 {
+                margin-bottom: 15px;
+            }
+
+            .new-prod li .block p {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+
+                .new-prod li .block p:nth-of-type(2) {
+                    color: #ff0000;
+                }
+/*footer style*/
+.footer {
+    border-top: 1px solid #ccc;
+    padding: 80px 0;
+}
+
+.foot-nav, .admin-info {
+    width: 1010px;
+    margin: 0 auto;
+}
+
+.foot-nav {
+    height: 35px;
+    margin-bottom: 30px;
+}
+
+    .foot-nav li {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        width: 194px;
+        height: inherit;
+        text-align: center;
+        line-height: 35px;
+        float: left;
+        margin-right: 10px;
+    }
+
+        .foot-nav li:last-child {
+            margin-right: 0;
+        }
+
+        .foot-nav li a {
+            color: #999;
+        }
+
+            .foot-nav li a:hover {
+                background-color: #333;
+                color: #fff;
+            }
+
+.admin-info {
+    text-align: center;
+}
+
+    .admin-info p, .admin-info address {
+        color: #999;
+    }
+
+    .admin-info p {
+        margin-bottom: 15px;
+        line-height: 20px;
+    }

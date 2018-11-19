@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="Keywords" content="웹표준, html5, 반응형웹" />
+<meta name="description" content="검색에서 노출되는 설명부분입니다." />
+<meta name="author" content="사이트주소를 적는 부분입니다." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<title>iloveweb</title>
+<link rel="stylesheet" href="assets/css/reset.css" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+<!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+<style>
+html{font-size:100%;}/*16px*/
+html, body{height:100%;}
+body{font-family: 'Nanum Gothic', sans-serif;}
+body:before{position:fixed; top:0; left:0; background-image:url("assets/images/background.png"); background-repeat:no-repeat; background-size:cover; width:100%; height:100%; content:""; display:block; z-index:-1;}
+.eng{font-family: 'Montserrat', sans-serif;}
+.kr{font-weight:100;font-family: 'Nanum Pen Script', cursive;font-size:1.5rem; color:#fff;}
+h1,h2,h3,h4,h5,h6{font-weight:100; font-style:normal;}
+.row{width:100%;}
+.container{width:100%;}
+/*header style*/
+.header{}
+.top-banner{padding:1rem 0; text-align:center; background-image:url("assets/images/naver_shopping_banner_bg.jpg"); background-repeat:no-repeat;}
+label, input[type=checkbox]{display:none;}
+.top-main{background-color:#00b7ff; overflow:hidden; padding:1rem 0;}
+.top-main .logo{float:left; margin-left:5rem;}
+.top-main .logo img{max-width:70%;}
+.navi{width:auto; float:right; margin-right:5rem;}
+.navi li{display:inline-block;}
+.navi li a{padding:0.9375rem 1.2rem; color:#fff;}
+.navi li a:hover{background-color:#fff; color:#00b7ff;}
+/*section style*/
+.section{}
+.title{color:#333; font-weight:bold; font-size:1.8rem; line-height:2.3rem; margin-bottom:1.5rem;}
+.title span{display:block;}
+.subtitle{color:#666; font-size:1.2rem; margin-bottom:5rem;}
+.mainbanner{background-color:#00b7ff; padding-top:6rem;}
+.banner{position:relative;}
+.banner img{max-width:100%;}
+.banner > img{margin:auto;}
+.banner .pos{position:absolute; top:5rem;}
+.banner .badge{left:10rem;}
+.banner .badge img{margin-bottom:1rem;}
+.banner .badge p{color:#fff;}
+.banner .right-badge{right:8rem;}
+.function-design{background-color:#fff; padding:5rem 0; border:1px solid #ededed;}
+.function{width:70%; margin:auto; text-align:center;}
+.fun-txt{width:100%; overflow:hidden;}
+.fun-txt li{float:left; width:33.33333333333333%;}
+.fun-txt li img{max-width:40%; margin:0 auto 1rem;}
+.fun-txt h4{color:#333; font-weight:bold; font-size:1.2rem; margin-bottom:1rem;}
+.fun-txt p{color:#666; line-height:1.3rem;}
+.fun-txt p span{display:block;}
+.web-pc{background-color:#ededed; padding:5rem 0; text-align:center;}
+.web-img{width:50%; margin:auto;}
+.web-img img{max-width:100%;}
+.web-design{position:relative;}
+.web-design:before{content:""; display:block; padding-top:34%;}
+.design, .design-icon{position:absolute; top:0; width:50%; height:100%;}
+.design{background-image:url("assets/images/main-sample05-new.jpg"); background-repeat:no-repeat; background-size:cover;}
+.design-icon{right:0; text-align:center;}
+.design-icon h3{font-size:1.5rem; line-height:2rem; color:#333; font-weight:bold; margin-bottom:2rem;}
+.design-icon h3 span{display:block;}
+.outer{width:100%; height:100%; display:table; background-image:url("assets/images/mid-baner-bg02.png"); background-repeat:no-repeat; background-position:center bottom; background-size:100%;}
+.inner{display:table-cell; vertical-align:middle;}
+.icon-list{width:90%; margin:auto;}
+.icon-list li{width:20%; float:left; margin-bottom:4rem;}
+.icon-list li .fa{color:#666; font-size:1.5rem; margin-bottom:1rem;}
+.icon-list li p{color:#666;}
+.icon-list li.bot-mar{margin-bottom:0;}
+.app{padding:5rem 0; text-align:center; background-color:#f5f5f5;}
+.app > p span{display:block; line-height:1.4rem;}
+.app-cont{position:relative;}
+.app-cont > img{max-width:100%; margin:auto;}
+.popup, .app-pop{position:absolute; top:4rem;}
+.popup{left:12rem;}
+.pop{background-color:#fff; border-radius:0.8rem; text-align:left;}
+.pop h4{color:#333; font-weight:bold; font-size:1.2rem; margin-bottom:1rem; padding:1rem 0 0 3rem;}
+.pop hr{margin-bottom:1rem;}
+.pop p{line-height:1.4rem; color:#666; padding:0 3rem 1rem;}
+.pop p span{display:block;}
+.one{margin-bottom:1rem;}
+.app-pop{right:12rem;}
+.app-title-img{width:50%; margin:auto;}
+.app-title-img img{max-width:100%;}
+.store{background-color:#fff; border-radius:50px; overflow:hidden; min-height:4rem; padding:0.8rem 3rem;} 
+.store img{float:left; margin-right:2rem; max-width:100%;}
+.store p{color:#666;}
+.store p:nth-of-type(2){color:#333;}
+.block{float:left; min-height:4rem;}
+.table{min-height:4rem; display:table;}
+.inner{vertical-align:middle; display:table-cell;}
+.ard{margin-bottom:1rem;}
+.play{margin-bottom:1rem;}
+.app-pop > p{color:#666;}
+/*mediaQuery*/
+@media screen and (max-width:1439px){
+.banner .badge{left:5rem;}
+.banner .right-badge{right:3rem;}
+.popup{left:2rem;}
+.app-pop{right:2rem;}
+}
+@media screen and (max-width:1279px){
+html{font-size:93.8%;}/*15px*/
+.banner .badge{display:none;}
+.banner .right-badge{display:none;}
+.icon-list li{width:20%; float:left; margin-bottom:1.5rem;}
+}
+@media screen and (max-width:959px){
+html{font-size:87.5%;}/*14px*/
+/*navi*/
+.top-main .logo{margin-left:3rem;}
+.navi{margin-right:3rem;}
+.function{width:80%;}
+.design{width:30%; background-position-x:-13rem;}
+.design-icon h3 span{display:inline;}
+.design-icon{width:70%;}
+.icon-list{width:98%;}
+.icon-list li{margin-bottom:1rem;}
+.icon-list li .fa{color:#666; font-size:1.5rem; margin-bottom:0.5rem;}
+}
+@media screen and (max-width:767px){
+/*navi*/
+.top-main{padding-bottom:0;}
+.top-main .logo{margin-left:1.5rem; margin-bottom:0.8rem;}
+.navi{margin-right:0;}
+label{display:block; color:#fff; font-size:2.5rem; float:right; margin:0.2rem 1.5rem 0 0;}
+.navi{display:none; background-color:#fff; float:none; width:100%; margin-top:4rem;}
+.navi li{display:block; text-align:center; border-bottom:1px solid #ededed;}
+.navi li:last-child{border-bottom:0;}
+.navi li a{color:#666;}
+.navi li a:hover{background-color:#ededed; color:#333;}
+#toggle:checked + .navi{display:block;}
+.function{width:90%;}
+.fun-txt li{float:none; width:100%; overflow:hidden; margin-bottom:1.2rem;}
+.fun-txt li:last-child{margin-bottom:0;}
+.fun-txt li img{max-width:40%; margin:0 auto 1rem;}
+.fun-txt li .fun-img{width:50%; float:left;}
+.fun-txt li .text{width:50%; float:left; text-align:left; padding-top:1.5rem;}
+.web-design:before{padding-top:100%;}
+.design, .design-icon{width:100%; height:50%;}
+.design{background-position-x:0;}
+.design-icon{top:50%;}
+.app-cont{position:static;}
+.popup, .app-pop{position:static;}
+.popup{margin-bottom:2rem;}
+.pop{width:50%; margin:auto;}
+.one{margin-bottom:1rem;}
+.app-pop{width:50%; margin:auto;}
+}
+@media screen and (max-width:479px){
+html{font-size:75%;}/*12px*/
+.top-main .logo img{max-width:50%;}
+.fun-txt li{margin-bottom:2.5rem;}
+.fun-txt li img{max-width:30%;}
+.fun-txt li .fun-img{width:100%; float:none;}
+.fun-txt li .text{width:100%; float:none; text-align:center; padding-top:0;}
+.pop{width:70%; margin:auto;}
+.app-pop{width:70%; margin:auto;}
+}
+</style>
+</head>
+<body>
+<!--header-->
+<div id="header" class="header row">
+    <div class="row top-banner">
+        <p class="kr">아이러브웹을 통해 당신의 꿈을 이루세요!</p>
+    </div>
+    <div class="top-main row">
+        <a href="#" class="logo">
+            <img src="assets/common/logo.png" alt="logo"/>
+        </a>
+        <label for="toggle" onclick=""><i class="fa fa-bars" aria-hidden="true"></i></label>
+        <input type="checkbox" id="toggle" />
+        <ul class="navi">
+            <li><a href="#">서비스</a></li>
+            <li><a href="#">디자인</a></li>
+            <li><a href="#">교육</a></li>
+            <li><a href="#">고객지원</a></li>
+            <li><a href="#" class="eng">My</a></li>
+        </ul>
+    </div>
+</div>
+<!--section-->
+<div id="section" class="section row">
+    <div class="mainbanner row">
+        <div class="banner">
+            <img src="assets/images/main_top.png" alt="img"/>
+            <div class="badge pos">
+                <img src="assets/images/marketing_badge.png" alt="img" />
+                <p>선착순500명 당첨이벤트</p>
+            </div>
+            <div class="right-badge pos">
+                <img src="assets/images/imweb_main_slogan03.png" alt="img" />
+            </div>
+        </div>
+    </div>
+    <div class="function-design row">
+        <div class="function">
+            <h2 class="title">
+                <span>원하는 디자인을</span>
+                <span>가져다 놓기만 하세요.</span>
+            </h2>
+            <p class="subtitle">쉬우면서도 딱 맞는 기능과 감각적인 디자인</p>
+            <ul class="fun-txt">
+                <li>
+                    <div class="fun-img">
+                        <img src="assets/images/main-sample01.png" alt="img" />
+                    </div>
+                    <div class="text">
+                        <h4>포토샵을 몰라도</h4>
+                        <p>
+                            <span>디자인 감각이 없어도 훌륭한</span>
+                            <span>반응형 웹사이트를 만들수 있습니다.</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="fun-img">
+                        <img src="assets/images/main-sample02.png" alt="img" />
+                    </div>
+                    <div class="text">
+                        <h4>코드를 몰라도</h4>
+                        <p>
+                            <span>Html, css, javascript를 몰라도</span>
+                            <span>아무런 문제가 되지 않습니다.</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="fun-img">
+                        <img src="assets/images/main-sample03.png" alt="img" />
+                    </div>
+                    <div class="text">
+                        <h4>최대한 알아서</h4>
+                        <p>
+                            <span>세밀하게 신경쓰지 않아도 원하는</span>
+                            <span>결과물을 낼 수 있도록 합니다.</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="web-pc row">
+        <div class="web">
+            <h2 class="title">
+                <span>PC만 신경쓰세요!</span>
+                <span>모바일, 태블릿은 알아서</span>
+            </h2>
+            <p class="subtitle eng">#responsive Web #iloveWeb</p>
+            <div class="web-img">
+                <img src="assets/images/pc.png" alt="img" />
+            </div>
+        </div>
+    </div>
+    <div class="web-design row">
+        <div class="design"></div>
+        <div class="design-icon">
+            <div class="outer">
+                <div class="inner">
+                    <h3>
+                        <span>쉬울뿐만 아니라</span>
+                        <span>강력함을 더합니다.</span>
+                    </h3>
+                    <ul class="icon-list">
+                        <li>
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <p>쇼핑</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <p>회원</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            <p>게시판</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <p>갤러리</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <p>폼메일</p>
+                        </li>
+                        <!--two line icon-->
+                        <li>
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                            <p>네이버페이</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                            <p>쇼셜로그인</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                            <p>쇼핑하우연동</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            <p>인스타그램</p>
+                        </li>
+                        <li>
+                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            <p>전자결제</p>
+                        </li>
+                        <!--three line icon-->
+                        <li class="bot-mar">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <p>다국어지원</p>
+                        </li>
+                        <li class="bot-mar">
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <p>해외배송</p>
+                        </li>
+                        <li class="bot-mar">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            <p>네이버통계</p>
+                        </li>
+                        <li class="bot-mar">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                            <p>구글에드워즈</p>
+                        </li>
+                        <li class="bot-mar">
+                            <i class="fa fa-paypal" aria-hidden="true"></i>
+                            <p>페이팔연동</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app row">
+        <h2 class="title">쇼핑몰 앱</h2>
+        <p class="subtitle eng">
+            <span>내 사이트 전용앱을 통하여</span>
+            <span>정기적으로 이벤트 정보를 보내세요!</span>
+        </p>
+        <div class="app-cont">
+            <div class="app-title-img">
+                <img src="assets/images/shop-img.png" alt="img" />
+            </div>
+            <div class="popup">
+                <div class="pop one">
+                    <h4>사용자알림</h4>
+                    <hr/>
+                    <p>
+                        <span>오늘 단하루, 1만원 장바구니 쿠폰증정!</span>
+                        <span>지금바로 확인하세요.</span>
+                    </p>
+                </div>
+                <div class="pop two">
+                    <h4>관리자알림</h4>
+                    <hr />
+                    <p>
+                        <span>@iloveweb님의 새주문</span>
+                        <span>플루이드 오일 * 257,600원</span>
+                    </p>
+                </div>
+            </div>
+            <div class="app-pop">
+                <div class="ard store">
+                    <img src="assets/images/main-apple.png" alt="img" />
+                    <div class="block">
+                        <div class="table">
+                            <div class="inner">
+                                <div class="mar-padd">
+                                    <p>아이폰앱</p>
+                                    <p class="eng"><strong>APP STORE</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="play store">
+                    <img src="assets/images/main-google.png" alt="img" />
+                    <div class="block">
+                        <div class="table">
+                            <div class="inner">
+                                <div class="mar-padd">
+                                    <p>안드로이드앱</p>
+                                    <p class="eng"><strong>GOOGLE PLAY</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>지금 나만의 전용앱을 만들어보세요.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+
+<!--javascript library file-->
+<script src="assets/js/html5shiv.min.js"></script>
+<script src="assets/js/ie-checker-min.js"></script>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/respond.min.js"></script>
+</body>
+</html>

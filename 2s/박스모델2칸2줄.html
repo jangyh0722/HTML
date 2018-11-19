@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>빅스모델 2칸 2줄</title>
+
+    <style>
+        .wrap{
+            width:910px; height:300px; margin:0 auto; background:#ccc;
+        }
+        .wrap > div{
+            width:450px;
+            height:inherit;
+            float:left;
+            text-align:center;
+        }
+        .left{
+            background:#ff0000;
+            line-height:300px;
+            margin-right:10px;
+        }
+        .right{
+            background:#000000;
+        }
+        .right > div{
+            width:inherit;
+            height:150px;
+            text-align:center;
+            line-height:150px;
+        }
+        .top{background:#00ffff;}
+        .bottom{background:#0026ff;}
+
+    </style>
+
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="left">
+            content01
+        </div>
+        <div class="right">
+            <div class="top">
+                top
+            </div>
+            <div class="bottom">
+                bottom
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

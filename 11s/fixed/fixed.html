@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>fixed</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        *{box-sizing:border-box;}
+        html, body{height:100%;}/*해상도를 활용한 컨텐츠 작업을 할때 반드시 필요한 스타일은 최상위 부모요소의 높이를 100%로 지정한 후
+            스타일 작업을 하면 해상도가 바뀐 상태가 되더라도 모든 화면에서 공통으로 적용된 스타일을 유지시킬 수 있음.
+        */
+        body {font-family: 'Open Sans', sans-serif;font-size:15px;}
+        h2{font-size:32px;color:#666;font-weight:100; margin-bottom:20px;}
+        p{color:#999;line-height:19px; margin-bottom:30px;}
+        address{color:#ccc;}
+        header, footer{width:100%;}
+        /*header*/
+        /*
+            레이아웃 설계시 사이즈를 설정하는 방법은 px, %
+            px: 절대값
+            %:상대적인 값
+        */
+        header{
+            background-color:rgba(0,0,0,0.7);
+            position:fixed;
+            border-bottom:5px solid #111111;
+        }
+        .wrap{
+            width:1260px;
+            overflow:hidden;
+            margin:0 auto;
+        }
+        .wrap .logo{
+            float:left;
+            color:#ffd800;
+            text-transform:uppercase;
+            font-size:24px;
+            padding-top:17px;
+        }
+        .wrap .nav{
+            width:auto;
+            float:right;
+        }
+        .wrap .nav li{
+            display:inline-block;
+
+        }
+        .wrap .nav li a{
+            color:#ccc;
+            padding:20px 30px;
+            text-transform:uppercase;
+        }
+        .wrap .nav li a:hover{
+            background-color:#111111; color:#fff;
+        }
+        /*section*/
+
+        
+        
+        /*
+            배경의 공통 속성을 한꺼번에 만들 식별자를 만들고, 각 요소의 다른 부분에 대한 스타일을 만들 식별자를 만듦.
+        */
+        .bg{
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position:center center;
+            background-attachment:fixed;
+            height:100%;
+        }
+        .onebg{background-image:url("images/bg1.jpg");}
+        .twobg{background-image:url("images/bg2.jpg");}
+        .threebg{background-image:url("images/bg3.jpg");}
+        
+        
+        /*본문 컨텐츠 관련 공통 식별자*/
+        .content{
+            padding:50px;
+            overflow:hidden;
+        }
+
+        .content h2{padding-top:3px;}
+        .content a{width:180px; text-align:center; padding:13px 0; background:#000; color:#ccc;}
+        .content a:hover{background:#ccc; color:#000;}
+        .box{width:1260px; margin:0 auto; overflow:hidden;}
+        .box img{float:left; width:300px;}
+        .cont-txt{width:930px; float:right;}
+        /*footer*/
+        footer{background-color:#000; text-align:center; padding:40px 0;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="#" class="logo">
+                <h1>fixed</h1>
+            </a>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Notice</a></li>
+                <li><a href="#">Contents</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+  
+        <div class="bg onebg"></div>
+        <div class="content one-cont">
+            <div class="box">
+                <img src="images/img1.jpg" alt="img" />
+                <div class="cont-txt">
+                    <h2>What is Lorem Ipsum?</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras at egestas leo, at consequat lorem.
+                        Etiam at ligula et nisl maximus commodo.
+                        Subsection Title
+                        Aliquam elit arcu, iaculis vitae hendrerit sed, rutrum quis magna.
+                        Suspendisse iaculis sit amet enim quis interdum.
+                        Quisque fringilla et mauris at sollicitudin. Aenean dictum volutpat elit id varius.
+                        Fusce nec pellentesque arcu, ac dictum ex.
+                        Subsection Title
+                        Sed sagittis ipsum eu purus condimentum accumsan. Pellentesque volutpat porttitor est,
+                        sit amet tincidunt risus vehicula porttitor. Morbi condimentum dapibus fringilla.
+
+                    </p>
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg twobg"></div>
+        <div class="content two-cont">
+            <div class="box">
+                <img src="images/img2.jpg" alt="img" />
+                <div class="cont-txt">
+                    <h2>What is Lorem Ipsum?</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras at egestas leo, at consequat lorem.
+                        Etiam at ligula et nisl maximus commodo.
+                        Subsection Title
+                        Aliquam elit arcu, iaculis vitae hendrerit sed, rutrum quis magna.
+                        Suspendisse iaculis sit amet enim quis interdum.
+                        Quisque fringilla et mauris at sollicitudin. Aenean dictum volutpat elit id varius.
+                        Fusce nec pellentesque arcu, ac dictum ex.
+                        Subsection Title
+                        Sed sagittis ipsum eu purus condimentum accumsan. Pellentesque volutpat porttitor est,
+                        sit amet tincidunt risus vehicula porttitor. Morbi condimentum dapibus fringilla.
+
+                    </p>
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg threebg"></div>
+  
+    <footer>
+        <address>Copyright Web Design Html5+CSS3 Co.,Ltd. All Rights Reserved.</address>
+    </footer>
+</body>
+</html>

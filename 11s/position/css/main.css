@@ -1,0 +1,230 @@
+@charset "utf-8";
+/* CSS Document */
+
+		
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+		@import url('https://fonts.googleapis.com/css?family=Alex+Brush');
+		
+		body{
+				font-size:0.875em;
+				color:#666;
+				letter-spacing:1px;
+				line-height:21px;
+				font-weight:normal;	
+		}
+		img{
+				border:0;
+				display:block;	
+		}
+		/*total width*/
+		.row-layout{
+				width:100%;	
+		}
+		
+		/*header layout style*/
+		#header{
+				background-image:url("../images/hero.jpg");	
+				background-repeat:no-repeat;
+				background-position:center bottom;
+				-webkit-background-size:cover;
+				-moz-background-size:cover;
+				-ms-background-size:cover;
+				-o-background-size:cover;
+				background-size:cover;
+				width:100%;
+				height:700px;
+		}
+		#header > .content{
+				width:inherit;
+		}	
+		#header > .navi{
+				width:inherit;
+				height:70px;
+				background-color:#bfd9f2;	
+		}
+		#header > .navi > .content-row{
+				width:1000px;
+				height:inherit;
+				position:relative;
+				margin:0 auto;		
+		}
+		#header > .navi > .content-row .logo{
+				position:absolute;
+				top:28px;/*
+				top:28px이 나온 이유?
+				(현재 전체 높이는 70px-로고의 높이는 14px)/2=28px을 수직의 값으로 적용.
+				*/
+				left:0;	
+		}
+		#header > .navi > .content-row > ul.nav{
+				width:800px;
+				float:right;
+				overflow:hidden;
+				height:40px;	
+				margin-top:15px;/*(전체 높이 70px-ul의 높이40px)/2*/
+				/*background-color:#FC0;*/
+		}
+		#header > .navi > .content-row > ul.nav li{
+				float:right;
+				height:inherit;
+				text-align:center;
+				line-height:39px;	
+		}
+		#header > .navi > .content-row > ul.nav li a{
+				display:block;
+				padding:0 20px;
+				font-size:0.9375em;
+				color:#fff;
+		}
+		#header > .navi > .content-row > ul.nav li a.action{
+				border:1px solid #fff;
+				box-sizing:border-box;
+				height:39px;	
+		}
+		#header > .caption{
+				text-align:center;	
+		}
+		#header > .caption > h1.maintitle{
+				font-size:5em;
+				color:#fff;	
+				font-family: 'Alex Brush', cursive;
+				font-weight:100;
+				padding:280px 0 20px;
+		}
+		#header > .caption > h4.mainsub-title{
+				font-size:1em;
+				color:#fff;	
+				font-family: 'Open Sans', sans-serif;
+				font-weight:100;
+		}
+		
+		/*section layout style*/
+		#section{ padding-bottom:60px;}
+		#section > .search-line{
+				width:inherit;
+				height:100px;
+				background-color:#bfd9f2;		
+		}
+		.set-row{
+				width:1000px;
+				margin:0 auto;	
+		}
+		.setone > h2.sea-title{
+				font-size:2em;
+				color:#fff;
+				float:left;
+				font-family: 'Open Sans', sans-serif;
+				font-weight:100;
+				padding-top:38px;/*화면구조에서 확인후 임의의 값을 적용한 부분*/
+		}
+		.setone > .fa{/*웹 아이콘 스타일 부분*/
+				float:right;
+				font-size:2.5em;
+				color:#9FBEE3;
+				padding-top:32px;/*화면구조에서 확인후 임의의 값을 적용한 부분*/
+		}
+		#section > .settwo{
+				padding:60px 0 40px;			
+		}
+		.settwo > .gall-list{
+				width:inherit;
+				overflow:hidden;	
+		}
+		.settwo > .gall-list li.pic-list{
+				width:310px;
+				float:left;
+				position:relative;	
+				margin-right:20px;
+				margin-bottom:20px;
+		}
+		.settwo > .gall-list li.pic-list:last-child{
+				margin-right:0;	
+		}
+		.settwo > .gall-list li.pic-list span{/*이미지위에 span을 띄우는 스타일*/
+				position:absolute;
+				top:7px;
+				left:7px;
+				display:block;/*span이 대표적인 인라인레벨요소이므로 속성 변경해준 부분*/
+				background-color:#fff;
+				padding:3px 8px;
+				font-size:0.8125em;/*13px*/
+		}
+		.settwo > .gall-list li.pic-list .pic-block{
+				border:1px solid #f3f3f3;
+				border-top:0;
+				box-sizing:border-box;	
+		}
+		.settwo > .gall-list li.pic-list .pic-block > h4{
+				color:#666;
+				font-size:0.875em;/*14px*/
+				padding:20px 0 10px 10px;	
+		}
+		.settwo > .gall-list li.pic-list .pic-block > p{
+				color:#0CC;
+				font-size:0.75em;/*12px*/
+				padding:0 0 20px 10px;	
+		}
+		#section .view-btn{
+				margin:0 auto;
+				width:220px;
+				height:60px;
+				text-align:center;
+				line-height:60px;
+				/*background-color:#FC0;*/
+				-webkit-border-radius:50px;
+				-moz-border-radius:50px;
+				-ms-border-radius:50px;
+				-o-border-radius:50px;
+				border-radius:50px;
+				border:1px solid #bfd9f2;	
+		}
+		#section .view-btn a{
+				display:block;
+				color:#bfd9f2;		
+		}
+		
+		
+		/*footer layout style*/
+		#footer{
+				background-color:#bfd9f2;	
+				padding:60px 0 30px;
+		}
+		.foot-content-list{
+				width:1000px;
+				margin:0 auto;
+				overflow:hidden;
+				border-bottom:1px solid #82abd4;
+				padding-bottom:40px;
+		}
+		.foot-content-list > div{
+				float:left;	
+				width:180px;
+		}
+		.foot-content-list > div:last-child{
+				width:460px;	
+		}
+		ul.foot-col li{
+				margin-bottom:10px;	
+		}
+		ul.foot-col li a{
+				color:#fff;
+				font-size:0.875em;/*14px*/
+				font-family: 'Open Sans', sans-serif;
+		}
+		.foot-info-txt > p{
+				color:#fff;
+				font-size:0.875em;/*14px*/
+				font-family: 'Open Sans', sans-serif;
+				padding-bottom:15px;	
+		}
+		.foot-info-txt > .fa{
+				color:#FFF;
+				margin-right:10px;	
+		}
+		address{
+				text-align:center;
+				color:#fff;
+				font-size:0.875em;/*14px */
+				font-family: 'Open Sans', sans-serif;
+				padding-top:15px;	
+		}

@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>The GYM[센터소개]</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        html {
+            font-size: 100%
+        }
+        /*16px*/
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 14px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 100;
+        }
+
+        .eng {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .row {
+            width: 100%;
+        }
+        /*header*/
+        /*section*/
+        .banner{
+            position:relative;
+            
+        }
+        .ban-caption {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 25px;
+            font-weight: 100;
+            font-style: italic;
+            width: 100%;
+            text-align: center;
+        }
+
+        .wid{
+            width:60%; margin:auto;
+        }
+        .centermain h3{font-size:1.5rem; font-style:italic; color:#333; padding:10.41666666666667% 0 2.083333333333333%}
+        .centermain img{width:100%;}
+        /*footer*/
+        /*media style*/
+        @media screen and (max-width:1440px) {
+        }
+        @media screen and (max-width:1280px) {}
+        @media screen and (max-width:960px) {}
+        @media screen and (max-width:768px) {}
+        @media screen and (max-width:480px) {}
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div class="header row">
+        <div class="top-gnb header-row">
+            <ul class="gnb">
+                <li>
+                    <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span>070-1234-1234</span>
+                </li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </div>
+        <!--로고와 주메뉴 그리고 반응형 햄버거 버튼(toggle)-->
+        <div class="top-main header-row">
+            <div class="top">
+                <a href="index.html" class="logo">
+                    <img src="assets/common/logo1503029668.png" alt="logo" />
+                </a>
+                <!--toggle btn-->
+                <label for="toggle" onclick="">&equiv;</label>
+                <input type="checkbox" id="toggle" />
+                <!--//toggle btn-->
+                <ul class="nav">
+                    <li><a href="centerinfo.html">센터소개</a></li>
+                    <li><a href="#">프로그램</a></li>
+                    <li><a href="traning.html">트레이너</a></li>
+                    <li><a href="#">세일 &amp; 프로모션</a></li>
+                    <li><a href="#">커뮤니티</a></li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+    <!--section-->
+    <div class="section row">
+        <div class="content banner">
+            <img src="assets/images/senterInfo/main-bg.jpg" alt="banner"/>
+            <div class="ban-caption">
+                <h3>
+                    <span>당신의 라이프스타일을</span> 
+                    <span>더욱 건강하게 만듭니다.</span>
+                </h3>
+            </div>
+        </div>
+        <div class="centermain wid">
+            <h3>센터소개</h3>
+            <img src="assets/images/senterInfo/sub1_1img11508896034.jpg" alt="img"/>
+        </div>
+         
+        
+    </div>
+    <!--footer-->
+    <div class="footer row">
+        <div class="foot-content">
+            <a href="#" class="bot-logo">
+                <img src="assets/common/logo1503029668.png"alt="logo" />
+            </a>
+            <div class="foot-admin">
+                <div class="fot-nav">
+                    <a href="#" class="left">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                </div>
+                <div class="copyright">
+                    <p>
+                        <span class="eng">The Gym.</span> 대표: 홍길동	 서울특별시 강남구 역삼동 858 (강남역) 123-123  고객센터: 070-1234-1234
+                    </p>
+                    <p>
+                        사업자등록번호: 000-00-00000    
+                    </p>
+                    <p>
+                        &copy;Copyright The Gym. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--javascript library file-->
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/ie-checker-min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/respond.min.js"></script>
+</body>
+</html>

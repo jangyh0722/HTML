@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>미디어쿼리 이해하기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        /*
+            960그리드는 반응형과 부트스트랩의 기준 레이아웃.
+            줄:row(960px), container, content
+            칸:cols(한 칸 당 넓이60px이 12개 있는 구조)
+            여백:margin(
+
+            화면에 칸을 표현할 때 화면에 나타날 칸의 갯수 +1(부모레이아웃)
+            칸과 칸 사이에 여백을 만들때: 화면에 보이는 칸의 갯수 -1(맨 마지막에 있는 구조의 여백을 빼준다.)
+
+            -960그리드의 특징
+            칸과 칸 사이에 여백은 좌측과 우특에 무조선 10px이 들어와 있음.
+            첫번째 칸은 왼쪽 마진이 10px, 마지막 칸은 오른쪽 마진이 10px
+            각각의 칸과 같 사이의 여백은 20px
+        */
+        div {
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        .row{
+            width:70%;/*가장 큰 부모의 넓이는 사용자가 임의의 넓이를 적용*/
+            height:300px;
+            margin:auto;
+            background-color:#000;
+            padding:10px 0;
+        }
+        .col { /*
+                 width:60px 
+                 가변그리드=(가변그리드를 적용할 박스/가변그리드를 적용할 박스를 감싸고있는 부모넓이)*100
+                 가변마진=(가변마진을 적용할 박스의 마진값/가변마진을 적용할 박스의 부모넓이)*100
+             */
+            width: 6.25%; /*박스의 px넓이는*/
+            height: 300px;
+            margin: 0 1.041666666666667%;
+            background-color: #ff0000;
+            float: left;
+        }
+        
+        @media screen and (max-width:960px){
+            .row{height:110px;}
+            .col{
+                /*
+                    여백값은 처음 시작된 그리드 값과 똑같기 때문에 넓이 칸 넓이 계산 시 
+                    전체 실제 넓이는 940px을 기준으로 계산을 하면 됨.
+                    2줄에 6칸 구조를 만들때 여백은 위에서 적용된 여백값과 동일하므로
+                    넓이만 가변그리드로 적용하면 됨
+                    이때 6칸의 넓이는 140px;
+                */
+                width:14.58333333333333%; 
+                height:50px;
+            }
+            .l-bot{margin:10px;}
+        }
+        @media screen and (max-width:768px){
+            /*4줄에 3칸의 구조로 만들기
+                칸의 넓이는 칸과 칸 사이에 있는 마진 값을 제외하고 칸의 넓이를 구하는데 초점
+                칸 넓이(940-여백값40px/3=300px)
+                칸의 가변 그리드 값:300px/960*100=31.25%
+            */
+            .row{height:230px;}
+            .col{width:31.25%; height:50px;}
+            .m-bot{margin-bottom:10px;}
+        }
+        @media screen and (max-width:480px){
+            /*
+                row의 높이는 사용자가 지정하는 임의의 높이
+                .row의 높이를 710으로 설정한 이유는 자식의 높이를 50px
+                (12*50)+(10*11)
+            */
+            .row{height:710px;}
+            .col{width:97.91666666666667%; float:none;}
+            .s-bot{margin-bottom:10px;}
+        }
+    </style>
+</head>
+<body>
+    <!--
+        960그리드를 이용한 가변그리드와 가변마진 설정하기
+        960:2줄에 6칸 구조(l-bot)
+        768:4줄에 3칸(m-bot)
+        480:1줄에 12칸 구조(s-bot)
+    -->
+    <div class="row">
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col m-bot s-bot"></div>
+        <div class="col m-bot s-bot"></div>
+        <div class="col m-bot s-bot"></div>
+        <div class="col s-bot"></div>
+        <div class="col s-bot"></div>
+        <div class="col s-bot"></div>
+    </div>
+</body>
+</html>

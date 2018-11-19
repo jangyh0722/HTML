@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>미디어쿼리 이해하기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        body {font-family: 'Montserrat', sans-serif;}
+        .eng {font-family: 'Dancing Script', cursive; }
+        /*
+            공통 스타일 적용시 활용되는 방법으로 선택자와 선택자 사이에 쉼표로 표기
+            쉼표를 빼는 순간 후손선택자로 바뀜
+        */
+        .box, .box2{width:70%; margin:auto;}
+        .box{position:relative;}
+        /*
+            가상선택자 bofore를 이용한 box의 높이를 가변패딩으로 만들어줌
+
+            -해상도가 변해도 화면에 스크롤 없이 수평수직의 100%로 컨텐츠를 보여지는
+            레이아웃을 설계 시 height:100%를 주더라도 div 의 높이는 100%를 채울 수 없음
+            100%를 자식요소한테 적용하기 위해서는 나보다 상위요소의 높이가 
+            정해져 있어야 하기 때문에 높이에 대한 %문제가 발생될 수 있음.
+            이때 해결 할 수 있는 방법은 html, body:height:100%; 상위 요소에게 미리 높이의
+            값을 지정해 놓고 적용하는 방식으로 문제를 해결할 수 있음
+            그래서 아래와 같은 부분은 height가 적용되지 못하기 때문에
+            방법은 아래와 같이 가상선택자를 이용한 공식으로 대응할 수 있음.
+            ->가변크기로 적용할 박스를 감싸고 있는 부모박스에게 포지션을 적용하고,
+            가상선택자를 이용해서 높이를 paddign-top으로 만들어주는 방법을 씀.
+            (적용할 px의 높이 / 960px) * 100=padding-top의 값으로 적용.
+
+            -가변크기로 적용한 박스 안에서의 컨텐츠 위로는 table과 table-cell을 이용해서 수직의 중앙으로 맞출 수 있음.
+
+            -이미지 위에 올라가는 컨텐츠나 이미지 단독으로 사용되는 컨텐츠는 div 자체가 반응형 구조로 자동으로 
+            만들어지지만 지금과 같이 아무것도 없는 텍스트만으로 이루어진 구조에서 비율대로 줄이기 위해서는 현재와 같은
+            공식을 대입하여 만드는 것이 효과적.
+            배경이미지를 활용한 부분에서도 효과적으로 반응형 div를 대응할 수 있음.====외우기====
+        */
+        .box:before{
+            content:"";
+            display:block;
+            /*높이가 400px이라고 가정했을때의 패딩 값*/
+            padding-top:41.66666666666667%;
+        }
+        .content, .content2{
+            position:absolute;
+            width:50%;
+            height:100%;
+            text-align:center;
+        }
+        .content{
+            background-color:#ffd800;
+            top:0;
+            left:0;
+        }
+        .content2 {
+            background-color: #4cff00;
+            top: 0;
+            right: 0;
+        }
+        .outer{display:table; width:100%;height:100%;}
+        .inner{display:table-cell;vertical-align:middle;}
+        .box2{background-color:#999; text-align:center; padding:30px 0; color:#fff;}
+        @media screen and (max-width:768px){
+            .box:before{
+            content:"";
+            display:block;
+            /*
+                높이가 800px이라고 가정했을때의 패딩 값
+                (높이800px / 960px)*100
+            */
+            padding-top:83.33333333333333%;
+        }
+            .content, .content2{/*부모안에서의 넓이는 100%를 지정하고 높이는 반인 50%를 지정하여 
+                                    768일 때는 블럭인 구조로 변경
+                                */
+            width:100%;
+            height:50%;
+        }
+
+        .content2 {/*
+                       top:50%로 맞춘 이유는 두개의 박스는 768일 경우 부모안에서 블럭인 구조로 높이는 
+                       각각 반을 차지하게 되는 구조로 변경할 예정인데 위에서 작업한 포지션 좌표를 
+                       유지하게 되면 하나의 블럭은 화면에 나타나지 않고 가려지게 됨. 첫번째 블럭의 높이만큼을 
+                       포지션 좌표로 설정하게 되면 2개의 블럭구조인것처럼 만들수 있음, 그래서 첫번째 div의 
+                       높이가 50%이기때문에 높이만큼의 수치를 top의 값으로 대입해줌
+
+                   */
+            top: 50%;
+            right: 0;
+        }
+        }
+    </style>
+</head>
+<body>
+    <!--
+        ul안에 li를 수평구조로 만드는데 높이도 지정하지 말고 overflow:hidden도 적용하지 않은 구조의 상태를 확인
+        포지션 적용 시 부모박스 position:relative 자식:position:absolute를 적용한 상태.
+        -> 요소 검사 시 구조의 특징은 둘 다 같다.(부모의 높이가 0)
+
+       1.  ul li구조에서 float을 사용하면 부모의 높이는 0이 되는데 해결책
+        ->부모의 높이 지정
+        (컨텐츠가 많아지면 부모의 높이를 컨텐츠 높이만큼 확장시켜줘야 함, 컨텐츠의 구조가 많이 않을때 적용하는 방법)
+        ->overflow:hidden;
+        ->가상선택자 before를 이용해 부모 전에 가상의 박스를 만들고 부모의 높이인것 처럼 만드는 방법.
+        (고정높이가 아니라 가변높이로 들어옴.)
+
+        2. 부모영역에서 포지션 적용시 부모박스의 높이가 0이 되는데 해결책
+        ->부모의 높이 지정
+        ->자식의 높이만큼 투명이미지를 만들어서 높이인것 처럼 만드는 방법
+        (반응형에서 이미지는 가변그리드는 통상 
+        -max-width(이미지 실사이즈):작은 컨텐츠의 정렬이나 해상도가 좋지 않지만, 구조 안에서 사이즈를 키우지 않으면 쓸 수 
+        있을 정도의 컨텐츠라면 되도록 max-width로 이미지 사이즈를 설정하는게 좋음, 쇼핑몰에서의 상품의 경우.
+           -주의사항:디자인 슬아이스 경우 높이는 되도록 맞춰여한다.
+        -width:100%;:부모박스 안에서 이미지 전체를 늘려서 활용할 때
+        -구조 안에서 background-image 활용시 이미지가 들어간 영역의 사이즈가 이미지 넓이보다 클 경우
+        background-size:cover; 또는 100%사용
+
+        3.가상선택자 before를 이용한 가변패딩을 주는 방법.
+        현재 박스안에 두 개의 컨텐츠 수평으로 보여줄 예정이고, 가변적 크기를
+        유지하는 방법으로 화면에 설계할 예정.
+        컨텐츠의 높이는 400px이라고 설정함.
+    -->
+    <div class="box">
+        <div class="content">
+            <div class="outer">
+                <div class="inner">
+                    <p>가상선택자를 이용한 비율맞추기</p>
+                </div>
+            </div>
+        </div>
+        <div class="content2">
+            <div class="outer">
+                <div class="inner">
+                    <p>가상선택자를 이용한 비율맞추기</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box2">
+        <div class="box-txt">
+            <p>컨텐트 영역입니다. </p>
+        </div>
+    </div>
+</body>
+</html>

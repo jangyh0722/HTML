@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>La Casa</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+        /*
+            해상도를 활용한 컨텐츠 작업을 할때 반드시 필요한 스타일은 최상위 부모요소의 높이를 100%로 지정한 후
+            스타일 작업을 하면 해상도가 바뀐 상태가 되더라도 모든 화면에서 공통으로 적용된 스타일을 유지시킬 수 있음.
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        */
+        body {font-family: 'Open Sans', sans-serif;font-size:14px;}
+        *{box-sizing:border-box;}
+        html, body{height:100%;}
+        .title{font-family: 'Great Vibes', cursive;}
+        .row{width:100%;}
+        /*header*/
+        /*
+            메뉴와 로고를 높이 지정없이 여백을 활용한 방법으로 높이를 만들기
+            1. main-top을 이용한 로고와메뉴를 수평의 중앙에 위피시킨다.(main-to)
+            2. float을 활용해서 로고와 메뉴를 수평에 왼쪽과 오른쪽에 위치시킨다.
+            3. 메뉴를 수평으로 만들고 메뉴의 앵커를 이용해서 각각의 li의 영역을 확장시킴.
+            4. 요소검사를 해서 전체 헤더의 높이값을 구한 후 로고의 높이를 헤더의 중앙으로 맞춘다.
+            5. 가장 큰 구조인 헤더 또는 main-top을 padding의 top과 bottom을 이용해서 높이를 만들어준다.
+        */
+        .header{
+            background-color:#c6c6c6;
+            position:fixed;
+            z-index:999;
+        }
+        .main-top{width:1010px; margin:0 auto; overflow:hidden; padding:20px 0;}
+        /*
+            헤더의 높이는 자식의 전체 여백을 넣은 후 검사를 통해 확인 결과 40px 이라는 값을 확인할 수 있었음,
+            이때 로고의 위치를 현재 헤더의 높이 중앙으로 정렬하려면 다음과 같은 계산을 통해 맞출 수 있음
+            (헤더의 높이 - 로고 이미지의 높이)/2
+        */
+        .main-top .logo{float:left; padding-top:13px;}
+        .main-top .nav{width:auto; float:right;}
+        .main-top .nav li{display:inline-block;}
+        .main-top .nav li:last-child{border: 1px solid #fff;}
+        .main-top .nav li a{font-size:16px; color:#fff; padding:12px 25px;}
+        .main-top .nav li a:hover{
+            background-color:rgba(255,255,255,0.3);
+            color:#333;
+        }
+        /*main banner와 메인 타이틀 맞추기*/
+        .section {}
+        .sub-ban {
+            display: table;
+            width: 100%;
+            height: 604px;
+            background-image: url("about/sub-title-bg.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            margin-bottom: 130px;
+        }
+        .suv-banner {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            
+        }
+        .sub-ban h2{color:#fff; font-size:75px; font-weight:100; }
+        .sub-ban p{color:#fff; padding-top:25px;}
+
+        .more{width:1010px; margin:0 auto;overflow:hidden; margin-bottom:180px;}
+        .more img{display:inline-block; float:right;}
+        .more-txt{width:50%; float:left; margin-top:30px;}
+        .more-txt li:nth-child(1) p{color:#c7c7c7; font-weight:600; line-height:25px; margin-bottom:30px;}
+        .more-txt li:nth-child(2) p{color:#000; font-weight:600; margin-bottom:30px;}
+        .more-txt li:nth-child(3) p{color:#000; margin-bottom:30px;}
+        .more-txt li:nth-child(4) a{color:#fff; background-color:#000; display:inline-block; padding:10px 15px;}
+
+        .london{width:1010px; margin:0 auto; overflow:hidden; margin-bottom:60px; }
+        .london > p{font-size:20px; font-weight:600; margin-bottom:40px;}
+        .london-txt li{display:inline-block; float:left; margin-right:36px;}
+        .london-txt li:nth-child(3){margin-right:0;}
+        .london-txt p{margin:20px 0; color:#c7c7c7; font-size:12px;}
+        .london-txt{overflow:hidden; margin-bottom:30px;}
+
+        .london-txt-bott{background-color:#dbdbdb;}
+        .london-txt-bott p{padding:30px 0 0 30px; width:90%; color:#626262; font-weight:600;}
+        .london-txt-bott p:last-child{padding-bottom:30px;}
+
+
+        .desti{width:1010px; margin:0 auto; overflow:hidden;}
+        .desti > p{font-size:20px; font-weight:600; margin-bottom:40px;}
+        .desti-txt li{border: 1px solid #dcdcdc; width:490px; float:left; margin-right:30px; margin-bottom:10px;}
+        .desti-txt li img{display:inline-block; float:left;}
+        .desti-txt .le-ma{margin-right:0;}
+
+
+        /*footer*/
+        .footer {
+            background-color: #96b9df;
+            padding-top: 80px;
+            margin-top:120px;
+        }
+        .foot-cont{width:1010px; margin:0 auto;}
+        .foot-nav{overflow:hidden; width:inherit; padding-bottom:40px;}
+        .foot-nav ul, .foot-nav .foot-info{width:252.5px; float:left;}
+        .foot-nav ul li{width:200px;}
+        .foot-nav ul li a{color:#fff; padding:5px 0;}
+        .foot-nav ul li a:hover{
+            background-color:rgba(255,255,255,0.3);
+            color:#0676ff;
+            padding-left:10px;
+        }
+        .foot-nav .foot-info p{color:#fff;}
+        .foot-nav .foot-info:nth-of-type(1){line-height:17px; margin-bottom:12px;}
+        .foot-nav .foot-info:nth-of-type(2) .fa{font-size:18px; padding:0 5px;}
+        .foot-copy{
+            padding:40px 0;
+            border-top:1px solid #81abd5;
+            text-align:center;
+            color:#fff;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class=" header row">
+        <div class="main-top">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="logo" />
+            </a>
+            <ul class="nav">
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">Rent</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sub-ban row">
+        <div class="suv-banner">
+            <h2 class="title">
+                Find You Dream Home
+            </h2>
+            <p>Appartements - Houses - Mansions</p>
+        </div>
+    </div>
+    <div class="section row">
+        <div class="more">
+            <ul class="more-txt">
+                <li><p>Reporting Instances of Intellectual Property Violations<br />
+                    NOTE: This policy addresses copyright and trademark concerns <br />
+                    relating to content accessible on or through Yahoo’s Services, <br />
+                    other than Bing search results. For copyright or trademark concerns <br />
+                    about search results powered by Bing (including, but not limited to, <br />
+                    Sponsored Listings and Ads results), please click on the relevant</p></li>
+                <li><p>To start an infinite amount of hosting the world of opportunity opens!</p></li>
+                <li><p>Free space on the house guest and generate to share revenue.</p></li>
+                <li><a href="#">MORE</a></li>
+            </ul>
+            <img src="about/banner.jpg" />
+        </div>
+        <div class="london">
+            <p>London accommodation</p>
+            <ul class="london-txt">
+                <li>
+                    <img src="about/interior01.jpg" />
+                    <p>
+                        \79231 A private room located in London.<br /><br />
+                        ★★★★★ Of the 382
+                    </p>
+                </li>
+                <li><img src="about/interior02.jpg" />
+                    <p>
+                        \79231 A private room located in London.<br /><br />
+                        ★★★★★ Of the 382
+                    </p></li>
+                <li><img src="about/interior03.jpg" />
+                    <p>
+                        \79231 A private room located in London.<br /><br />
+                        ★★★★★ Of the 382
+                    </p></li>
+            </ul>
+
+            <div class="london-txt-bott">
+                <p>
+                    Reporting Instances of Intellectual Property Violations
+                </p>
+                <p>
+                    NOTE: This policy addresses copyright and trademark concerns relating to
+                    content accessible on or through Yahoo’s Services, other than Bing search results.
+                    For copyright or trademark concerns about search results powered by Bing (including, but
+                    not limited to, Sponsored Listings and Ads results), please click on the relevant sections
+                    under Resources to contact Microsoft directly.
+                </p>
+                <p>
+                    Yahoo responds to effective and complete notices of intellectual property violations
+                    that provide specific information for us to identify and locate the allegedly infringing
+                    materials. In appropriate instances, we will remove allegedly infringing materials.
+                    Upon review, we may decline to remove allegedly infringing materials ? for example, if we determine
+                    they are not infringing, if we lack adequate information to determine that they are infringing,
+                    if we are unable to find the accused materials, or if the materials are protected by the fair use
+                    doctrine, among other reasons.
+                </p>
+                <p>
+                    Please note, under the Digital Millennium Copyright Act (“DMCA”), section 512(f), any person
+                    that knowingly materially misrepresents that activity is infringing may be liable for damages,
+                    including costs and attorney’s fees. If someone has posted your original work (for example, a photo you took,
+                    or an article you wrote) without your permission, you may want to seek legal guidance to find out if your
+                    intellectual property rights have been infringed. Yahoo is unable to provide you with legal advice regarding
+                    copyright, trademark or other intellectual property matters.
+                </p>
+                <p>
+                    Copyright Notices
+                </p>
+                <p>
+                    If you believe that work residing or accessible on or through Yahoo’s Services infringes a copyright,
+                    please send a notice of copyright infringement to Yahoo's Agent for Notice with the following information
+                    (your “Notice”):
+                </p>
+                <p>
+                    Identification of the work or material that you claim has been infringed. If this material exists online,
+                    please provide a URL. Identification of the material that is claimed to be infringing,
+                    including its location on the Yahoo network, with sufficient detail so that Yahoo is capable of finding the
+                    material and verifying its existence (e.g., in most circumstances, we will need a URL). Contact information,
+                    including your name, address, telephone number, and email address. A statement by you that you have a good
+                    faith belief that the disputed use is not authorized by the copyright owner, its agent or law. A statement
+                    by you that the above information in your Notice is accurate and that, under penalty of perjury, you are the
+                    copyright owner or authorized to act on the copyright owner’s behalf. A physical or electronic signature of
+                    the owner of the copyright that has been allegedly infringed or a person authorized to act on behalf of the owner.
+
+                </p>
+            </div>
+        </div>
+
+        <div class="desti">
+            <p>More destinations</p>
+
+            <ul class="desti-txt">
+                <li>
+                    <a href="#">
+                        <img src="about/sm-pic01.jpg" />
+                        <p>Singapore</p>
+
+                        <p>
+                            Singapore
+
+                            75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                        </p>
+                    </a>
+                </li>
+                <li class="le-ma"><a href="#"><img src="about/sm-pic02.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+                <li><a href="#"><img src="about/sm-pic03.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+                <li class="le-ma"><a href="#"><img src="about/sm-pic04.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+                <li><a href="#"><img src="about/sm-pic05.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+                <li class="le-ma"><a href="#"><img src="about/sm-pic06.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+                <li><a href="#"><img src="about/sm-pic07.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+                <li class="le-ma"><a href="#"><img src="about/sm-pic08.jpg" />
+                    <p>Singapore</p>
+
+                    <p>
+                        Singapore
+
+                        75 hostels, 49 apartments, 20 capsule hotels, 12 resorts, 1 boat
+                    </p></a></li>
+
+            </ul>
+        </div>
+
+
+    </div>
+    
+    <div class="footer row">
+        <div class="foot-cont">
+            <div class="foot-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Appartements</a></li>
+                    <li><a href="#">Houses</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Mansions</a></li>
+                    <li><a href="#">...</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">New York</a></li>
+                    <li><a href="#">Los Anglos</a></li>
+                    <li><a href="#">Miami</a></li>
+                    <li><a href="#">Washington</a></li>
+                    <li><a href="#">...</a></li>
+                </ul>
+                <div class="foot-info">
+                    <p>
+                        La Casa is real estate minimal html5 website template, 
+                        designed and coded by pixelhint, tellus varius, 
+                        dictum erat vel, maximus tellus. 
+                        Sed vitae auctor ipsum
+                    </p>
+                    <p>
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <i class="fa fa-glide-g" aria-hidden="true"></i>
+                        <i class="fa fa-html5" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="foot-copy">
+                <address>Copyright ⓒ 2015 Pixelhint.com. All Rights Reserved.</address>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

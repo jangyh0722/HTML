@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Responsiv Web</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        html{font-size:14px;}
+        body{
+            font-family: 'Montserrat', sans-serif;
+            background-color:#d4ebff;
+        }
+        .eng {font-family: 'Dancing Script', cursive; }
+        .rows{width:70%; margin:auto;}
+
+        .header{overflow:hidden;}
+        .logo{width:17%;float:left;}
+        .nav {float:right;}
+        .nav li{display:inline-block;}
+        .nav li a{color:#000; font-size:14px; font-weight:600; padding:13.5px 20px;}
+        .nav li:last-child a{padding-right:0;}
+
+        .section{overflow:hidden;}
+        .banner{position:relative;}
+        .banner-txt h3, .banner-txt h4, .banner-txt h1, .banner-txt p {
+            position: absolute;
+            font-weight: 100;
+            color: #fff;
+            width: 100%;
+            text-align:center;
+            left: 50%;
+            -webkit-transform:translateX(-50%);
+            -moz-transform:translateX(-50%);
+            -o-transform:translateX(-50%);
+            transform:translateX(-50%);
+        }
+        .banner-txt h1{
+            font-size:60px;
+            top:50%;
+        }
+        .banner-txt h3 {
+            font-size: 20px;
+            top: 10%;
+        }
+        .banner-txt h4 {
+            font-size: 15px;
+            top: 40%;
+        }
+        .banner-txt p {
+            font-size: 14px;
+            top: 70%;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            padding: 15px 0;
+            width: 18%;
+            color: #fff;
+            text-align:center;
+        }
+        .section .banner img{width:100%;}
+        .mid-banner li{margin:1.041666666666667% 0;}
+        .mid-banner li {
+            width: 49.47916666666667%;
+            padding: 15.625% 0;
+            text-align: center;
+            color: #fff;
+        }
+        .mid-banner li:first-child{background-color:#ffdcb2; float:left;}
+        .mid-banner li:last-child{background-color:#808080; float:right;}
+        .outer{display:table; width:100%;height:100%;}
+        .inner{display:table-cell;vertical-align:middle;}
+        .inner .btn{
+            font-size: 14px;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            padding: 15px 0;
+            width: 36%;
+            font-weight: 100;
+            color: #fff;
+            text-align:center;
+            position:relative;
+            left: 50%;
+            -webkit-transform:translateX(-50%);
+            -moz-transform:translateX(-50%);
+            -o-transform:translateX(-50%);
+            transform:translateX(-50%);   
+        }
+
+        .inner:first-child p{margin:20px 0; }
+        .bot-banner li img{
+            width:24.21875%; 
+            float:left;
+            margin: 0 0.5208333333333333%;
+        }
+        .bot-banner li:first-child img {margin-left: 0;}
+        .bot-banner li:last-child img {margin-right: 0;}
+
+
+
+        .footer{width:100%; background-color:#e8fafe; margin-top:100px; padding:50px 0;}
+        .foot-top{overflow:hidden; margin-bottom:100px;}
+        .foot-nav{float:left;}
+        .foot-nav li{display:inline-block;}
+        .foot-nav li a{color:#000; font-size:16px;font-weight:600; padding-right:24px;}
+        .foot-sns{float:right;}
+        .foot-sns li{display:inline-block;}
+        .foot-sns li a{color:#000; font-size:16px;font-weight:600; padding-left:24px;}
+
+        .foot-by, .foot-add{
+            display:inline-block;
+        }
+        .foot-add{width:68%;}
+        .foot-by{width:30%; text-align:right;}
+
+
+
+        @media screen and (max-width:960px) {
+        .rows{width:90%;}
+        .logo {float:none; width:25%; margin:auto;}
+        .nav {
+            float:none;
+            margin:auto;
+            text-align:center;
+        }
+        .mid-banner {margin:1.041666666666667% 0;}
+        .mid-banner li {
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+        .mid-banner li:first-child{background-color:#ffdcb2; float:none;}
+        .mid-banner li:last-child{background-color:#808080; float:none;}
+
+         .bot-banner li img{
+            
+            width:49.47916666666667%; 
+            margin: 0.5208333333333333% 0.5208333333333333%;
+        }
+         .bot-banner li:nth-child(1) img{ margin-top:0;}
+         .bot-banner li:nth-child(2) img{margin-right:0; margin-top:0}
+         .bot-banner li:nth-child(3) img{margin-left:0;}
+         .bot-banner li:last-child, .bot-banner li:nth-child(3) img{margin-bottom:0; }
+
+         .foot-nav{float:none; text-align:center;}
+         .foot-sns{float:none; text-align:center; margin-top:40px;}
+
+        .foot-add{width:100%; text-align:center;}
+        .foot-by{width:100%; text-align:center; margin-top:50px;}
+        }
+        @media screen and (max-width:768px){
+            
+        }
+        @media screen and (max-width:480px){
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="header rows">
+            <div class="logo"><a href="#"><img src="Prism-Assets/logo.png" /></a></div>
+            <ul class="nav">
+                <li><a href="#">ARCHITECTURE</a></li>
+                <li><a href="#">TRAVEL</a></li>
+                <li><a href="#">ART</a></li>
+                <li><a href="#">FOOD</a></li>
+            </ul>
+    </div>
+    <div class="section rows">
+        <div class="banner">
+            <img src="Prism-Assets/hero.jpg" />
+            <div class="banner-txt">
+                <h3>EDITOR’S CHOICE</h3>
+
+                <h4>Sebastian Weiss</h4>
+
+                <h1>URBAN STROKES</h1>
+                <p class="btn">Read more</p>
+            </div>
+        </div>
+            <ul class="mid-banner">
+                <li class="outer">
+                    <div class="inner">
+                        <h2>INSPIRING READS</h2>
+                        <p>The future is in lightening our footprints and brightening our lives.</p>
+                        <p class="btn">Read more</p>
+                    </div>
+                </li>
+                <li class="outer">
+                    <div class="inner">
+                        <h2>REFLECTIONS</h2>
+                        <p>Stylish ways to bounce the heat off a roof and the planet.</p>
+                        <p class="btn">Read more</p>
+                    </div>
+                </li>
+            </ul>
+        
+        <ul class="bot-banner">
+            <li><img src="Prism-Assets/gallery-1.jpg" /></li>
+            <li><img src="Prism-Assets/gallery-2.jpg" /></li>
+            <li><img src="Prism-Assets/gallery-3.jpg" /></li>
+            <li><img src="Prism-Assets/gallery-4.jpg" /></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="foot rows">
+            <div class="foot-top">
+                <ul class="foot-nav">
+                    <li><a href="#">Terms & conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Distributors</a></li>
+                </ul>
+                <ul class="foot-sns">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="foot-add">
+                <p>
+                    ⓒ2015 Adobe Systems Incorporated. All rights reserved. Any reference to Prism or any associated logos
+                    is for demonstration purposes only and is not intended to refer to any actual organization or event.
+                </p>
+            </div>
+            <div class="foot-by">
+                <p>
+                    Website design by Serge Vasil
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--javascript library file-->
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/ie-checker-min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/respond.min.js"></script>
+</body>
+</html>

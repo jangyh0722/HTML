@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body, div, ul, li, p{
+            margin:0; padding:0;
+        }
+        ul li{
+            list-style:none;
+        }
+        .section{
+            width:920px;
+            margin:0 auto;
+        }
+        ul{background:#ccc; overflow:hidden; margin-bottom:50px;}
+        ul li{
+            float:left;
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            box-sizing:border-box;
+            text-align:center;
+            line-height:300px;
+        }
+        ul li:nth-child(2){margin:0 10px;}
+
+    </style>
+</head>
+<body>
+    <div class="section">
+        <ul>
+            <li>content</li>
+            <li>content</li>
+            <li>content</li>
+        </ul>
+
+        <div class="box">
+            <p>
+                overflow 의 값을 scroll 로 설정 하면, 부모요소의 범위를 넘어가는 자식요소의
+                부분은 보이지 않지만, 그 대신 사용자가 확인 할 수 있도록 스크롤바를 표시 해줍니다.
+
+            </p>
+        </div>
+    </div>
+
+    <!--
+        float을 사용시 하위 구조에서의 float이 적용되는 현상 해결방법
+        1. float으로 적용될 요소의 부모요소에게 높이값을 지정,
+        단점은 내용이 많아졌을때 정확한 높이를 주지 못하고 여백의 값도 제한적이다.
+
+        2. float이 적용된 위치에서 바로 아래 위치한 요소에게 clear:both를 설정 해중다.
+        clear:both를 적용한 후 float을 다시 선언하여 스타일을 줄 수 있다. 단, 순서가 바뀌면 안됨.
+
+        3. float을 적용할 요소를 감싸고 있는 부모요소에게 overflow:hiden을 적용해 줌, 현재까진 이 방법이 가장
+        이상적인 방법이지만, 3가지 방법을 다 알고 있어야 상황별 대처 능력이 생김
+
+        4.가상선택자를 이용한 float 해결방법
+    -->
+</body>
+</html>

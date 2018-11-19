@@ -1,0 +1,51 @@
+비주얼스튜디오
+https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=Community&rel=15
+
+css초기화 파일
+http://cssreset.com/
+-Eric Meyer’s “Reset CSS” 2.0
+Get The Code 
+(101,287)
+공간 없이 리셋
+-Normalize.css 1.0
+Get The Code 
+(8,649)
+
+폰트 비율:http://pxtoem.com/
+
+1.외부파일 링크
+-폰트어썸, css
+2.구글웹폰트 
+3.css분리 후 외부 스타일 링크
+4.서브페이지는 사업영역에 링크
+
+http://byoungchyu1979.cafe24.com/
+cater0014@hanmail.net
+
+===============================================
+https://960.gs/
+
+https://www.w3schools.com/html/html_css.asp
+
+https://www.w3schools.com/
+
+https://alpha.html5test.com/
+
+https://daneden.github.io/animate.css/
+wow.js :애니메이션
+
+깃허브
+https://github.com/matthieua/WOW
+-와우.마스터:dist>wow.min
+
+https://github.com/daneden/animate.css
+-애니메이트.css.마스터 다운
+>animate.min
+-부트스트랩:bootstrap.min
+:bootstrap.min
+
+
+*선택자
+->태그, 후손, 구조선택자
+*id선택자(#)
+*인라인, 블럭, 인라인블럭, 테이블

@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>미디어쿼리 이해하기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        /*
+        .one{
+            width:70%; 
+            margin:auto; 
+            text-align:center;
+            background-color:#ccc;
+            padding:40px 0;
+        }
+        .one h3{margin-bottom:30px;}
+        .two{
+            width:70%;
+            margin:auto;
+            text-align:center;
+            background-color:#ffd800;
+            padding:40px 0;
+        }
+        */
+        /*960그리드를 기반으로 반응형 레이아웃을 설계*/
+        body{background-color:#dbdbdb;}
+        /*
+            고정넓이를 가변넓이로 변경하기
+            계산은..
+            (자식/부모)*100=가변 넓이
+        */
+        .nav, .content {
+            width: 70%;/*960px*/
+            margin: auto;
+            overflow: hidden;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        .nav{margin-bottom:30px;background-color:#fff;}
+        .nav li{
+            width:20%;/*192px*/
+            float:left;
+            box-sizing:border-box;
+            border:1px solid #999;
+            text-align:center;
+        }
+        .nav li a{
+            padding:15px 0;
+            color:#666;
+            text-transform:uppercase;
+            font-size:14px;
+        }
+        .content{}
+        .one, .two, .three, .four{
+            float:left;
+            width:25%;
+            text-align:center;
+            padding:100px 0;
+        }
+        .one{background-color:#b6ff00;}
+        .two{background-color:#ff0000;}
+        .three{background-color:#ff6a00;}
+        .four{background-color:#666;}
+
+
+
+            /*해상도에 따른 미디어쿼리 작성하기*/
+            /*
+                767조건에서는 메뉴 중 마지막 메뉴는 부모 넓이와 같이 화면에 표현하고 컨텐츠는 4칸에서 2줄에 2칸으로 바뀔 예정
+                .nav에서 마지막 li만 넓이를 100%로 변경해줌.
+                .content에서 칸은 4칸이기때문에 2칸씩 만든다고 하면 부모 넓이 안에서 무조건 50%를 유지해주면 2줄에 2칸을
+                만들 수 있음.
+            */
+            @media screen and (max-width:767px){
+                .nav li {
+                    width: 50%; /*192px*/
+                    float: left;
+                }
+                .nav li:last-child{width:100%;}
+                .left, .right {
+                    float: none;
+                    width: 100%;
+                }
+                .one, .two, .three, .four {
+                    float: left;
+                    width: 50%;
+                }
+            }
+            /*
+                479조건은 .nav, .content를 모두 블럭처리 할 예정 float을 적용해 화면에 있는 블럭들을 모두 수평처리해줬는데
+                가장 작은 디바이스에서는 float을 해제하고 넓이를 부모넓이에 맞춘다면 블럭처리가 가능함.
+                float:none; 
+                width:100%;
+            */
+        @media screen and (max-width:479px) {
+            .nav li {
+                width: 100%; /*192px*/
+                float: none;
+            }
+
+
+            .one, .two, .three, .four {
+                float: none;
+                width: 100%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--
+        1. 가변그리드, 가변 마진, 가변 패딩을 구하는 공식은 같다.
+        (자식/부모)*100
+
+        2. 미디어쿼리 사용법
+        @media 미디어 종류 and (max-width:1024){실행문}
+        접두사 사용방법
+        -min:최소 또는 그 이상을 말함, 사용법은 작은순에서 큰 순
+        -max:최대 또는 그 이하를 말함, 사용밥은 큰 순에서 작은순으로
+
+        3.뷰포트 적용하는 방법
+    -->
+    <!--고정넓이와 유동넓이의 차이
+    <div class="one">
+        <h3>
+            고정넓이의 특징
+        </h3>
+        <p>
+            px단위를 이용해 화면에 보여지는 부분을 작업하는 방식으로<br />
+            특징은 해상도가 줄어들면 화면의 영역이 가려짐
+        </p>
+    </div>
+    <div class="two">
+        <h3>
+            유동넓이의 특징
+        </h3>
+        <p>
+            %, em, rem, vw, vh단위를 이용해 화면의 크기와 상관없이 컨텐츠<br />
+            레이아웃을 유동적으로 작업해주는 방식으로 화면에서 가려지는 것이 아니라<br />
+            사이즈가 줄어들면서 화면에 컨텐츠를 보여줌.
+        </p>
+    </div>
+    -->
+
+    <ul class="nav">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+    </ul>
+    <div class="content">
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+        <div class="four">4</div>
+    </div>
+
+
+
+
+    <!--javascript library file-->
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/ie-checker-min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/respond.min.js"></script>
+</body>
+</html>

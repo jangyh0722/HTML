@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>가상선택자</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style type="text/css">
+        body{
+            background-color:#c3e8de;
+        }
+        ul{width:210px; height:40px;}
+        ul li{
+            width:205px;
+            border-right:5px solid #5aa4ff;
+            background-color:#a4ddfa;
+            border-bottom:1px dashed #fff;
+            line-height:40px;
+            position:relative;
+        }
+        ul li:last-child{border-bottom:0;}
+        ul li a{
+            color:#666;
+            padding-left:20px;
+        }
+        ul li a:hover{background-color:#5aa4ff; color:#fff;}
+        .drop-menu {
+            /*요소의 위치, 넓이, 속성 모두 감춤*/
+            display: none;
+            background-color: #fff;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        /*
+            nav에 li이름이 .dropcontent인 요소의 첫번째 자식인 a에게
+            가상선택자 after를 적용하여 컨텐츠를 추가해준 부분
+        */
+        .nav li.dropcintent > a:after{
+            content:"+";
+            font-weight:bold;
+        }
+        .nav li:nth-child(2) > a:after{margin-left:115px;}
+        .nav li:nth-child(4) > a:after{margin-left:102px;}
+        /*마우스가 .dropcintent에 올라갔을 때의 화면 만들기*/
+        .nav .dropcintent:hover .drop-menu{
+            display:block;/*숨겨있던 블록의 display:none을 화면으로 보여주기 위해 display:block으로 변경*/
+            position:absolute;/*모든 컨텐츠의 위치를 잡을때 사용하는 스타일로 posotopn:absolute의 값을 적용
+                하기 위해서는 상위요소에게 반드시 relative포지션이 적용되어 있어야함. 해당 스타일이 없으면 absolute는
+                해상도로부터 position좌표로 정렬됨
+
+                position:relative속성은 포지션이 적용되기 전인 static인 좌표로 부터 해당 포지션 값이 적용됨
+
+                position의 값은
+                position:static;
+                position:fixed;
+                position:relative;
+                position:absolute;
+                position:sticky;
+            */
+            left:210px;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li class="dropcintent">
+            <a href="#">About</a>
+            <!--하위메뉴 작성-->
+            <ul class="drop-menu">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">연혁</a></li>
+                <li><a href="#">찾아오는길</a></li>
+            </ul>
+        </li>
+        <li class="dropcintent">
+            <a href="#">Business</a>
+        </li>
+        <li class="dropcintent">
+            <a href="#">Project</a>
+            <!--하위메뉴 작성-->
+            <ul class="drop-menu">
+                <li><a href="#">전시회일정</a></li>
+                <li><a href="#">홍보관</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</body>
+</html>

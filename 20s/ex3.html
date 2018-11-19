@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>미디어쿼리 이해하기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        html{font-size:14px;}
+        body{
+            background-color:#ededed;
+            font-family: 'Montserrat', sans-serif;
+            color:#666;
+        }
+        h1{
+            font-size:40px;
+            font-weight:100;
+            color:#333;
+        }
+        h3{
+            font-size:24px;
+            font-weight:100;
+            color:#333;
+        }
+        /*레이아웃 만들기*/
+        .container{/*레이아웃 설계는 960그리드를 이용해 설계하며 해당 레이아웃은 구조에서 가장 큰 레이아웃이기 때문에
+                       사용자가 적절한 넓이를 가변그리드로 설정해줌. px 넓이는 960
+                   */
+                   width:70%;
+                   margin:10px auto;
+                   background-color:#fff;
+        }
+        .row { /*.container안에서의 넓이에 관련된 공통의 식별자
+                 좌측, 우측의 마진이 10px, 940px
+             */
+            width: 100%;/*940px에 대한 가변그리드*/
+            margin:0 1.041666666666667%;/*10px에 대한 가변마진 값*/
+        }
+        .header, .section{margin-bottom:50px;}
+        .header{text-align:center;}
+        .header h1{padding:80px 0;}
+        .nav{/*부모안에서의 자식 넓이는 특별한 여백을 적용하지 않을 시 무조건 100%*/
+            width:100%;/*nav의 넓이는 부모의 넓이와 같다=940px*/
+            overflow:hidden;
+        }
+        .nav li{
+            /*
+                li넓이 구하기
+                li안에 사이 여백으로 들어갈 margin의 총 합을 전체 넓이에서 빼주고
+                다시 그 값을 부모넓이에서 빼고 나누기 칸의 갯수
+                li칸의 넓이 : (940-80)/5=172
+            */
+            width:18.29787234042553%;/*(172/940)*100*/
+            margin-right:2.127659574468085%;/*(20/940)*100*/
+            float:left;
+            background-color:#666;
+        }
+        .nav li:last-child{margin-right:0;}
+        .nav li a{
+            padding:15px 0;
+            color:#fff;
+        }
+        .section{
+            border:1px solid #ccc;
+            padding:10px 0;
+        }
+        .content {
+            /*넓이가 940px이고 좌측과 우측에 10px의 여백을 추가해줄 예정
+                넓이가 920px
+            */
+            width: 97.87234042553191%;/*940기준으로 구함*/
+            margin:0 1.063829787234043%;/*940기준으로 구함*/
+        }
+        .content .content-list{/*ul이 사용할 넓이 값은 920px*/
+                               width:100%;
+                               overflow:hidden;
+                               margin-bottom:20px;
+        }
+        .content .content-list li {
+            /*li는 칸이 총 4개 칸과 칸 사이의 여백은 10px로 적용할 예정
+                li의 넓이 구하기 
+                (920-30)
+            */
+            width: 24.18478260869565%;
+            text-align:center;
+            height:200px;
+            line-height:200px;
+            background-color:#666;
+            color:#fff;
+            float:left;
+            margin-right:1.08695652173913%;
+        }
+        .content-list li:last-child{margin-right:0;}
+        .content-txt{
+            width:100%;
+        }
+        .content-txt h3{margin-bottom:20px;}
+        .content-txt p:nth-of-type(1){margin-bottom:15px;}
+        .footer{
+            width:100%;
+            padding:20px 0;
+            text-align:center;
+        }
+        @media screen and (max-width:960px) {
+            h1{font-size:32px;}
+            h3{font-size:20px;}
+            .container{width:80%;}
+             .content .content-list li {
+            width: 49.45652173913043%;
+            margin-right:1.08695652173913%;
+        }
+            .content .content-list li:nth-child(1), .content-list li:nth-child(2) {margin-bottom:10px;}
+            .content .content-list li:nth-child(2), .content .content-list li:last-child{margin-right:0;}
+        }
+        @media screen and (max-width:768px) {
+            h1{font-size:28px;}
+            h3{font-size:18px;}
+            .container{width:90%;}
+            .nav li{
+            width:50%;/*(172/940)*100*/
+            margin-right:0;/*(20/940)*100*/
+            float:left;
+            background-color:#666;
+            border-right:1px solid #fff;
+            border-bottom:1px solid #fff;
+            box-sizing:border-box;
+        }
+        .nav li:nth-child(2),
+        .nav li:nth-child(4),
+        .nav li:last-child{border-right:0;}
+        .nav li:last-child{width:100%; border-bottom:0;}
+        }
+        @media screen and (max-width:480px) {
+            h1{font-size:28px;}
+            h3{font-size:18px;}
+            .container{width:95%;}
+            .nav li{
+            width:100%;/*(172/940)*100*/
+            float:none;
+            background-color:#666;
+            border-right:0;
+        }
+        
+         .content .content-list li {
+            width: 100%;
+            float:none;
+        }
+            .content .content-list li:nth-child(3){margin-bottom:10px;}
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header row">
+            <h1>responsitive layout</h1>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Content</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Notice</a></li>
+            </ul>
+        </div>
+        <div class="section row">
+            <div class="content">
+                <ul class="content-list">
+                    <li>content1</li>
+                    <li>content2</li>
+                    <li>content3</li>
+                    <li>content4</li>
+                </ul>
+                <div class="content-txt">
+                    <h3>Responsive Web Design</h3>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. 
+                    Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. 
+                    Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. 
+                    Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget,
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. 
+                    Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. 
+                    Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. 
+                    Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget,
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer row">
+            <p>
+                Resize the browser window to see how the content respond to the resizing.adipiscing risus.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

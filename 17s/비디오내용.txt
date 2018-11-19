@@ -1,0 +1,54 @@
+
+Video FullScreen Background
+
+We are using a background image that creates a glass like effect with a semi-transparent gradient.
+When you use some background pattern (like the wood in the demo) it creates a beautiful effect. 
+
+
+비디오 태그의 요소들
+
+
+속성      설명
+
+autoplay         비디오를 자동으로 재생
+controls         재생을 제어하는 제어기 표시
+loop             비디오를 반복하여 재생
+poster           비디오를 다운로드 중일때 표시하는 이미지
+preload          전체 오디오를 다운로드하게 함
+muted            비디오의 오디오 출력을 중지
+src              URL 지정
+width, height    비디오의 너비와 높이를 지정
+
+
+
+비디오를 지원하는 확장자 정리
+웹브라우저마다 지원 가능한 비디오 확장자가 다르기 때문에 브라우저 상 동영상의 문제가 발생될 수 있습니다. 
+비디오 확장자는 크게 mp4, webM, ogg가 있는데, 웹 브라우저마다 지원하는 확장자는 다음과 같습니다.
+
+
+브라우저                   MP4              WebM               Ogg
+인터넷익스플로러            O                 X                 X
+크롬                        O                 O                 O
+파이어폭스                  X                 O                 O
+사파리                      O                 X                 X
+오페라                      X                 O                 O
+
+
+
+모든사람과 모든곳을 위해 설계되었습니다.
+부트스트랩은 프론트엔드 웹개발을 더 빠르고 쉽게 만들어줍니다. 모든 기술 수준의 사람들, 모든 형태의 기기들, 
+모든 크기의 프로젝트들을 위해 만들어졌습니다.
+
+
+프리프로세서
+부트스트랩은 평범한 CSS 로 제공합니다만, 그것의 소스코드는 2개의 인기있는 CSS 프리프로세서인 Less 와 Sass 를 사용합니다. 
+신속하게 프리컴파일된 CSS 로 시작하거나 소스를 빌드하세요.
+
+
+하나의 프레임워크, 모든 기기.
+부트스트랩은 웹사이트와 어플리케이션을 단일 코드 베이스로 CSS 미디어 쿼리를 이용하여 휴대폰에서부터 태블릿, 데스크탑까지 
+쉽고 효과적으로 크기를 조절합니다.
+
+많은 기능들
+부트스트랩과 함께, 보통의 HTML 요소들, 맞춤형 HTML 과 CSS 콤포넌트들, 그리고 놀라운 jQuery 플러그인들로 광범위하고 아름다운 
+문서들을 가질 수 있습니다.

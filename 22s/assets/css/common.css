@@ -1,0 +1,88 @@
+﻿@charset"utf-8";
+
+html{font-size:100%;}
+/*header*/
+ .header{}
+        .header-row{width:100%;}
+        .top-gnb{background-color:#bb0000;padding:0.625rem 0;}
+        .top-main{background-color:#111111;}
+        .gnb, .top{width:90%; margin:auto;}
+        .gnb{overflow:hidden;}
+        .gnb li{float:left;font-size:0.75rem;color:#fff;}
+        .gnb li:nth-child(2), .gnb li:last-child{float:right;}
+        .gnb li:last-child{margin-right:0.75rem;}
+        .gnb li a{color:#fff;}
+        .gnb li a:hover{color:#ffd800;}
+        .top-main{padding:0.75rem 0;}/*메뉴 레이아웃*/
+        .top{overflow:hidden;}
+        .top img{max-width:100%;}/*이미지의 원본 사이즈 사용, 이미지보다 화면 넓이가 줄어들면 반응*/
+        label, input[type=checkbox]{display:none;}
+        .top .logo{float:left;}/*앵커안에 로고 사이즈의 높이는 40px*/
+        .nav{float:right; width:auto;}/*ul의 높이는 16px*/
+        .nav li{display:inline-block;margin-right:0.75rem;}
+        .nav li:last-child{margin-right:0;}
+        .nav li a{color:#fff; padding:0.75rem 0;}
+        /*     a의 padding을 이용한 높이 생성(40-16)/2= 값/16px= rem     */
+        .nav li a:hover{color:#b5ffb4;}
+
+
+
+        .footer{background-color:#111111; padding:3rem 0;}
+        .foot-content{width:70%; margin:auto; overflow:hidden;}
+        .foot-content .bot-logo{width:12%; float:left;}
+        .foot-content .bot-logo img{max-width:100%;}
+        .foot-content .foot-admin{width:auto; float:right;}
+        .foot-admin .fot-nav{margin-bottom:1rem;}
+        .fot-nav a{display:inline-block; color:#666;}
+        .fot-nav a.left{margin-right:0.5rem;}
+        .foot-admin .copyright{color:#666;}
+        .copyright p:nth-of-type(1){margin-bottom:0.5rem;}
+        .copyright p:nth-of-type(2){margin-bottom:1rem;}
+
+        @media screen and (max-width:1280px){
+            html{font-size:93.8%;}
+        .foot-content .bot-logo{width:12%; float:none;margin-bottom:1rem;}
+        .foot-content .foot-admin{width:auto; float:none;}
+        }
+         @media screen and (max-width:960px){
+              html {font-size: 87.5%;}
+         }
+         @media screen and (max-width:768px){
+               html {font-size: 81.3%;}
+              .top-main {padding: 0.75rem 0;}
+            /*메뉴 레이아웃*/
+            label { /*화면에서 토글버튼을 노출시키고 사이즈와 위치를 지정해준 부분*/
+                display: block;
+                float: right;
+                color: #fff;
+                font-size: 3.5rem;
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+            .nav {
+                float: none;
+                width: 100%;
+                margin-top: 3.8rem;
+                display: none;
+            }
+            .nav li {
+                    display: block;
+                    margin-right: 0;
+                    width: 96%;
+                    margin: 0 auto;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                }
+            .nav li:last-child {margin-right: 0;}
+            .nav li a {padding: 0.75rem 0 0.75rem 0.625rem;}
+            .nav li a:hover {color: #b5ffb4;background-color: rgba(255,255,255,0.1);padding-left: 2rem;}
+           
+            #toggle:checked + .nav{display:block;}
+           .foot-content{width:80%;}
+           .foot-content .bot-logo{display:none;}
+           .foot-admin .fot-nav{text-align:center;}
+           .copyright p:nth-of-type(1){line-height:1.1875rem;}
+             
+         }
+         @media screen and (max-width:480px){
+             html{font-size:75%;}
+         }

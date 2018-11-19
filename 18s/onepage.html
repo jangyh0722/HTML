@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>carlabs-iframe[onepage]</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        /*
+            한글일반 : font-family: 'Nanum Gothic', sans-serif;
+            영문일반 : font-family: 'Montserrat', sans-serif;
+        */
+
+         html,body{height:100%; }
+        
+        /*웹폰트 및 본문 폰트 전체 지정 부분*/
+        body{font-size:14px; font-family:'Nanum Gothic', sans-serif; color:#666; background-color:#fff;}
+
+        /*본문 영문 서체 관련 스타일 지정*/
+        .eng{font-family:'Montserrat', sans-serif;}
+        h1, h2, h3, h4{font-weight:100;}
+        h1{font-size:50px;}
+        h2{font-size:32px;}
+        h3{font-size:24px;}
+        h4{font-size:16px;}
+        .content{width:900px; margin:auto; padding-top:50px; overflow:hidden;}
+        .content-txt{float:left; width:620px;}
+        .content-txt h3{margin-bottom:30px; color:#333;}
+        .content-txt p{line-height:19px; margin-bottom:15px;}
+        .content-txt span{font-size:12px; color:#ccc;}
+        .content-txt .cont-btn{padding-top:15px;}
+        .content-txt .cont-btn a{display:inline-block; color:#666; background-color:#e5e5e5; padding:5px 10px; font-size:12px;}
+        .content-img{float:right; width:200px;}
+        .content-img img{width:100%;}
+
+
+
+    </style>
+</head>
+<body>
+    <!--
+        frame: 큰화면 > iframe(아이프레임): 작은화면
+        
+        아이프레임의 특징
+        1. 정해진 공간안에서 업데이트를 자주해야 하는 부분이거나, 페이지가 동일한 형태를 이루는 것들은 
+           아이프레임으로 작업하면 효과적임.
+        2. 업데이트가 용이함.(아이프레임 페이지만 수정해도 다 바뀜.)
+        3. 페이지별 용량을 줄일수 있음.
+        4. 페이지에서 중복되는 부분을 효과적으로 바꿀수 있음.
+        5. 페이지 내에서 컨텐츠에 양이 정해진 것들은 효과적이나 컨텐츠 양이 다른것들은 디자인적으로 
+           고려해볼 필요가 있음.
+
+        아이프레임 형식
+
+        <iframe 
+               src="페이지주소" 
+               width="넓이" 
+               height="높이"
+               frameborder="화면의 테두리를 나타내는 부분으로 값은 0과 1을 적용. 0은 안쓴다. 1은 쓴다."
+               scrolling="스크롤 생성 auto(스크롤 자동생성), no(스크롤 없음), yes(무조건 스크롤 생성)"
+               name="현재 쓰고 있는 아이프레임 이름임과 동시에 a의 타겟으로 설정하는 부분. 그래서 
+                     name과 a의 target은 항상 동일 해야함"
+               ></iframe>
+
+        아이프레임 적용하는 방식
+        - 아이프레임은 미리 만들어진 화면을 다른 화면에서 불러들이는 방식으로 아이프레임을 적용할
+          페이지와 아이프레임 화면 페이지들을 따로 분리시켜서 작업하는게 일반적임.
+    -->
+    <div class="content">
+        <div class="content-txt">
+            <h3>에어카트, 삶 속으로 더 가까이 - 삼송캐스터 양산 협력</h3>
+            <p>
+                작년 DEVIEW 컨퍼런스에서 근력증강 로봇기술을 응용한 에어카트(AIRCART)를
+                공개한 이후 여러 단체에서 관심을 보내주었습니다. 운송장비 제조사인 삼송캐스터도
+                그 중 하나입니다. 우리는 삼송캐스터와 함께 서점/도서관용 에어카트의 양산 협력을
+                하려고 합니다. 작년 부산의 Yes24 서점에 납품했던 바로 그 모델입니다. 그 사이 
+                레드닷과 IF 디자인 어워드의 프러덕트 디자인 부문에 연달아 수상을 한 제품이기도 합니다. 
+                우리의 파트너인 삼송캐스터는 캐스터, 바퀴, 운반장비 등의 제조에 40년에 가까운 긴 역사를 
+                쌓아온 회사입니다. 국내외 유수의 자동차 생산라인에서 사용되는 산업용 캐스터를 양산하고
+                있으며, 의료기기용 바퀴를 국산화하여 국내 의료장비 발전에도 기여해 왔습니다.
+            </p>
+            <span class="eng">2018.07.23 Robotics</span>
+            <div class="cont-btn">
+                <a href="#" target="_self" class="eng">AIRCART</a>
+                <a href="#" target="_self">로보틱스</a>
+            </div>
+        </div>
+        <div class="content-img">
+            <img src="images/career/1532308738111.png" alt="img" />
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+    <style type="text/css">
+        body, html{
+            height:100%;
+        }
+        body{font-family:'Montserrat', sans-serif;}
+        .sns-content{
+            position:fixed;/*화면하단 고정*/
+            /*
+                화면의 하단 좌표 설정
+                top, right, bottom, left
+            */
+            bottom:0;
+            z-index:9999;/*포지션의 순번중 1번*/
+            background-color:rgba(0,0,0,0.7);
+            overflow:hidden;
+            width:100%;
+            padding:10px 0;
+        }
+        .sns{
+            width:auto;
+            float:left;
+
+        }
+        .sns li{display:inline-block;}
+        .sns li a{/*앵커의 배경색과 모양을 바꾼 부분.*/
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            background-color:#666;
+            text-align:center;
+            line-height:30px;
+            color:#333;
+        }
+         .sns li a:hover{
+             background-color:#fff;
+             color:#000;
+         }
+        .sns li:first-child{padding-left:30px;}
+        .sns li:nth-child(2){margin:0 7px;}
+        .sns-content p{
+            float:left; 
+            font-style:italic;
+            color:#999; 
+            font-size:13px;
+            padding:7px 30px 0;
+        }
+        /*컨텐츠 부분 스타일*/
+        .container{
+            width:100%;
+            height:100%;
+            background-image:url("images/mountain.png");
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        .wrap{
+            width:100%;
+            height:100%;
+            /*wrap안에 있는 자식요소의 컨텐츠를 wrap안에서의 좌표를 이용하기 위한
+                포지션 지정 스타일
+            */
+            position:relative;
+        }
+        .wrap h1, .wrap img, .wrap cloud{position:absolute;}
+            .wrap h1 {
+                /*
+                    h1요소의 속성은 블록레벨
+                    h1의 넓이 값이 따로 지정되지 않은 상태에서 포지션을 이용해 수평의 중앙으로
+                    정렬시에는 lsft:50%;와 transfrom:translateY(-50%);가 들어와야 하지만 현재와
+                    같이 h1의 사이즈를 해상도 사이즈인 100%를 잡고, 그 안에 텍스트 정렬을
+                    text-align:center;로 정렬했다면 left:50%;의 값은 사용할 필요가 없음.
+                */
+                width:100%;
+                text-align:center;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                color:#f5b400;
+                font-size:70px;
+                font-weight:100;
+                text-shadow:3px 4px 6px rgba(0,0,0,0.3);
+                z-index:999;
+            }
+        .wrap img{bottom:0; right:0; z-index:99;}
+        .wrap .cloud{
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-image:url("images/could.png");
+            z-index:9;
+            animation:animate 100s linear infinite;
+        }
+        /*애니메이션 만들기*/
+        @-webkit-keyframes animate{
+            0%{background-position:0px;}
+            100%{background-position:-5440px;}
+        }
+        @keyframes animate{
+            0%{background-position:0px;}
+            100%{background-position:-5440px;}
+
+    </style>
+</head>
+<body>
+    <div class="sns-content">
+        <ul class="sns">
+            <li>
+                <a href="#">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+        <p>
+            copyright &copy;Css Cloud Animation Effect Allrights Crop.
+        </p>
+
+    </div>
+    <div class="container">
+        <div class="wrap">
+            <h1 class="title">
+                CSS Cloud Animation Effects
+            </h1>
+            <img src="images/front-mountain.png" alt="img" />
+            <div class="cloud"></div>
+        </div>
+    </div>
+
+</body>
+</html>

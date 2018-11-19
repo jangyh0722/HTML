@@ -1,0 +1,67 @@
+﻿body, ul, li, div, p {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    color: #303030;
+    font-family: 'Malgun Gothic';
+}
+
+p {
+    text-align: center;
+}
+
+ul {
+    float: left;
+}
+
+    ul li {
+        list-style: none;
+    }
+
+li {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #808080;
+
+}
+
+.wrap {
+    width: 1730px;
+    height: 310px;
+    background-color: #999;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+    .left div {
+        float: left;
+    }
+
+.box {
+    height: inherit;
+    background-color: #ffffff;
+}
+
+.right {
+    width: 700px;
+    line-height: 155px;
+}
+
+.left {
+    width: 1000px;
+    margin-right: 10px;
+}
+
+.pad {
+    margin-left: 10px;
+}
+.top{
+    margin-top:10px;
+    margin-right:10px;
+}
+.bott{
+    margin-bottom:10px;
+}

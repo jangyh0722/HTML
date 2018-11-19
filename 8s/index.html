@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>BONAJOUR</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+        body {
+            font-size: 14px;
+            color: #333;
+            font-family: 'NanumGothic', sans-serif;
+            letter-spacing: 0.8px;
+        }
+        .eng {
+            font-family: 'Open Sans', sans-serif;
+        }
+        a{color:#333;}
+
+        .row{width:100%;}
+
+        /*header*/
+        .header{margin-bottom:45px;}
+        .wid {
+            width: 1260px;
+            margin: 0 auto;
+        }
+        .top-header {
+            overflow:hidden;
+            padding: 30px 0;
+        }
+        .bot-header-line {
+            border-top: 1px solid #d3d3d3;
+        }
+        .logo, .gnb li{display: inline-block;}
+        .logo{float:left;}
+        .gnb{float:right;}
+        .gnb li{margin:0 8px;}
+        .search{padding:4px 5px 4px 150px; background-color:#d3d3d3;}
+
+        .nav-borber li{display:inline-block;}
+        .nav-right{float:right;}
+        .nav-left{float:left;}
+        .nav-borber li{padding:15px 20px;}
+        .nav-borber li:first-child{padding-left:0;}
+        .nav-borber li:last-child{padding-right:0;}
+        .nav-borber a:hover {color: #3ca110;}
+       /*section*/
+        .main-banner {
+            background-image: url("images/bg/visualBg.jpg");
+            background-repeat: no-repeat;
+            height: 450px;
+            margin-bottom: 45px;
+
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .ban{height:inherit;}
+        .ban-btn {
+            padding: 150px 0;
+            
+        }
+        .ban-btn h3{color:#3ca110; font-size:26px;}
+            .ban-btn p {
+                color: #ffffff;
+                font-size: 18px;
+                padding: 25px 0;
+                line-height: 21px;
+            }
+        .ban-btn a{
+            text-transform:uppercase;
+            display:inline-block;
+            color :#3ca110; 
+            font-size:16px; 
+            background-color:#fff;
+            padding:12px 15px;
+        }
+            .ban-btn a:hover {
+                color: #fff;
+                background-color: #3ca110;
+            }
+
+        .review img,.pa h3, .pa p {
+            display: inline-block;
+            float: left;
+        }
+        .review img{padding:49px 0 0 30px;}
+        .review{ 
+            width:315px; 
+            border: 1px solid #d7d7d7; 
+            height:180px;
+            box-sizing:border-box;
+            float:left;
+            border-left:0;
+            margin-bottom:45px;
+        }
+        .ri-ma{border-right:0;}
+        .pa{padding-top:65px;}
+        .pa h3{padding-bottom:10px;}
+        .pa h3, .pa p{padding-left:5px;}
+
+        /*products*/
+        .products{}
+        .tab li{display:block;}
+        .tab a {
+            float: left;
+            width: 315px;
+            background-color: #d3d3d3;
+            text-align: center;
+            padding: 15px 0;
+        }
+            .tab a:hover {
+                background-color: #fff;
+                color:#000;
+                border:1px solid #000;
+                border-bottom:0;
+                box-sizing:border-box;
+            }
+
+            .prod li{display:block; float:left;}
+            .prod img {
+            margin-left: 20px;
+            margin-top: 20px;
+
+            }
+            .prod .bot-img{margin-top:20px;}
+            .content {
+            height: 514px;
+            border: 1px solid #d3d3d3;
+            border-top:0;
+            overflow: hidden;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="header row">
+        <div class="top-header wid">
+            <div class="logo"><img src="common/top_logo_on.png" alt="logo" /></div>
+            <ul class="gnb">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">장바구니</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#" class="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="bot-header-line">
+            <div class="bot-header wid">
+                <ul class="nav-borber nav-left">
+                    <li><a href="#">스킨케어</a></li>
+                    <li><a href="#">바디케어</a></li>
+                    <li><a href="#">스페셜존</a></li>
+                    <li><a href="#" class="eng">BRAND</a></li>
+                </ul>
+                <ul class="nav-borber nav-right">
+                    <li><a href="#" class="eng">EVENT</a></li>
+                    <li><a href="#">멤버십혜택</a></li>
+                    <li><a href="#">상품후기</a></li>
+                    <li><a href="#">커뮤니티</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--section-->
+    <!--banner-->
+    <div class="section row">
+        <div class="main-banner">
+            <div class="ban wid">
+                <div class="ban-btn">
+                    <h3>당신의 피부도 분명히 좋아집니다.</h3>
+                    <p>
+                        당신의 고민을 누구보다 잘 알기에 저희는 제대로 된 화장품을 만듭니다.<br />
+                        당신의 피부, 분명히 좋아질 수 있습니다.
+                    </p>
+                    <a href="#" class="btn">brand story</a>
+                </div>
+            </div>
+        </div>
+
+        <!--event-->
+        <div class="event wid">
+            <ul class="review">
+                <li>
+                    <a href="#">
+                        <img src="images/review.png" alt="review" />
+                        <div class="pa">
+                            <h3>제품리얼리뷰</h3>
+                            <p>
+                                고객님들의 솔직한 후기<br />
+                                후기쓰고 적립금 받으세요.
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="review">
+                <li>
+                    <a href="#">
+                        <img src="images/choice.png" alt="review" />
+                        <div class="pa">
+                            <h3>위클리 초이스</h3>
+                            <p>
+                                이번주만 이 가격. 매주 위클리<br />
+                                이벤트 제품이 공개됩니다.
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="review">
+                <li>
+                    <a href="#">
+                        <img src="images/membership.png" alt="review" />
+                        <div class="pa">
+                            <h3>보나쥬르 멤버십</h3>
+                            <p>
+                                보나쥬르 회원만을 위한 혜택<br />
+                                사은품 혜택도 함께 확인해요.
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="review ri-ma">
+                <li>
+                    <a href="#">
+                        <img src="images/sample-five.png" alt="review" />
+                        <div class="pa">
+                            <h3>무료샘플 5종 신청</h3>
+                            <p>
+                                써보고 결정하자. 회원가입 후<br />
+                                무료 샘플을 신청해보세요.
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--products-->
+        <div class="products wid">
+                <ul class="tab">
+                    <li><a href="#"><span class="eng">BEST</span>인기</a></li>
+                    <li><a href="#"><span class="eng">NEW</span>신상</a></li>
+                    <li><a href="#"><span class="eng">MD</span>추천</a></li>
+                    <li><a href="#">시즌 제품</a></li>
+                </ul>
+            <div class="content">
+                <ul class="prod">
+                    <li><a href="#"><img src="images/teb-products/teb-product1.png" /></a></li>
+                    <li><a href="#"><img src="images/teb-products/teb-product2.png" /></a></li>
+                    <li><a href="#"><img src="images/teb-products/teb-product3.png" /></a></li>
+                    <li><a href="#"><img src="images/teb-products/teb-product4.png" /></a></li>
+                    <li><a href="#"><img src="images/teb-products/teb-product5.png" /></a></li>
+                    <li><a href="#"class="bot-img"><img src="images/teb-products/teb-product6.png" /></a></li>
+                    <li><a href="#"class="bot-img"><img src="images/teb-products/teb-product7.png" /></a></li>
+                    <li><a href="#"class="bot-img"><img src="images/teb-products/teb-product8.png" /></a></li>
+                    <li><a href="#"class="bot-img"><img src="images/teb-products/teb-product9.png" /></a></li>
+                    <li><a href="#"class="bot-img"><img src="images/teb-products/teb-product10.png" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-middle">
+            <div class="mid01"><img src="images/mainmiddle_left.jpg" /></div>
+            <div class="mid02"><img src="images/mainmiddle_right1.jpg" /></div>
+            <div class="mid03"><img src="images/mainmiddle_right2.jpg" /></div>
+            <div class="mid04"><img src="images/mainmiddle_right3.jpg" /></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

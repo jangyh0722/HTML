@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>박스모델</title>
+
+    <style type="text/css">
+        /*초기화 작업:여백작업*/
+        body, div, ul, li{
+            margin:0; padding:0;
+        }
+        /*ul 불릿제거*/
+        ul li{
+            list-style:none;
+        }
+        /*앵커 속성 변경 및 밑줄 제거*/
+        a {
+            text-decoration: none;
+            display: block;
+            font-family: 'Malgun Gothic';
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        .wrap{
+            width:100%; background-color:#333;
+        }
+        .list{
+            width:800px; 
+            height:40px; 
+            margin:0 auto;
+            background-color:#b6ff00;
+        }
+            .list li {
+                float: left;
+                width: 160px;
+                height: inherit;
+                text-align: center;
+                line-height: 40px;
+                border-right: 1px solid #333;
+
+                /*밴더프리픽스(브라우저 접두사):브라우저마다 신규 스타일을 적용하면 원하는데로 적용되지 
+                  않기 때문에 이러한 부분을 해결해주기 위한 방법으로 브라우저 접두사를 활용함.
+                */
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing:border-box;
+            }
+            .list .li.last {
+                border-right:0;
+            }
+        .list li a{
+            color:#333;
+        }
+            /*
+            :,:: 가상선택자
+            앵커에 관련된 가상선택자 중 마우스가 메뉴위에 있을때 반응하는 이벤트 가상 선택자 hover
+            
+            -앵커가 가지고 있는 속성
+            a:link{처음 만들었을때}
+            a:visited{방문했을때}
+            a:active{클릭했을때}
+            a:hover{마우스 오버 시}
+
+            a{} => a:link, a:visited{}
+            a:hover{} => a:hover, a:active{}
+        */
+        .list li a:hover{
+            background-color:#333;
+            color:#b6ff00;
+            }
+
+    </style>
+
+</head>
+<body>
+    <!--
+        앵커에서 target형식
+        1. _self 현재창
+        2. _blank 새 창
+        -->
+    <div class="wrap">
+        <ul class="list">
+            <li><a href="#" target="_self">홈</a></li>
+            <li><a href="#" target="_self">회사소개</a></li>
+            <li><a href="#" target="_self">비지니스</a></li>
+            <li><a href="#" target="_self">컨텐츠</a></li>
+            <li class="last"><a href="#" target="_self">공지사항</a></li>
+        </ul>
+    </div>
+</body>
+</html>

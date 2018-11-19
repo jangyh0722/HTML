@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="Keywords" content="웹표준, html5, 반응형웹" />
+<meta name="description" content="검색에서 노출되는 설명부분입니다." />
+<meta name="author" content="사이트주소를 적는 부분입니다." />
+<!--mediaQuery viewport-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<title>PRISM</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+<!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+<style type="text/css">
+html{font-size:14px;}
+body{background-color:#e6f4f8; font-family: 'Montserrat', sans-serif;}
+h1, h2, h3, h4{color:#fff; font-weight:100; -webkit-transition:all 0.5s ease; -moz-transition:all 0.5s ease; -o-transition:all 0.5s ease; transition:all 0.5s ease;}
+div, ul, li{-webkit-transition:all 0.5s ease; -moz-transition:all 0.5s ease; -o-transition:all 0.5s ease; transition:all 0.5s ease;}
+h1{font-size:60px;}
+h2{font-size:40px;}
+h3{font-size:30px;}
+h4{font-size:20px; font-weight:bold;}
+p{color:#666;}
+.fa{font-size:20px;}
+.btn{border:1px solid #fff; color:#fff;}
+img{width:100%;}
+.rows{width:70%; margin:auto;}
+/*header style*/
+.header{overflow:hidden; padding:50px 0;}
+.header .logo{width:17%; float:left;}
+.header .nav{width:auto; float:right;}
+.header .nav li{display:inline-block;}
+.header .nav li a{font-weight:bold; color:#666; font-size:16px; padding:25px 30px;}
+/*section style*/
+.banner, .pro-txt, .pic-list{width:100%;}
+.banner, .pro-txt,.pic-list{margin-bottom:1%;}
+.banner{position:relative; cursor:pointer;}
+.banner .ban-pos{position:absolute; top:0; left:0; width:100%; height:100%;}
+.ban-pos .ban-outer{display:table; width:100%; height:100%; text-align:center;}
+.ban-outer .ban-inner{display:table-cell; vertical-align:middle;}
+.ban-inner h3{margin-bottom:15%;}
+.ban-inner h4{margin-bottom:5%;}
+.ban-inner h1{margin-bottom:15%;}
+.ban-inner a{width:20%; margin:auto; padding:15px 0; border-radius:50px;}
+.pro-txt{position:relative;}
+.pro-txt:before{content:""; display:block; padding-top:31.25%;}
+.mid-center{position:absolute; top:0; width:49.5%; height:100%;}
+.left-txt{background-color:#b9a88e;}
+.right-txt{background-color:#2d2d35; left:50.5%;}
+.txt-outer{width:100%; height:100%; text-align:center; display:table;}
+.txt-outer .txt-inner{display:table-cell; vertical-align:middle;}
+.txt-inner h2{margin-bottom:5%;}
+.txt-inner p{margin-bottom:10%;}
+.txt-inner .txt-btn{width:35%; margin:auto; padding:15px 0; border-radius:50px;}
+.pic-list{overflow:hidden;}
+.pic-list li{overflow:hidden; width:24.25%; margin-right:1%; float:left; background-color:#000; cursor:pointer;}
+.pic-list li:last-child{margin-right:0;}
+.pic-list li img{-webkit-transition:all 0.5s ease; transition:all 0.5s ease;}
+.pic-list li:hover img{opacity:0.3; filter:alpha(opacity=30); -webkit-transform:scale(1.2); -moz-transform:scale(1.2); -o-transform:scale(1.2); transform:scale(1.2);}
+/*footer style*/
+.footer{background-color:#b9d9e2; padding:40px 0;}
+.foot-navi, .foot-admin{width:100%;}
+.foot-navi{overflow:hidden; margin-bottom:40px;}
+.foot-navi .side-left-navi, .foot-navi .side-sns{width:auto;}
+.foot-navi .side-left-navi li, .foot-navi .side-sns li{display:inline-block;}
+.foot-navi .side-left-navi{float:left;} 
+.foot-navi .side-sns{float:right;}
+.foot-navi .side-left-navi li a{font-weight:bold;}
+.foot-navi a{color:#333; padding:0 10px;}
+.foot-admin{overflow:hidden;}
+.foot-admin .copyright{float:left; width:65%; margin-left:10px;}
+.foot-admin .copy{float:right; width:30%; text-align:right; margin-right:10px;}
+@media screen and (max-width:1279px){
+h1{font-size:50px;}
+h2{font-size:30px;}
+h3{font-size:24px;}
+h4{font-size:18px; font-weight:bold;}
+.header .logo{width:20%; float:left;}
+.header .nav li a{padding:13px 20px;}
+.ban-inner h3{margin-bottom:12%;}
+.ban-inner h4{margin-bottom:5%;}
+.ban-inner h1{margin-bottom:12%;}
+.ban-inner a{width:25%;}
+.pro-txt p span{display:block; padding-top:1%;}
+.txt-inner .txt-btn{width:45%;}
+}
+@media screen and (max-width:960px){
+.rows{width:95%;}
+h1{font-size:40px;}
+h2{font-size:24px;}
+h3{font-size:20px;}
+h4{font-size:16px;}
+.header .nav li a{padding:13px 20px;}
+.foot-admin .copyright{width:65%; }
+.foot-admin .copy{width:30%;}
+}
+@media screen and (max-width:768px){
+h1{font-size:36px;}
+h2{font-size:20px;}
+h3{font-size:18px;}
+h4{font-size:15px;}
+p{font-size:13px;}
+.header .logo{width:25%; float:none; margin:0 auto 30px;}
+.header .nav{text-align:center; float:none;}
+.header .nav li a{padding:13px 15px;}
+.ban-inner h3{margin-bottom:12%;}
+.ban-inner h4{margin-bottom:3%;}
+.ban-inner h1{margin-bottom:12%;}
+.ban-inner a{width:25%; padding:10px 0;}
+.pro-txt:before{content:""; display:block; padding-top:62.5%;}
+.mid-center{width:100%; height:50%;}
+.right-txt{left:0%; top:50%;}
+.txt-inner h2{margin-bottom:2%;}
+.txt-inner p{margin-bottom:5%;}
+.txt-inner .txt-btn{width:25%; padding:10px 0;}
+.pic-list li{width:49.5%; margin-right:1%; margin-bottom:1%;}
+.pic-list li:nth-child(2){margin-right:0;}
+.pic-list li:last-child, .pic-list li:nth-child(3){margin-bottom:0; }
+.foot-navi .side-left-navi{float:none; text-align:center; margin-bottom:20px;} 
+.foot-navi .side-sns{float:none; text-align:center;}
+.foot-admin .copyright{float:none; width:90%; margin-left:0; margin:0 auto 30px; text-align:center;}
+.foot-admin .copy{float:none; width:auto; text-align:center; margin-right:0;}
+}
+@media screen and (max-width:480px){
+h1{font-size:28px;}
+h2{font-size:18px;}
+h3{font-size:16px;}
+h4{font-size:14px;}
+p{font-size:12px;}
+.rows{width:100%;}
+.header .nav li{display:block;}
+.header .nav li a{font-size:14px; padding:10px 0;}
+.banner, .pro-txt,.pic-list{margin-bottom:0;}
+.ban-inner h3{margin-bottom:10%;}
+.ban-inner h4{margin-bottom:3%;}
+.ban-inner h1{margin-bottom:10%;}
+.ban-inner a{width:28%; padding:8px 0; font-size:12px;}
+.pro-txt:before{padding-top:100%;}
+.txt-inner .txt-btn{font-size:12px; width:28%; padding:8px 0;}
+.pic-list li{width:100%; margin-right:0; float:none;}
+.foot-navi .side-left-navi li{display:block; margin-bottom:10px;}
+}
+</style>
+</head>
+<body>
+<div class="header rows">
+    <a href="#" class="logo">
+        <img src="Prism-Assets/logo.png" alt="logo" />
+    </a>
+    <ul class="nav">
+        <li><a href="#">ARCHITECTURE</a></li>
+        <li><a href="#">TRAVEL</a></li>
+        <li><a href="#">ART</a></li>
+        <li><a href="#">FOOD</a></li>
+    </ul>
+</div>
+<div class="section rows">
+    <div class="banner">
+        <img src="Prism-Assets/hero.jpg" alt="img" />
+        <div class="ban-pos">
+            <div class="ban-outer">
+                <div class="ban-inner">
+                    <h3>EDITOR’S CHOICE</h3>
+                    <h4>Sebastian Weiss</h4>
+                    <h1>URBAN STROKES</h1>
+                    <a href="#" class="btn ban-btn">Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pro-txt">
+        <div class="left-txt mid-center">
+            <div class="txt-outer">
+                <div class="txt-inner">
+                    <h2>INSPIRING READS</h2>
+                    <p>
+                        <span>The future is in lightening our </span>
+                        <span>footprints and brightening our lives.</span>
+                    </p>
+                    <a href="#" class="btn txt-btn">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="right-txt mid-center">
+            <div class="txt-outer">
+                <div class="txt-inner">
+                    <h2>REFLECTIONS</h2>
+                    <p>
+                        <span>Stylish ways to bounce the heat off </span>
+                        <span>a roof and the planet. </span>
+                    </p>
+                    <a href="#" class="btn txt-btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="pic-list">
+        <li>
+            <a href="#">
+                <img src="Prism-Assets/gallery-1.jpg" alt="pic" />
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="Prism-Assets/gallery-2.jpg" alt="pic" />
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="Prism-Assets/gallery-3.jpg" alt="pic" />
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="Prism-Assets/gallery-4.jpg" alt="pic" />
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="footer rows">
+    <div class="foot-navi">
+        <ul class="side-left-navi">
+            <li><a href="#">Terms &amp; conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Distributors</a></li>
+        </ul>
+        <ul class="side-sns">
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+    <div class="foot-admin">
+        <div class="copyright">
+            <p>
+                &copy;2015 Adobe Systems Incorporated. All rights reserved. Any reference to Prism or any associated logos
+                is for demonstration purposes only and is not intended to refer to any actual organization or event.
+            </p>
+        </div>
+        <div class="copy">
+            <p>
+                Website design by <strong>Serge Vasil</strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--javascript library file-->
+<script src="js/html5shiv.min.js"></script>
+<script src="js/ie-checker-min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/respond.min.js"></script>
+</body>
+</html>

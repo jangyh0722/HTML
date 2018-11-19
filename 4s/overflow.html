@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>overflow</title>
+    <style type="text/css">
+        body{
+            background-color:#eaeaea;
+            font-size:14px;
+            letter-spacing:1px;
+            font-family:'Malgun Gothic'
+        }
+        ul li{
+            list-style:none;
+        }
+        ul, li, h2, h3, h4, p{margin:0; padding:0; color:#333;}
+        h2{font-size:24px; text-align:center;}
+        h2.title{margin-bottom:40px;}
+        h3{font-size:18px; margin-bottom:5px;}
+        .text p{line-height:20px; margin-bottom:30px;}
+        .text p:nth-of-type(5){margin-bottom:0;}
+        .text{width:960px; padding:20px; background-color:#fff;
+              border:1px solid #999; margin:0 auto 30px;
+        }
+
+        .container{width:1000px; margin:0 auto;}
+        .container li{
+            float:left;
+            width:192px;
+            border:1px solid #999;
+            box-sizing:border-box;
+            margin-right:10px;
+            height:100px;
+        }
+        .container li:last-child{
+            margin-right:0;
+            overflow-y:
+        }
+        .container li:nth-child(1){}
+        .container li:nth-child(2){overflow:hidden;}
+        .container li:nth-child(3){overflow:scroll;}
+        .container li:nth-child(4){overflow:auto;}
+
+    </style>
+</head>
+<body>
+    <h2 class="title">overflow 기능 알아보기</h2>
+    <div class="text">
+        <h2>overflow 의 속성 값</h2>
+
+        <h3>overflow: visible</h3>
+        <p>
+            overflow 의 값을 visible 로 사용 할 경우 특정 요소가 박스를 넘어 가더라도, 그대로 보여줍니다.
+        </p>
+
+        <h3>overflow: hidden</h3>
+        <p>
+            overflow 의 값을 hidden 으로 설정하면, 부모요소의 범위를 넘어가는 자식요소의 부분은 보이지
+            않도록 처리 합니다.
+        </p>
+        <h3>overflow: scroll</h3>
+        <p>
+            overflow 의 값을 scroll 로 설정 하면, 부모요소의 범위를 넘어가는 자식요소의 부분은 보이지 않지만,
+            그 대신 사용자가 확인 할 수 있도록 스크롤바를 표시 해줍니다.
+        </p>
+        <h3>overflow: auto</h3>
+        <p>
+            overflow 의 값을 auto 로 설정할 경우 부모요소의 범위를 넘어가는 자식요소의 부분이 있을 경우 해당
+            부분을 보이지 않도록 처리하고, 사용자가 해당 부분을 확인 할 수 있도록 스크롤바를 표시 합니다.
+        </p>
+        <h3>overflow-x 와 overflow-y</h3>
+        <p>
+            overflow 속성은 가로 부분과 세로 부분 모두에 일괄적으로 적용되는 속성 값입니다.
+            그런데 가로부분의 넘치는 부분은 감추는 부분은 감추고, 세로 부분의 넘치는 부분은 그대로 
+            보여주어야 할 때가 있습니다. 그 때는 overflow-x 와 overflow-y 를 아래와 같이 사용하면 됩니다.
+        </p>
+
+        <ul class="container">
+            <li>
+                <h4>visible</h4>
+                <p>
+                    overflow 의 값을 visible 로 사용 할 경우 특정 요소가 박스를 넘어 가더라도, 그대로 보여줍니다.
+                </p>
+            </li>
+            <li>
+                <h4>hidden</h4>
+                <p>
+                    overflow 의 값을 hidden 으로 설정하면, 부모요소의 범위를 넘어가는 자식요소의 부분은 보이지
+                    않도록 처리 합니다.
+                </p>
+            </li>
+            <li>
+                <h4> scroll</h4>
+                <p>
+                    overflow 의 값을 scroll 로 설정 하면, 부모요소의 범위를 넘어가는 자식요소의 부분은 보이지 않지만,
+                    그 대신 사용자가 확인 할 수 있도록 스크롤바를 표시 해줍니다.
+                </p>
+            </li>
+            <li>
+                <h4>auto</h4>
+                <p>
+                    overflow 의 값을 auto 로 설정할 경우 부모요소의 범위를 넘어가는 자식요소의 부분이 있을 경우 해당
+                    부분을 보이지 않도록 처리하고, 사용자가 해당 부분을 확인 할 수 있도록 스크롤바를 표시 합니다.
+                </p>
+            </li>
+            <li>
+                <h4>X축과 Y축</h4>
+                <p>
+                    overflow 속성은 가로 부분과 세로 부분 모두에 일괄적으로 적용되는 속성 값입니다.
+                    그런데 가로부분의 넘치는 부분은 감추는 부분은 감추고, 세로 부분의 넘치는 부분은 그대로
+                    보여주어야 할 때가 있습니다. 그 때는 overflow-x 와 overflow-y 를 아래와 같이 사용하면 됩니다.
+                </p>
+            </li>
+        </ul>
+</div>
+</body>
+</html>

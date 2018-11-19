@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>img over효과 만들기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        body{background-color:#dce5de;}
+        h2{font-size:30px; color:#666; font-weight:100; margin-bottom:20px;}
+        .container > p{font-size:18px; color:#666; margin-bottom:50px;}
+        .container{width:1030px; margin:auto; padding-top:50px; text-align:center;}
+        .img-over{width:inherit; /*overflow:hidden;*/}
+        .img-over li{
+                                    background-color:#000;
+                                    box-sizing:border-box;
+                                    float:left;
+                                    width:250px;
+                                    height:200px;
+                                    margin-right:10px;
+                                    cursor:pointer;
+                                    margin-bottom:10px;
+                                    position:relative;
+                                    border:5px solid #fff;
+                                    overflow:hidden;
+                                    -webkit-box-shadow:1px 2px 4px rgba(0,0,0,0.2);
+                                                box-shadow:1px 2px 4px rgba(0,0,0,0.2);
+                                    /*
+                                        li안에 div와 아이콘, p태그들의 좌표는 현재 li가 갖고 있는
+                                        영역안에서의 좌표만을 이용해야 되기 때문에 li요소 안에는
+                                        position:relative스타일이 반드시 추가되야한다.
+                                        그렇지 않을 경우 li안에 있는 요소들은 해상도를 기준으로
+                                        좌표를 설정받게 된다.
+                                        box-shadow:X축 Y축 그림자의크기 rgba(그림자색);
+                                    */
+        }
+        .img-over li:nth-child(4), .img-over li:last-child{margin-right:0;}
+        /*이미지호버 적용하기*/
+        .img-over li.one{}
+        .img-over li.one .bg{
+                                            background-color:rgba(0,0,0,0.6); 
+                                            width:100%; 
+                                            height:100%;
+                                            position:absolute;
+                                            top:0;
+                                            left:0;
+                                            line-height:200px;
+                                            -webkit-transition:opacity 0.5s ease;
+                                                         transition:opacity 0.5s ease;
+                                                         /*
+                                                             opacity는 0~1의 값으로 투명도를 조절할수 있는
+                                                             데, 소수점을 써도 상관없음.
+                                                             이때 브라우저호환성을 주기 위한 filter라는 스타일
+                                                             도 포함해서 써 주는 것이 좋음.
+                                                             filter의 opacity의 값은 0~100의 값으로 표기한다는
+                                                             것이 다름.
+
+                                                         */
+                                                         opacity:0;
+                                                         filter:alpha(opacity=0);
+        }
+        .img-over li.one .bg p{color:#fff; font-size:24px;}
+        .img-over .one:hover .bg{
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100);
+        }
+        /*두번째 이미지 만들기*/
+        .img-over .two img{
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100); 
+                                                        -webkit-transition:opacity 0.5s ease;
+                                                         transition:opacity 0.5s ease;
+        }
+        .img-over .two .inner{
+                                                        width:150px;
+                                                        padding:7px 0;
+                                                        text-align:center;
+                                                        border:1px solid #fff;
+                                                        text-transform:uppercase;
+                                                        font-size:14px;
+                                                        color:#fff;
+                                                        position:absolute;
+                                                        top:0;
+                                                        left:50%;
+                                                        -webkit-transform:translate(-50%, 0);
+                                                                     transform:translate(-50%, 0);
+                                                        -webkit-transition:top 0.5s ease , opacity 0.5s, transform 0.5s;
+                                                                     transition:top 0.5s ease , opacity 0.5s, transform 0.5s;
+                                                                     opacity:0;
+                                                                     filter:alpha(opacity=0); 
+                                                        /*
+                                                            div를 수직, 수평에서의 중앙정렬 만들기
+                                                            1. line-height
+                                                             - 단어, 또는 한문장인 경우 부모박스 안에서
+                                                                수직에 중앙으로 정렬할수 있음.
+                                                                line-height의 값은 높이값으로 넣어줌.
+                                                            2. 계산하기
+                                                            - 부모요소의 높이와 내 높이를 뺀 값의 나누기 반.
+                                                               상황에 따라 padding-top, margin-top을 이용해
+                                                               서 맞춤.
+                                                            3. 부모:table 자식:table-cell, vertical-align:middle;
+                                                            4. 포지션 방식
+                                                            - 부모안에서의 top과 left를 50%로 적용하고,
+                                                               transform:translate(-50%, -50%)의 값으로 좌우
+                                                               균형을 잡아주는 방식.
+                                                            5. 포지션 + table
+                                                        */
+        }
+        .img-over .two:hover img{
+                                                        opacity:0.5;
+                                                        filter:alpha(opacity=50); 
+        }
+        .img-over .two:hover .inner{
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100); 
+                                                        top:50%;
+                                                        -webkit-transform:translate(-50%, -50%);
+                                                                     transform:translate(-50%, -50%);
+        }
+        /*3번째 이미지 호버 만들기*/
+        .img-over .three-img{overflow:hidden;}
+        .img-over .three-img .three{
+                                                        width:100%;
+                                                        background-color:#000;
+                                                        text-align:center;
+                                                        font-size:14px;
+                                                        color:#fff;
+                                                        padding:10px 0;
+                                                        text-transform:uppercase;
+                                                        position:absolute;
+                                                        bottom:-50px;
+                                                        opacity:0;
+                                                        filter:alpha(opacity=0);
+                                                        -webkit-transition:opacity 0.5s ease, bottom 0.5s;
+                                                        transition:opacity 0.5s ease, bottom 0.5s;
+        }
+        .img-over .three-img:hover .three{
+                                                        bottom:0px;
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100);
+        }
+        /*네번째 이미지 만들기*/
+        .img-over .four-img{overflow:hidden;}
+        .img-over .four-img img{
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100); 
+                                                        -webkit-transition:opacity 0.5s ease;
+                                                         transition:opacity 0.5s ease;
+        }
+        .img-over .four-img .four{
+                                                        width:100%;
+                                                        background-color:#000;
+                                                        text-align:center;
+                                                        font-size:14px;
+                                                        color:#fff;
+                                                        padding:10px 0;
+                                                        text-transform:uppercase;
+                                                        position:absolute;
+                                                        top:-50px;
+                                                        opacity:0;
+                                                        filter:alpha(opacity=0);
+                                                        -webkit-transition:opacity 0.5s ease, top 0.5s;
+                                                        transition:opacity 0.5s ease, top 0.5s;
+        }
+        .img-over .four-img:hover .four{
+                                                        top:0px;
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100);
+        }
+        .img-over .four-img:hover img{
+                                                        opacity:0.5;
+                                                        filter:alpha(opacity=50); 
+        }
+        /*다섯번째 이미지 작업*/
+        .img-over .five{}
+        .img-over .five img{
+                                                        -webkit-filter:blur(0px) grayscale(0%);
+                                                                     filter:blur(0px) grayscale(0%);
+                                                        -webkit-transition:0.5s ease, -webkit-transform 0.5s;
+                                                                     transition:0.5s ease, -webkit-transform 0.5s;
+        }
+        .img-over .five:hover img{
+                                                        -webkit-filter:blur(1px) grayscale(100%);
+                                                                     filter:blur(1px) grayscale(100%);
+                                                        -webkit-transform:scale(1.5) rotate(25deg);
+                                                                     transform:scale(1.5) rotate(25deg);   
+        }
+        .img-over .six .op{
+                                                        position:absolute;
+                                                        top:0;
+                                                        left:0;
+                                                        opacity:1;
+                                                        filter:alpha(opacity=100);
+                                                        -webkit-filter:blur(0px);
+                                                                     filter:blur(0px);
+                                                        -webkit-transition:0.5s ease, opacity 0.5s ease-out, -webkit-transform 0.5s;
+                                                                     transition:0.5s ease, opacity 0.5s ease-out, -webkit-transform 0.5s;
+        }
+        .img-over .six:hover .op{
+                                                        opacity:0;
+                                                        filter:alpha(opacity=0);
+                                                        -webkit-filter:blur(3px);
+                                                                     filter:blur(3px);
+                                                        -webkit-transform:scale(2);
+                                                                     transform:scale(2);
+       }
+        /*
+           7번 이미지 만들기
+            - 검은색 배경은 중앙으로 줄어들면서 사라질 때, 반대로 이미지는 중앙으로 부터
+              커지면서 배경색과 바뀌게 적용.
+        */
+        .img-over .seven .block{
+                                                        position:absolute;
+                                                        top:0;
+                                                        left:0;
+                                                        width:100%;
+                                                        height:100%;
+                                                        line-height:200px;
+                                                        background-color:#000;
+                                                        color:#ccc;
+                                                        opacity:1;
+                                                       filter:alpha(opacity=100);
+                                                       -webkit-transition:opacity 0.5s ease, -webkit-transform 0.5s;
+                                                                   transition:opacity 0.5s ease, transform 0.5s;
+        }
+        .img-over .seven img{
+                                                       opacity:0;
+                                                       filter:alpha(opacity=0);
+                                                       -webkit-transform:scaleX(0);
+                                                                    transform:scaleX(0);
+                                                       -webkit-transition:opacity 0.5s ease, -webkit-transform 0.5s;
+                                                                   transition:opacity 0.5s ease, -webkit-transform 0.5s;
+        }
+        .img-over .seven:hover .block{
+                                                       opacity:0;
+                                                       filter:alpha(opacity=0);
+                                                       -webkit-transform:scaleX(0);
+                                                       transform:scaleX(0);
+        }
+        .img-over .seven:hover img{
+                                                       opacity:1;
+                                                       filter:alpha(opacity=100);
+                                                       -webkit-transform:scaleX(1);
+                                                       transform:scaleX(1);
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <h2>The Transition Property</h2>
+       <p>Hover over the div element below, to see the transition effect:</p>
+       <p><a href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_filter_all" target="_blank">w3cschools</a></p>
+       <ul class="img-over">
+           <li class="one">
+               <img src="images/small1.jpg" alt="img" />
+               <div class="bg">
+                   <p><i class="fa fa-search" aria-hidden="true"></i></p>
+               </div>
+           </li>
+           <li class="two">
+               <img src="images/small2.jpg" alt="img" />
+               <div class="inner">
+                   <p>view images</p>
+               </div>
+           </li>
+           <li class="three-img">
+               <img src="images/small3.jpg" alt="img" />
+               <div class="bg three">
+                   <p>view images</p>
+               </div>
+           </li>
+           <li class="four-img">
+               <img src="images/small4.jpg" alt="img" />
+               <div class="bg four">
+                   <p>view images</p>
+               </div>
+           </li>
+           <!--두번째 구조-->
+           <li class="five">
+               <img src="images/small5.jpg" alt="img" />
+           </li>
+           <li class="six">
+               <img src="images/small6.jpg" alt="img" />
+               <img src="images/small6.jpg" alt="img" class="op" />
+           </li>
+           <li class="seven">
+               <div class="block">
+                   <p>view images</p>
+               </div>
+               <img src="images/small7.jpg" alt="img" />
+           </li>
+           <li class="eight">
+               <img src="images/small8.jpg" alt="img" />
+               <div class="block">
+                   <p>view images</p>
+               </div>
+           </li>
+       </ul>
+   </div>  
+</body>
+</html>

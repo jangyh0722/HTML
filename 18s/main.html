@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Robotics</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+        /*
+            한글일반 : font-family: 'Nanum Gothic', sans-serif;
+            영문일반 : font-family: 'Montserrat', sans-serif;
+        */
+
+        /*컨텐츠 중에서 해상도 전체 높이를 활용할 부분에 대한 부모 컨텐츠의 높이값을 지정*/
+        html,body{height:100%; }
+        
+        /*웹폰트 및 본문 폰트 전체 지정 부분*/
+        body{font-size:14px; font-family:'Nanum Gothic', sans-serif; color:#666;}
+        /*
+            background-attachment:fixed; 모바일에서는 적용안됨.
+            가상선택자 + 포지션 + 배경에 스타일부분.
+        */
+        body:before{content:""; /*컨텐츠는 내가 직접 적용하는 방식이기 때문에 아무런 값을 지정하지 않음.*/
+                    display:block; /*블럭 속성으로 지정*/
+                    position:fixed; /*포지션고정*/
+                    top:0; left:0; /*해상도 기준 왼쪽 모서리 상당*/
+                    /*화면에 고정시킬 이미지 주소, 반복여부, 사이즈*/
+                    background-image:url("images/bg.jpg");
+                    background-repeat:no-repeat;
+                    background-size:cover;
+                    /*해상도 사이즈 지정(화면 그대로의 사이즈)*/
+                    width:100%;
+                    height:100%;
+                    z-index:-1;/*모든 컨텐츠 부분에 제일 하단으로 적용.*/
+        }
+        /*본문 영문 서체 관련 스타일 지정*/
+        .eng{font-family:'Montserrat', sans-serif;}
+        h1, h2, h3, h4{font-weight:100;}
+        h1{font-size:50px;}
+        h2{font-size:32px;}
+        h3{font-size:24px;}
+        h4{font-size:16px;}
+        .row{width:100%}
+
+        /*고정버튼*/
+       .top{z-index:111111; position:fixed; bottom:110px; right:10px; width:35px; height:35px; }
+       .top-btn{width:inherit; height:inherit; background-color:#000; color:#666; text-align:center; line-height:35px;
+                font-size:20px;}
+       .top-btn:hover{background-color:#666; color:#fff;}
+
+       /*top-main 로고와 메뉴 부분*/
+       .top-main{/*영상위에 위치하면서 수평에 중앙으로 보여지는구조*/ 
+                 position:absolute;/*영상위에 올려질 좌표 설정 포지션*/
+                 top:50px; left:50%;/*상단으로 떨어질 여백을 지정하기 위한 값.*/
+                 -webkit-transform:translateX(-50%);
+                 -moz-transform:translateX(-50%);
+                 -o-transform:translateX(-50%);
+                 transform:translateX(-50%);
+                 width:1010px; /*로고와 메뉴의 전체 넓이*/
+                 overflow:hidden;/*높이를 모르기 때문에 지정한 스타일값*/
+                 z-index:11111;
+       }
+       
+       
+       .top-main .logo img{/*이미지 사이즈를 유동넓이 변경*/
+                           width:100%;}
+       .top-main .logo{width:170px; float:left;}
+       .top-main .nav{float:right; width:auto;}
+       .top-main .nav li{display:inline-block;}
+       .top-main .nav li a{/*a에 적용된 padding의 값은...
+                             (.logo의 높이 24.28px - nav의 높이 14px) / 2
+                           */
+           color:#fff; text-transform:uppercase; padding:5px 20px;}
+       .top-main .nav li a:hover{background-color:#fff; color:#000;}
+       .top-main .nav li.line{box-sizing:border-box; border:1px solid #fff;}
+
+       /*header*/
+
+       /*화면에서 배치되는 사이즈 공통*/
+       .v-header, .fullscreen-video, .header-overlay, .header-content{width:100%; height:100%;}
+       .v-header{position:relative; top:0; left:0;}
+       /*header에서 포지션 좌표를 써야 하는 선택자들*/
+       .fullscreen-video, .header-overlay, .header-content{position:absolute;}
+       .fullscreen-video{/*header구조상 제일 하단에 위치하는 컨텐츠이기 때문에 z-index값이 제일 낮음.*/
+                         top:0; left:0; overflow:hidden; z-index:1;}
+        .fullscreen-video video { /*
+                                     영상을 해상도 전체에 배경이미지처럼 활용하는 방법.
+                                     position:absolute;   position:fixed;
+                                     top:0;
+                                     left:0;
+                                     min-width:100%; 최소넓이
+                                      ※최소넓이는 내용이 최소 넓이 보다 작으면 최소 넓이가 적용되며,
+                                      내용이 최소 넓이보다 큰 경우에는 min-width속성이 적용되지 않습니다.
+                                     width:auto; 
+                                     min-height:100%; 최소높이
+                                      ※최소높이는 내용이 최소 높이 보다 작으면 최소 높이가 적용됩니다.
+                                      내용이 최소 높이보다 큰 경우네는 min-height속성이 적용되지 않습니다.
+                                     height:auto;
+                                     z-index:순번적용;
+                                 */
+            min-width: 100%;
+            width: auto;
+            min-height: 100%;
+            height: auto;
+        }
+        .header-overlay{z-index:11; top:0; left:0; 
+                        /*
+                            배경색과 배경이미지를 한꺼번에 적용할때 주의사항
+                            background:#000;
+                            background:url("");
+                            background-size:cover;
+                        */
+                        background-color:rgba(0,0,0,0.3);
+                        background-image:url("images/main_career-bg.png");
+                        overflow:hidden;
+        }
+        .header-content{z-index:111; text-align:center; height:auto; top:53%;
+                        -webkit-transform:translateY(-50%);
+                        -moz-transform:translateY(-50%);
+                        -o-transform:translateY(-50%);
+                        transform:translateY(-50%);
+        }
+        .header-content h1{margin-bottom:40px;}
+        .header-content h1, .header-content p{color:#fff;}
+        .header-content p{margin-bottom:130px;}
+        .header-content a{display:inline-block; width:180px; text-align:center; padding:10px 0; color:#fff; text-transform:uppercase;
+                          border:1px solid #fff;
+        }
+        .header-content a:hover{background-color:#fff; color:#000;}
+
+        /*section*/
+        .btn{color:#fff; width:180px; padding:10px 0; text-align:center; border:1px solid #fff; display:inline-block;}
+        /*sectiond의 넓이를 상속받을 공통의 선택자*/
+        .content{width:inherit;}
+        /*company*/
+        .company{background-color:#fff; padding:100px 0; box-shadow:0px 2px 8px rgba(0,0,0,0.4);}
+        /*
+            현재 부분을 가상선택자 after를 선택할수 밖에 없었던 이유는 
+            float을 사용했지만 정확한 높이가 없고, 왼쪽에 배너는 포지션을
+            이용한 애니메이션 처리를 해주기 위해서 가상선택자를 사용.
+            이 방법이 아니면 왼쪽 배너는 마스크(overflow)로 인하여 가려짐.
+        */
+        .company:after{content:""; display:block; clear:both;}
+        /*section의 구조에서 수평정렬될 구조의 공통 스타일*/
+        .company-cont, .team-player, .news-list, .video-list{width:1010px; margin:auto;}
+        .company-cont{}
+        .company-txt{float:left; width:550px;}
+        /*
+            h2안에의 텍스트 행간의 높이는 h2에게 line-height를 이용해도 되며, h2 > span을 이용해서
+            margin-bottom 또는 padding을 이용해서 행간의 높이를 만들어줘도 됨.
+        */
+        .company-txt .txt-block{width:520px;}
+        .company-txt h2{line-height:34px; color:#333; margin-bottom:20px;}
+        .company-txt h2 span{display:block;}
+        .company-txt p{line-height:19px;}
+        .company-txt p:nth-of-type(1){margin-bottom:15px;}
+        
+
+        /*애니메이션 타이틀 만들기*/
+        .company-txt h2, .company-txt p{-webkit-animation-name:title; /*애니메이션 이름. 키프레임에 사용될 이름.*/
+                                          -webkit-animation-duration:1s; /*애니메이션 속도값*/
+                                          -webkit-animation-delay:3s;/*대기시간*/
+                                          -webkit-animation-timing-function:linear; /*모션효과*/
+                                          -webkit-animation-iteration-count:1;/*실행횟수*/
+                                          -webkit-animation-fill-mode:both; /*애니메이션 실행제어*/
+                                          
+                                          animation-name:title; /*애니메이션 이름. 키프레임에 사용될 이름.*/
+                                          animation-duration:1s; /*애니메이션 속도값*/
+                                          animation-delay:3s;/*대기시간*/
+                                          animation-timing-function:linear; /*모션효과*/
+                                          animation-iteration-count:1;/*실행횟수*/
+                                          animation-fill-mode:both; /*애니메이션 실행제어*/
+                         }
+
+       
+        /*
+            두개의 이미지를 좌표설정으로 맞추기 위해서 반드시 부모박스는 position:relative로 선언해줘야함
+        */
+        .company-ban{float:left; width:460px; position:relative;}
+        .company-ban .car{top:70px; -webkit-animation-name:car; animation-name:car;}
+        .company-ban .robot{top:-50px; left:180px; -webkit-animation-name:robot; animation-name:robot;}
+        .company-ban .robot, .company-ban .car{position:absolute;
+                                          -webkit-animation-duration:1s; /*애니메이션 속도값*/
+                                          -webkit-animation-delay:3s;/*대기시간*/
+                                          -webkit-animation-timing-function:linear; /*모션효과*/
+                                          -webkit-animation-iteration-count:1;/*실행횟수*/
+                                          -webkit-animation-fill-mode:both; /*애니메이션 실행제어*/
+                                          
+                                          animation-duration:1s; /*애니메이션 속도값*/
+                                          animation-delay:3s;/*대기시간*/
+                                          animation-timing-function:linear; /*모션효과*/
+                                          animation-iteration-count:1;/*실행횟수*/
+                                          animation-fill-mode:both; /*애니메이션 실행제어*/
+        }
+
+        @-webkit-keyframes title {
+            0% {
+                color: #fff;
+                -webkit-transform: translateX(-50px);
+                transform: translateX(-50px);
+            }
+
+            100% {
+                color: #333;
+                -webkit-transform: translateX(0px);
+                transform: translateX(0px);
+            }
+        }
+        @-webkit-keyframes car {
+            0% {opacity:0; filter:alpha(opacity=0);
+                left:80px;
+            }
+
+            100% {opacity:1; filter:alpha(opacity=100);
+                left:0px;}}
+        @-webkit-keyframes robot {
+            0% {opacity:0; filter:alpha(opacity=0);
+                left:80px;}
+
+            100% {opacity:1; filter:alpha(opacity=100);
+                left:180px;}}
+
+        .team{background-color:rgba(0,0,0,0.6); background-image:url("images/main_career-bg.png");
+              background-repeat:no-repeat;
+        }
+        .team-player{padding:100px 0; text-align:center;}
+        .team-player h2{color:#fff; line-height:32px; margin-bottom:30px;}
+        .team-player h2 span{display:block;}
+        .team-player p{color:#fff; margin-bottom:30px;}
+        .team-player a:hover{background-color:#fff; color:#000;}
+
+        .news{background-color:#efefef; padding:100px 0;}
+        .news > a{margin:auto; display:block; border:1px solid #666; color:#666;}
+        .news > a:hover{background-color:#666; color:#fff;}
+        .news h3{color:#333; text-align:center; margin-bottom:50px;}
+        .news-list{width:1010px; margin:auto; margin-bottom:60px;}
+        .news-list:after{content:""; display:block; clear:both;}
+        .news-list li{width:320px; float:left;}
+        .news-list li:nth-child(2){margin:0 25px;}
+        .news-list li img{width:100%; margin-bottom:20px;}
+        .news-list li .block{width:90%; margin:auto; padding-bottom:15px;}
+        .news-list li .block h4{color:#333; margin-bottom:10px;}
+        .news-list li .block > span{color:#ccc; font-size:12px; display:inline-block; margin-bottom:20px;}
+        .news-list li .block p{color:#666; line-height:19px;}
+        /*news-list li a가 마우스 이벤트시 애니메이션 처리 부분*/
+        .news-list li a{position:relative;}
+        .news-list li a:before{content:""; display:block; position:absolute; top:0; left:0; 
+                               border:1px solid rgba(0,0,0,0); box-sizing:border-box;
+                               -webkit-transition:all 0.5s ease;
+                               -moz-transition:all 0.5s ease;
+                               -o-transition:all 0.5s ease;
+                               transition:all 0.5s ease;
+                               width:100%;
+                               height:100%;}
+        .news-list li a:hover:before{border:1px solid #217422; box-shadow:5px 9px 15px rgba(0,0,0,0.3);}
+
+        .video{background-color:#fff; padding:100px 0;}
+        .video > a{/*a의 공통식별자 이름은 btn으로 section상단에서 btn의 스타일을 지정해 놨는데 이때 dispaly:inline-block
+                      을 사용했기 때문에 margin:auto;가 적용이 안됨. 그래서 display:block;으로 변경후 margin:auto; 사용
+                   */
+            border:1px solid #666; color:#666; display:block; margin:auto;}
+        .video > a:hover{background-color:#666; color:#fff;}
+        .video h3{text-align:center; color:#fff; margin-bottom:50px;}
+        .video-list{width:1010px; margin:0 auto 60px; overflow:hidden;}
+        .video-list li img{width:100%;}
+        .video-list li{width:320px; float:left;}
+        .video-list li:nth-child(2){margin:0 25px;}
+        .video-list li .video-block{/*video-block안에는 이미지와 아이콘이 들어있는데 이미지위에 아이콘을 올리는 구조로
+                                      만들어야 하기 때문에 반드시 포지션을 이용하여 작업함.
+                                      부모 div: position:realtive 적용.
+                                    */
+                                    position:relative; background-color:#000; margin-bottom:15px;
+        }
+        .video-list li .video-block img{/*이미지위에 아이콘을 살리기 위해서 적절한 투명도를 이미지에 적용.*/
+            opacity:0.4; filter:alpha(opacity=40);}
+        .video-list li .video-block .fa{/*div구조를 이용해 table작업도 가능*/
+           /*포지션을 이용해 video-block안에서 수평과 수직의 중앙으로 위치를 잡아주고, 폰트의 속성을 이용해 아이콘의
+             사이즈와 색을 변경.
+           */
+            position:absolute; top:50%; left:50%;
+            -webkit-transform:translate(-50%, -50%);
+            -moz-transform:translate(-50%, -50%);
+            -o-transform:translate(-50%, -50%);
+            transform:translate(-50%, -50%);
+            color:#666; font-size:32px;/*아이콘 크기를 지정*/
+        }
+        .video-list li h4{margin-bottom:10px; color:#333; 
+        }
+        .video-list li:first-child h4{font-size:15px;}
+        .video-list li a > span{color:#ccc; font-size:12px;}
+        .video-list li .video-block .fa, .video-list li h4, .video-list li a > span{-webkit-transition:all 0.5s ease;
+                          -moz-transition:all 0.5s ease; -o-transition:all 0.5s ease;
+                          transition:all 0.5s ease;}
+        .video-list li a:hover .fa{color:#fff;}
+        .video-list li a:hover h4{color:#00a1c6;}
+        .video-list li a:hover > span{color:#333;}
+
+        /*footer style*/
+        footer{background-color:rgba(0,0,0,0.5); padding:40px 0;}
+        .foot-content{overflow:hidden; width:1010px; margin:auto;}
+        /*
+            foot-content ul li는 footer안에 있는 두개의 목록에 대한 태그선택자로 해당 부분엔 식별자가 있지만
+            공통으로 적용해야 할 부분들에 대하여 태그선택자를 이용하게 되면 내가 바꾸고자 하는 부분에 스타일들을
+            한번에 바꿀수 있는 장점이 있음.
+        */
+        .foot-content ul li{display:inline-block; color:#999; font-size:13px;}
+        .foot-content ul li a{color:#999; font-size:13px;}
+        .foot-content ul{width:auto;}
+        .foot-content ul li{padding:3px 6px;}
+        .foot-content .sns{float:left;}
+        .foot-content .sns .fa{margin-right:3px;}
+        .foot-content .foot-navi{float:right;}
+        .foot-content .foot-navi li:last-child{border:1px solid #999;}
+        .foot-content .foot-navi li:last-child a:after{
+            /*가상선택자를 이용한 폰트어썸 사용방법은 폰트어썸에서 쓰고자 하는 폰트의 Unicode를 복사후
+                content:""; 안쪽으로 삽입.
+            */
+        content:"\f107"; font-family:FontAwesome; margin-left:10px;}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!--
+        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        <i class="fa fa-behance-square" aria-hidden="true"></i>
+    -->
+
+    <!--고정버튼 만들기-->
+    <div class="top">
+        <a href="#" class="top-btn">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </a>
+    </div>
+    <!--로고와 메뉴 부분 : absolute 작업-->
+    <div class="top-main">
+        <a href="index.html" target="_self" class="logo">
+            <img src="common/NAVERLABS_LOGO_WHITE.png" alt="img" />
+        </a>
+        <ul class="nav">
+            <li><a href="#" target="_self">story</a></li>
+            <li><a href="#" target="_self">showroom</a></li>
+            <li><a href="#" target="_self">publications</a></li>
+            <li><a href="career_labs.html" target="_self">career</a></li>
+            <li><a href="#" target="_self">contact</a></li>
+            <li class="line"><a href="#" target="_self" class="eng">english</a></li>
+        </ul>
+    </div>
+    <header class="v-header row">
+        <div class="fullscreen-video">
+            <video autoplay loop muted>
+                <source src="movie/labs.mp4" type="video/mp4" />
+                <source src="movie/labs.webm" type="video/webm" />
+                <source src="movie/labs.ogg" type="video/ogg" />
+                <source src="movie/labs.ovg" type="video/ovg" />
+            </video>
+        </div>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1 class="eng">ROBOTICS</h1>
+            <p>
+                <span class="eng">AI</span>와 로봇기술의 조화로운 융합을 위해<br />
+                수많은 가능성을 현실로 만들어 갑니다.
+            </p>
+            <a href="#" target="_self">Read More</a>
+        </div>
+    </header>
+    <section class="contariner row">
+        <div class="company content">
+            <div class="company-cont">
+                <div class="company-txt">
+                    <div class="txt-block">
+                        <h2 class="eng">
+                            <span>WE ARE</span>
+                            <span>AN AMBIENT INTELLIGENCE</span>
+                            <span>COMPANY</span>
+                        </h2>
+                        <p>
+                            네이버랩스의 비전인 생활환경지능은 사용자의 환경을 먼저 이해하고,
+                            사용자가 요구하기 전에 필요한 정보와 서비스를 앞서 제공할 수 있는 기술을 의미합니다.
+                        </p>
+                        <p>
+                            실제 사람들의 삶이 펼쳐지는 <span class="eng">location</span>에 대한 이해, 그리고 그 공간과 공간 사이를
+                            연결해주는 <span class="eng">mobility</span>의 지능화에 집중하며 삶에 스며드는 솔루션을 제공하고자 합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="company-ban">
+                    <img src="images/main_company_car.png" alt="img" width="330" height="167" class="car" />
+                    <img src="images/main_company_robot.png" alt="img" width="200" height="299" class="robot" />
+                </div>
+            </div>
+        </div>
+        <div class="team content">
+            <div class="team-player">
+                <h2 class="eng">
+                    <span>PASSIONATE SELF-MOTIVATED</span> 
+                    <span>TEAM PLAYER</span>
+                </h2>
+                <p>네이버랩스와 함께 성장해 나갈 최고의 인재를 초대합니다.</p>
+                <a href="#" target="_self" class="btn">CAREER</a>
+            </div>
+        </div>
+        <div class="news content">
+            <h3 class="eng">FEATURED NEWS</h3>
+            <ul class="news-list">
+                <li>
+                    <a href="#" target="_self">
+                        <img src="images/1532308738111.png" alt="img" />
+                        <div class="block">
+                            <h4>에어카트, 삶 속으로 더 가까이 - </h4>
+                            <span class="eng">2018.07.23 |　Robotics</span>
+                            <p>
+                                작년 <span class="eng">DEVIEW</span> 컨퍼런스에서 근력증강 로봇기술을
+                                응용한 에어카트<span class="eng">(AIRCART)</span>를 공개한 이후 여러
+                                단체에서 관심을 보내주었습니다.<br /> 운송장비 제조사인 삼송...
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <img src="images/1530153360167.jpg" alt="img" width="320" height="180"/>
+                        <div class="block">
+                            <h4>에어카트 오픈키트를 공개합니다.</h4>
+                            <span class="eng">2018.06.29 |  Robotics</span>
+                            <p>
+                                수레는 인류의 기념비적인 발명품중 하나입니다.
+                                나무를 굴려 돌을 옮기거나 말이나 낙타로 식량을
+                                옮기던 시기에 수레는 이동의 속도와 반경에 
+                                혁명을 일으키고...
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <img src="images/1527471012217.png" alt="img" />
+                        <div class="block">
+                            <h4>네이버랩스, 현대중공업지주와...</h4>
+                            <span class="eng">2018.0４.2０ |　Robotics</span>
+                            <p>
+                                2016년, 우리는 3차원 실내 정밀지도를 
+                                제작하는 로봇 <span class="eng color">M1</span>을 처음 공개했습니다. 
+                                이어서 작년에는, <span class="eng color">M1</span>이 제작한 3차원 지도와
+                                <span class="eng color">map cloud</span>를 기반으로 스스로 이동...
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a href="#" target="_self" class="btn">SEE ALL</a>
+        </div>
+        <div class="video content">
+            <h3 class="eng">VIDEOS</h3>
+            <ul class="video-list">
+                <li>
+                    <a href="#" target="_self">
+                        <div class="video-block">
+                            <img src="images/maxresdefault.jpg" alt="img" />
+                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <h4>에어카트 오픈키트 <span class="eng">(AIRCART OPENKIT)</span> 공개</h4>
+                        <span>2018.06.29</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <div class="video-block">
+                            <img src="images/maxresdefault (1).jpg" alt="img" />
+                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <h4>현대중공업지주와 로봇 사업 협력</h4>
+                        <span>2018.05.28</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <div class="video-block">
+                            <img src="images/maxresdefault (2).jpg" alt="img" />
+                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <h4>만도와 자율주행기술 연구 협력</h4>
+                        <span>2018.05.28</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="#" target="_self" class="btn">SEE ALL</a>
+        </div>
+    </section>
+    <footer class="footer row">
+        <div class="foot-content">
+            <ul class="sns">
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <span>instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        <span>youtube</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <span>linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self">
+                        <i class="fa fa-behance-square" aria-hidden="true"></i>
+                        <span>behance</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="foot-navi">
+                <li><a href="#" target="_self">개인정보처리방침</a></li>
+                <li>|</li>
+                <li><a href="#" target="_self">기업윤리센터</a></li>
+                <li>|</li>
+                <li class="eng">&copy;NAVER LABS Corp.</li>
+                <li><a href="#" target="_self">사이트 바로가기</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

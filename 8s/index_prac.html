@@ -1,0 +1,928 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>BONAJOUR</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+        body {
+            font-size: 14px;
+            color: #333;
+            font-family: 'NanumGothic', sans-serif;
+            letter-spacing: 0.8px;
+        }
+        .eng {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .row{width:100%;}
+        /*header*/
+        /*메인 비쥬얼배너를 배경이미지로 넣어줌*/
+        .header{
+            background-image:url("images/bg/visualBg.jpg");
+            /*반복속성 스타일*/
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            /*배경이미지의 좌표값*/
+            background-position:center top;
+            /*해상도 전체 배경이미지로 지정*/
+            background-size:cover;
+        }
+        /*전체 해상도 사이즈인 div 공통선택자*/
+        .main-top, .navibar{
+            width:inherit;
+            background-color:#fff;
+        }
+        .main-top {
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+        }
+        /*중앙으로 배치될 컨텐츠 공통 식별자*/
+        .h-row{width:1260px; margin:0 auto;}
+        .btn{background-color:#fff;
+             color:#666;
+             width:180px;
+             text-transform:uppercase;
+             text-align:center;
+             padding:10px 0;
+        }
+        .btn:hover {background-color: #7fc200;color: #fff;}
+        h3{color:#666; font-weight:100; font-size:20px;}
+        p{color:#999;}
+        .top{overflow:hidden; padding:20px 0; }
+        .logo{float:left; }
+        .gnb{width:auto; float:right;padding-top:15.5px;}
+        /*li부분을 수평인 상태로 펼치려면 float:left; display:inline-block;*/
+        .gnb li{font-size:12px; color:#999;display:inline-block;}
+        .gnb li a{color:#999; padding:0 4px;}
+        .gnb li a:hover{text-decoration:underline; color:#333;}
+        .gnb li .search{
+            width:160px; 
+            background-color:#e6e6e6;
+            text-align:right;
+            padding:5px;
+        }
+        .navibar{}
+        .nav{height:40px;}
+        .nav li{float:left; line-height:40px; height:inherit;}
+        .nav li.right{float:right;}
+        .nav li a{color:#666; font-size:16px; padding:0 20px;}
+        .nav li a:hover{background-color:#e6e6e6; color:#000;}
+        .nav li:nth-child(4) a{color:#7fc200; background-color:#e6e6e6;}
+        .nav li:nth-child(4) a:hover{color:#7fc200; color:#000;}
+        .nav li:nth-child(8) a{color:#333; font-weight:bold;}
+        .main-title{padding:260px 0;}
+        .main-title h2{
+            color:#7fc200;
+            font-size:40px;
+            font-weight:100;
+            margin-bottom:30px;
+            margin-left:20px;
+        }
+        .main-title p{
+            font-size:18px;
+            color:#e6e6e6;
+            line-height:22px;
+            margin-bottom:30px;
+            margin-left:23px;
+        }
+        .main-title .btn{margin-left:23px;}
+
+        /*section style*/
+        .section{}
+        /*li안에서 div박스를 이용한 컨텐츠 정렬을 하고font-size의 영향을
+            받아 구조가 꺠지는 현상이 발생될 수 있음
+            폰트를 지정하지 않으면 기본사이즈는 통상 16px로 화면에 출력이
+            되는데 현재 지정된 폰트 사이즈는 14px로 맞춰 본문 내용에 적용.
+            폰트 사이즈에 따라 세밀한 작업의 컨텐츠라면 꺠질 수 있으니 주의.
+        */
+        .prod-ui{
+            overflow:hidden;
+            padding:60px 0;
+
+        }
+        .prod-ui li{
+            float:left; 
+            width:315px;
+            border:1px solid #e6e6e6; 
+            box-sizing:border-box; 
+            border-right:0;
+            padding:20px 0;
+        }
+        .prod-ui li:first-child{border-left:0;}
+        .prod-ui li .pr-ui{width:290px; margin:0 auto; overflow:hidden;}
+        .prod-ui li .pr-ui img{float:left; margin-right:10px;}
+        .prod-ui li .pr-ui txt{}
+        .prod-ui li .pr-ui .ui-txt h3{padding:10px 0;}
+        .prod-ui li .pr-ui .ui-txt p{line-height:20px;}
+        .tab-navi{padding:60px 0;}
+        .tab-nav, .tab-content{overflow:hidden; width:inherit;}
+        .tab-nav{}
+        .tab-nav li{
+            width:315px;
+            float:left;
+            background-color:#eeeeee;
+            text-align:center;
+            line-height:35px;
+            height:35px;
+            box-sizing:border-box;
+            border-bottom:1px solid #ccc;
+        }
+        .tab-nav li:first-child{border:1px solid #ccc;
+                                border-bottom:0;
+                                background-color:#fff;
+        }
+        .tab-nav li a{color:#666;}
+        .tab-content{
+            border:1px solid #ccc;
+            border-top:0;
+            padding:20px 0;
+        }
+        .tab-content li{
+            float:left;
+            width:228px;
+            height:228px;
+            margin-right:20px;
+            margin-bottom:20px;
+        }
+        .tab-content li:first-child, .tab-content:nth-child(6){margin-left:20px;}
+        .tab-content li.bot{margin-bottom:0;}
+        .event-prod{
+            background-color:#eeeeee;
+            padding:60px 0;
+        }
+        .ev-prod{}
+        .ev-prod, .ev-right{overflow:hidden;}
+        .ev-left{float:left;}
+        .ev-right{float:right; width:620px;}
+        .ev-right li{float:left;}
+        .ev-right li:first-child{margin-bottom:20px;}
+        .ev-right li:nth-child(2){margin-right:20px;}
+
+        .best-prod{padding:60px 0 180px;}
+        .best-prod img{width:100%}
+        .best-prod h2{font-size:30px; text-transform:uppercase; text-align:center;padding-bottom:60px;}
+        .best-product{overflow:hidden;}
+        .best-product li{
+            width:300px;
+            margin-right:20px;
+            margin-bottom:60px;
+            float:left;
+        }
+        .best-product li.right-ma{margin-right:0;}
+        .best-product li.bott{margin-bottom:0;}
+        .best-product li .block{}
+        .best-product li .block h3 {padding:20px 0 15px;}
+        .best-product li .block hr{padding-bottom:15px;}
+        .best-product li .block p:nth-of-type(1){line-height:19px;text-align:justify;margin-bottom:20px;}
+        .best-product li .block p span.le-ma{margin-right:15px;}
+        
+        .shop-ban{
+            /*
+                배경 이미지를 이용해 배경색인것처럼 만들기
+                background-repeat:repeat-x;
+            */
+            background-image:url("images/bg/eventbg.png");
+            background-repeat:repeat-x;
+        }
+        .shop-cont{overflow:hidden;}
+        .shop-cont img{float:right; padding-right:50px;}
+        .shop-txt{
+            float:left; 
+            width:400px;
+            padding-top:130px;
+            padding-left:100px;
+        }
+        .shop-txt p:nth-of-type(1){text-transform:uppercase; margin-bottom:15px;}
+        .shop-txt h3{font-weight:bold; color:#fff; margin-bottom:10px;}
+        .shop-txt p:nth-of-type(2){color:#fff; margin-bottom:20px;}
+
+        .weekly{padding:180px 0 60px;}
+        .weekly img{width:100%}
+        .weekly h2{font-size:30px; text-transform:uppercase;text-align:center;padding-bottom:60px;}
+        .week-list{overflow:hidden;}
+        .week-list li{
+            float:left;
+            border:1px solid #ccc;
+            box-sizing:border-box;
+            width:615px;
+            height:250px;
+            margin-right:30px;
+            overflow:hidden;
+        }
+        .week-list li.we-rig{margin:0 auto;}
+        .week-list li.we-bot{margin-bottom:30px;}
+        .week-list li .week-img{width:250px;float:left;}
+        .week-list li .week-txt{width:363px; float:right;}
+        .week-txt .week{width:94%; margin:0 auto; padding-top:30px;}
+        .week-txt .week h3{
+            font-size:16px;
+            margin-bottom:20px;
+        }
+        .week-txt .week p:nth-of-type(1){
+            margin-bottom:20px;
+            line-height:19px;
+        }
+        .week-txt .week p span.we-ma{margin-right:10px;}
+        .inst-cont{
+            background-color:#eeeeee; 
+            padding:60px 0;
+            border-top:1px solid #ccc;
+           border-bottom:1px solid #ccc;
+        }
+        .inst-content{width:1227px; margin:0 auto;}
+        .inst-content h2{
+            font-size:30px;
+            text-transform:uppercase;
+            text-align:center;
+            padding-bottom:60px;
+
+        }
+        .inst-peo{overflow:hidden;}
+        .inst-peo li{float:left; margin-right:3px; margin-bottom:3px;}
+        .inst-peo li:nth-child(10), .inst-peo li:last-child{margin-right:0;} 
+
+        /*footer*/
+        .footer{background-color:#fff;}
+        .foot-navi{border-bottom:1px solid #ccc;}
+        .foot-nav{text-align:center;}
+        .foot-nav li{
+            display:inline-block;
+            height:40px;
+            line-height:40px;
+            color:#000;
+        }
+        .foot-nav li a{color:#999; padding:0 30px;}
+        .foot nav li:nth-child(5) a{color:#333; font-weight:bold;}
+        .foot-nav li a:hover{background-color:#ccc; color:#000;}
+        .admin-info{padding:60px 0;overflow:hidden;}
+        .admin-info h3{font-size:16px; color:#333;margin-bottom:15px;}
+        .admin-info hr{margin-bottom:15px;}
+        .admin-info > div{float:left; width:420px; box-sizing:border-box;}
+        .admin-info > div:nth-child(2){
+            border-left:1px solid #ccc;
+            border-right:1px solid #ccc;
+        }
+        .custom, .address, .event{width:380px;}
+        .address{margin:0 auto;}
+        .event{background:#fff; margin-left:39px;}
+        .custom h3 span{font-size:12px; color:#999;}
+        .custom h2{font-size:30px; margin-bottom:15px;}
+        .custom p:nth-of-type(1){line-height:19px; margin-bottom:30px;}
+        .custom p:nth-of-type(2){letter-spacing:0.7px; margin-bottom:15px;}
+        .custom p span.f-one{color:#333;margin-right:10px;}
+        .custom p:nth-of-type(3){}
+        .custom p span.f-two{color:#333; margin-right:30px;}
+        .custom p span.inter{border:1px solid #ccc; padding:3px;}
+        .address{}
+        .address p:nth-of-type(1){color:#333; margin-bottom:10px;}
+        .address p:nth-of-type(2){line-height:19px; margin-bottom:20px;}
+        .address p:nth-of-type(3){color:#333; margin-bottom:10px;}
+        .address p:nth-of-type(4){margin-bottom:40px;}
+        .address p:nth-of-type(5){margin-bottom:5px;}
+        .address p span.one{margin-right:77px;}
+        .address p:nth-of-type(6){margin-bottom:5px;}
+        .address p span.two{margin-right:68px;}
+        .address p span.three{margin-right:64px;}
+        .event h3{text-transform:uppercase;}
+        .ev-ban img{width:100%}
+        .ev-ban{width:380px; height:112px; overflow:hidden;}
+        .icon{overflow:hidden; padding-top:20px;}
+        .icon li{
+            float:left; 
+            margin-right:5px; 
+            width:72px; 
+            height:46px;
+            background-color:#f4f4f4;
+            margin-bottom:5px;
+        }
+        .icon li:nth-child(5), .icon li:last-child{margin-right:0;}
+        .icon li img{margin:0 auto;}
+
+    </style>
+
+
+</head>
+<body>
+    <!--header-->
+    <div class="header row">
+        <!--해상도 전체 바닥 테두리와 로고, gnb영역-->
+        <div class="main-top">
+            <div class="top h-row">
+                <a href="#" class="logo">
+                    <img src="common/top_logo_on.png" alt="logo" />
+                </a>
+                <ul class="gnb">
+                    <li><a href="#">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        로그인</a></li>
+                    <li>|</li>
+                    <li>
+                    <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        장바구니</a></li>
+                    <li>|</li>
+                    <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                        마이페이지</a></li>
+                    <li>|</li>
+                    <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i>
+                        고객센터</a></li>
+                    <li>
+                        <div class="search"><i class="fa fa-search" aria-hidden="true"></i></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--사이트 주메뉴 영역-->
+        <div class="navibar">
+            <ul class="nav h-row">
+                <li><a href="#">스킨케어</a></li>
+                <li><a href="#">바디케어</a></li>
+                <li><a href="#">스페셜존</a></li>
+                <li><a href="#" class="eng">BRAND</a></li>
+                <li class="right"><a href="#">고객센터</a></li>
+                <li class="right"><a href="#">커뮤니티</a></li>
+                <li class="right"><a href="#">상품후기</a></li>
+                <li class="right"><a href="#">멤버십혜택</a></li>
+                <li class="right"><a href="#" class="eng">EVENT</a></li>
+            </ul>
+        </div>
+        <!--메인 비쥬얼 타이틀 영역-->
+        <div class="main-title h-row">
+            <h2>당신의 피부도 분명히 좋아집니다.</h2>
+            <p>
+                당신의 고민을 누구보다 잘 알기에 저희는 제대로 된 화장품을 만듭니다.<br />
+                당신의 피부, 분명히 좋아질 수 있습니다.
+            </p>
+            <a href="#" class="btn eng">brand story</a>
+        </div>
+    </div>
+
+
+    <!--section-->
+    <div class="section row">
+        <ul class="prod-ui h-row">
+            <li>
+                <!--li안쪽에 이미지와 텍스트의 넓이를 제공받을 수평정렬을 제공-->
+                <div class="pr-ui">
+                    <img src="images/review.png" alt="review" />
+                    <div class="ui-txt">
+                        <h3>제품리얼리뷰</h3>
+                        <p>
+                            고객님들의 솔직한 후기<br />
+                            후기쓰고 적립금 받으세요.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!--li안쪽에 이미지와 텍스트의 넓이를 제공받을 수평정렬을 제공-->
+                <div class="pr-ui">
+                    <img src="images/choice.png" alt="review" />
+                    <div class="ui-txt">
+                        <h3>위클리 초이스</h3>
+                        <p>
+                            이번주만 이 가격. 매주 위클리<br />
+                            이벤트 제품이 공개됩니다.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!--li안쪽에 이미지와 텍스트의 넓이를 제공받을 수평정렬을 제공-->
+                <div class="pr-ui">
+                    <img src="images/membership.png" alt="review" />
+                    <div class="ui-txt">
+                        <h3>보나쥬르 멤버십</h3>
+                        <p>
+                            보나쥬르 회원만을 위한 혜택<br />
+                            사은품 혜택도 함께 확인해요.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!--li안쪽에 이미지와 텍스트의 넓이를 제공받을 수평정렬을 제공-->
+                <div class="pr-ui">
+                    <img src="images/sample-five.png" alt="review" />
+                    <div class="ui-txt">
+                        <h3>무료샘플 5종 신청</h3>
+                        <p>
+                            써보고 결정하자. 회원가입 후<br />
+                            무료 샘플을 신청해보세요.
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="teb-navi h-row">
+            <ul class="tab-nav">
+                <li><a href="#"><span class="eng">BEST</span>인기</a></li>
+                <li><a href="#"><span class="eng">NEW</span>신상</a></li>
+                <li><a href="#"><span class="eng">MD</span>추천</a></li>
+                <li><a href="#">시즌제품</a></li>
+            </ul>
+            <ul class="tab-content">
+                <li>
+                    <img src="images/teb-products/teb-product1.png" alt="img" />
+                </li>
+                <li>
+                    <img src="images/teb-products/teb-product2.png" alt="img" />
+                </li>
+                <li>
+                    <img src="images/teb-products/teb-product3.png" alt="img" />
+                </li>
+                <li>
+                    <img src="images/teb-products/teb-product4.png" alt="img" />
+                </li>
+                <li>
+                    <img src="images/teb-products/teb-product5.png" alt="img" />
+                </li>
+                <li class="bot">
+                    <img src="images/teb-products/teb-product6.png" alt="img" />
+                </li>
+                <li class="bot">
+                    <img src="images/teb-products/teb-product7.png" alt="img" />
+                </li>
+                <li class="bot">
+                    <img src="images/teb-products/teb-product8.png" alt="img" />
+                </li>
+                <li class="bot">
+                    <img src="images/teb-products/teb-product9.png" alt="img" />
+                </li>
+                <li class="bot">
+                    <img src="images/teb-products/teb-product10.png" alt="img" />
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="event-prod">
+            <div class="ev-prod h-row">
+                <div class="ev-left">
+                    <img src="images/mainmiddle_left.jpg" alt="img" />
+                </div>
+                <ul class="ev-right">
+                    <li>
+                        <img src="images/mainmiddle_right1.jpg"alt="img" />
+                    </li>
+                    <li>
+                        <img src="images/mainmiddle_right2.jpg"alt="img" />
+                    </li>
+                    <li>
+                        <img src="images/mainmiddle_right3.jpg"alt="img" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="best-prod h-row">
+            <h2 class="eng">best sellers</h2>
+            <ul class="best-product">
+                <li>
+                    <img src="images/best/product1.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="images/best/product2.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="images/best/product3.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li class="right-ma">
+                    <img src="images/best/product4.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li><!--첫번째 상품라인-->
+                <li>
+                    <img src="images/best/product5.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="images/best/product6.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="images/best/product7.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li class="right-ma">
+                    <img src="images/best/product8.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li><!--두번째 상품라인-->
+                <li class="bott">
+                    <img src="images/best/product9.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li class="bott">
+                    <img src="images/best/product10.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li class="bott">
+                    <img src="images/best/product11.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+                <li class="right-ma bott">
+                    <img src="images/best/product12.jpg" alt="img" />
+                    <div class="block">
+                        <h3>그린티 워터밤 수분크림 100ml</h3>
+                        <hr />
+                        <p>
+                            녹차성분과 다양한 펩타이드 성분, 천연보습제가 함유된 유해성분 0%인
+                            착한 천연수분크림으로 만족스러운 사용감과 성분, 합리적인 가격으로 입소문
+                            난 인기제품입니다.
+                        </p>
+                        <p>
+                            <span class="le-ma"><del>16,800원</del></span>
+                            <span>14,800원</span>
+                        </p>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="shop-ban">
+            <div class="shop-cont h-row">
+                <div class="shop-txt">
+                    <p class="eng">extreme spot serum</p>
+                    <h3>효과로 후기로 입증된 원조 욕세럼</h3>
+                    <p>#익스트림스팟세럼 #욕조세럼 # 입소문화장품 #시카세럼</p>
+                    <a href="#" class="btn eng">shop now</a>
+                </div>
+                    <img src="images/bg/banner.png" alt="img" />
+                
+            </div>
+        </div>
+        <div class="weekly h-row">
+            <h2>weekly hot items</h2>
+            <ul class="week-list">
+                <li class="we-bot">
+                    <div class="week-img"><img src="images/weekly/weekly1.jpg" alt="img" /></div>
+                    <div class="week-txt">
+                        <div class="week">
+                            <h3>언더커버 워터 CC쿠션 본품 구매시 + 리필 증정</h3>
+                            <p>
+                                피부자극을 최소화한 미백,주름개선,자외선차단 기능성 CC쿠션입니다.
+                                피부에 밀착하여 모공드러남 없이 도자기처럼 매끈한 피부로 만들어드립니다.
+                            </p>
+                            <p>
+                                <span class="we-ma"><del>54,000원</del></span>
+                                <span>28,000원</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="we-bot we-rig">
+                    <div class="week-img"><img src="images/weekly/weekly2.jpg" alt="img" /></div>
+                    <div class="week-txt">
+                        <div class="week">
+                            <h3>언더커버 워터 CC쿠션 본품 구매시 + 리필 증정</h3>
+                            <p>
+                                피부자극을 최소화한 미백,주름개선,자외선차단 기능성 CC쿠션입니다.
+                                피부에 밀착하여 모공드러남 없이 도자기처럼 매끈한 피부로 만들어드립니다.
+                            </p>
+                            <p>
+                                <span class="we-ma"><del>54,000원</del></span>
+                                <span>28,000원</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="week-img"><img src="images/weekly/weekly3.jpg" alt="img" /></div>
+                    <div class="week-txt">
+                        <div class="week">
+                            <h3>언더커버 워터 CC쿠션 본품 구매시 + 리필 증정</h3>
+                            <p>
+                                피부자극을 최소화한 미백,주름개선,자외선차단 기능성 CC쿠션입니다.
+                                피부에 밀착하여 모공드러남 없이 도자기처럼 매끈한 피부로 만들어드립니다.
+                            </p>
+                            <p>
+                                <span class="we-ma"><del>54,000원</del></span>
+                                <span>28,000원</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="we-rig">
+                    <div class="week-img"><img src="images/weekly/weekly4.jpg" alt="img" /></div>
+                    <div class="week-txt">
+                        <div class="week">
+                            <h3>언더커버 워터 CC쿠션 본품 구매시 + 리필 증정</h3>
+                            <p>
+                                피부자극을 최소화한 미백,주름개선,자외선차단 기능성 CC쿠션입니다.
+                                피부에 밀착하여 모공드러남 없이 도자기처럼 매끈한 피부로 만들어드립니다.
+                            </p>
+                            <p>
+                                <span class="we-ma"><del>54,000원</del></span>
+                                <span>28,000원</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="inst-cont">
+            <div class="inst-content">
+                <h2>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    instagram
+                </h2>
+                <ul class="inst-peo">
+                    <li><img src="images/sns/inst-img1.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img2.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img3.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img4.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img5.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img6.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img7.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img8.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img9.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img10.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img11.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img12.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img13.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img14.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img15.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img16.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img17.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img18.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img19.png" alt="img" /></li>
+                    <li><img src="images/sns/inst-img20.png" alt="img" /></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!--footer-->
+    <div class="footer row">
+        <div calss="foot-navi">
+            <ul class="foot-nav h-row">
+                <li><a href="#">브랜드</a></li>
+                <li>|</li>
+                <li><a href="#">이용약관</a></li>
+                <li>|</li>
+                <li><a href="#">개인정보</a></li>
+                <li>|</li>
+                <li><a href="#">개인정보취급방침</a></li>
+                <li>|</li>
+                <li><a href="#">쇼핑몰이용안내</a></li>
+                <li>|</li>
+                <li><a href="#">채용안내</a></li>
+            </ul>
+        </div>
+        <div class="admin-info h-row">
+            <div class="cust-box">
+                <div class="custom">
+                    <h3>고객센터 이용안내
+                    <span>통화량이 많을떄는 Q&amp;A를 이용해주세요</span></h3>
+                    <hr />
+                    <h2>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        1661-0346
+                    </h2>
+                    <p>
+                        업무시간 : 09:00 ~ 18:00 (점심시간 12:40 ~ 13:40)<br />
+                        토요일, 일요일, 공휴일 휴무
+                    </p>
+                    <h3>입금계좌정보</h3>
+                    <hr />
+                    <p>
+                        <span class="f-one"><strong>우리은행</strong> 1005-703-065190</span>
+                        <span>예금주 : 주식회사 보나쥬르</span>
+                    </p>
+                    <p>
+                        <span class="f-two"><strong>농협</strong> 355-0045-3663-83</span>
+                        <span class="inter">인터넷뱅킹바로가기</span>
+                    </p>
+                </div>
+            </div>
+            <div class="cust-addr">
+                <div class="address">
+                    
+                    <p><i class="fa fa-map-maker" aria-hidden="true"></i>반품주소지</p>
+                    <p>
+                        인천광역시 남동구 남동동로 84 220호<br />
+                        (우체국 택배를 이용해주세요)
+                    </p>
+                    <p>
+                        <span>
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                            우체국택배
+                        </span>
+                        <span class="map">배송위치조회하기</span>
+                    </p>
+                    <p>1588-1300 (월~금 09:00~18:00 / 토 09:00~13:00)</p>
+                    <h3>공지사항/자주하는 질문</h3>
+                    <hr />
+                    <p>
+                        <span class="one">(제품공지) 미백앰플 2종 단종예정 공지</span>
+                        <span>07-30</span>
+                    </p>
+                    <p>
+                        <span class="two">(제품공지) 스네일 화이트닝 크림 향 첨가</span>
+                        <span>07-12</span>
+                    </p>
+                    <p>
+                        <span class="three">(제품공지) 로즈스템셀 용기디자인 변경건</span>
+                        <span>06-26</span>
+                    </p>
+                </div>
+            </div>
+            <div class="cust-ev">
+                <div class="event">
+                    <h3 class="eng">event</h3>
+                    <div class="ev-ban">
+                        <img src="images/bottom-banner.png" alt="img" />
+                    </div>
+                    <ul class="icon">
+                        <li>
+                            <img src="images/icon/icon1.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon2.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon3.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon4.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon5.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon6.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon7.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon8.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon9.png" alt="img" />
+                        </li>
+                        <li>
+                            <img src="images/icon/icon10.png" alt="img" />
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="foot-copy"></div>
+        <div class="copy"></div>
+    </div>
+
+
+</body>
+</html>

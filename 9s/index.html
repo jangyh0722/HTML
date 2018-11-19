@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+    <style type="text/css">
+
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+        /*
+            kr : font-family: 'Nanum Gothic', sans-serif;
+            eng : font-family: 'Open Sans', sans-serif;
+            ban-tit : font-family: 'Dancing Script', cursive;
+        */
+        body {
+            font-size: 14px;
+            color: #333;
+            font-family: 'NanumGothic', sans-serif;
+            letter-spacing: 0.8px;
+        }
+        .eng { font-family: 'Open Sans', sans-serif;}
+        .ban-tit{font-family: 'Dancing Script', cursive;}
+        .row {width: 100%;}
+        
+        a{color:#000;}
+
+        /*header*/
+        
+        .wid{width:1260px; margin:0 auto;}
+
+        .gnb li{display:inline-block; margin:0 2px; font-weight:500; font-size:16px;}
+        .gnb{text-align:right;  margin:15px 0; }
+        .header-bott {border-top:1px solid #ccc;}
+        .nav img, .nav li{display: inline-block;}
+        .nav li {margin: 0 30px;font-size:16px; }
+        .nav li:last-child{margin-right:0;}
+        .wid img{float:left;}
+        .nav {float:right;}
+        .header-bott{padding:40px 0;}
+        /*section*/
+
+        .section{overflow:hidden; padding-bottom:140px;}
+        .banner {
+            background-image: url("images/banner01.jpg");
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: center top;
+            background-size:1260px;
+        }
+        .banner{height:600px; padding:450px 0;}
+        .banner h1{color:#ff0000; font-size:65px; margin-bottom:40px;}
+        .banner > p{color:#ff0000; font-size:24px; line-height:40px; margin-bottom:154px;}
+        .banner span{font-size:45px;}
+        .bgcolor{background-color:#d4cac9;}
+
+        hr {
+            display: inline-block;
+            width: 26px;
+            height: 4px;
+            margin: 10px 0 0;
+            background: #000;
+        }
+        .list p{margin-top:80px;}
+        .list h2{font-size:26px; font-weight:100;margin-top:30px;}
+        .list li {
+            width: 315px;
+            height: 315px;
+            background-color: #fdd2c1;
+            display:inline-block;
+            float:left;
+            text-align:center;
+        }
+        .list hr{margin:0 auto; margin-top:80px;}
+        .list li img {width: 315px;height: 315px;}
+        .list li:nth-child(3){background-color: #000;}
+        .list li:nth-child(3) hr{background-color:#fff;}
+        .list li:nth-child(3) h2, .list li:nth-child(3) p{color:#fff;}
+        .list li:nth-child(6){background-color:#fff;}
+
+
+        .review{text-align:center; margin-top:80px;}
+        .review h1{font-size:60px; font-weight:400; font-style:italic;}
+        .review hr{margin-bottom:40px;}
+        .review-txt{display:inline-block; float:left; width:420px;margin-top:120px;}
+        .review-txt p{font-weight:500;}
+        .dot{font-size:100px;}
+
+        /*footer*/
+        .footer{background-color:#d4cac9;}
+        .foot{padding:100px 0;}
+        .foot li{
+            display:inline-block;
+            padding:0 80px;
+            line-height:20px;
+            
+        }
+        .foot li:last-child{float:right; font-size:16px;}
+
+
+    </style>
+</head>
+<body>
+    <div class="header row">
+        <div class="header-top wid">
+            <ul class="gnb">
+                <li><a href="#">로그인</a></li>
+                <li>|</li>
+                <li><a href="#">홈</a></li>
+                <li>|</li>
+                <li><a href="#">사이트맵</a></li>
+            </ul>
+        </div>
+        <div class="header-bott top-bord">
+            <div class="wid navi">
+                <a href="=#"><img src="images/logo.png" alt="img" /></a>
+                    <ul class="nav">
+                        <li><a href="#">뷰티앤코</a></li>
+                        <li><a href="#">서비스</a></li>
+                        <li><a href="#">스페셜</a></li>
+                        <li><a href="#">예약</a></li>
+                        <li><a href="#">문의</a></li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="bgcolor">
+            <div class="banner wid">
+                <h1 class="ban-tit">WELCOME TO</h1>
+                <p>
+                    착한 뷰티서비스!<br />
+                    <span>뷰/티/앤/코</span>에 오신걸 <span>환영</span>합니다.
+                </p>
+
+                <div class="wid">
+                    <ul class="list">
+                        <li>
+                            <a href="#">
+                                <hr />
+                                <h2 class="eng">FACIALS</h2>
+                                <p>예약하기></p>
+                            </a>
+                        </li>
+                        <li><a href="#"><img src="images/content01.png" alt="img" /></a></li>
+                        <li class="list-ra">
+                            <a href="#">
+                                <hr />
+                                <h2 class="eng">MAKE UP</h2>
+
+                                <p>예약하기></p>
+                            </a>
+                        </li>
+                        <li><a href="#"><img src="images/content02.png" alt="img" /></a></li>
+                        <li><a href="#"><img src="images/content03.png" alt="img" /></a></li>
+                        <li class="list-ra">
+                            <a href="#">
+                                <hr />
+                                <h2 class="eng">HAIR STYLING</h2>
+
+                                <p>예약하기></p>
+                            </a>
+                        </li>
+                        <li><a href="#"><img src="images/content04.png" alt="img" /></a></li>
+                        <li>
+                            <a href="#">
+                                <hr />
+                                <h2 class="eng">NAIRS</h2>
+
+                                <p>예약하기></p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="review wid">
+            <hr />
+            <h1>고객리뷰</h1>
+            <div class="review-txt">
+                <p class="dot">"</p>
+                <p>
+                    요즘 기초라인 바꾸려고 하다가<br />
+                    피부가 뒤집어져서 어떻게하지 하다가 <br />
+                    뷰티앤코에가서 트러블 관리 받고 왔는데<br />
+                    진정효과 완전히 있었어요! 피부가 차분해지고 <br />
+                    진정된 효과가 바로 나타난거같아요 .다음에 또 <br />
+                    가서 다른관리 받으려구요!<br /><br />
+                    김OO 매거진 에디터
+                </p>
+            </div>
+            <div class="review-txt">
+                <p class="dot">"</p>
+                <p>
+                    요즘 기초라인 바꾸려고 하다가<br />
+                    피부가 뒤집어져서 어떻게하지 하다가 <br />
+                    뷰티앤코에가서 트러블 관리 받고 왔는데<br />
+                    진정효과 완전히 있었어요! 피부가 차분해지고 <br />
+                    진정된 효과가 바로 나타난거같아요 .다음에 또 <br />
+                    가서 다른관리 받으려구요!<br /><br />
+                    김OO 매거진 에디터
+                </p>
+            </div>
+            <div class="review-txt">
+                <p class="dot">"</p>
+                <p>
+                    요즘 기초라인 바꾸려고 하다가<br />
+                    피부가 뒤집어져서 어떻게하지 하다가 <br />
+                    뷰티앤코에가서 트러블 관리 받고 왔는데<br />
+                    진정효과 완전히 있었어요! 피부가 차분해지고 <br />
+                    진정된 효과가 바로 나타난거같아요 .다음에 또 <br />
+                    가서 다른관리 받으려구요!<br /><br />
+                    김OO 매거진 에디터
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="foot wid">   
+            <ul>
+                <li><img src="images/logo.png" /></li>
+                <li>
+                    <p>
+                        서울 특별시 관악구 신림로 123-123 뷰티빌딩 6층<br />
+                        전화 02-1004-1004 팩스 02-1004-1004 사업자 등록번호 123-45-6789<br />
+                        상호 뷰티앤코 신림점 대표자 홍순자<br />
+                        <address>COPYRIGHTⓒ 2017 BEAUTY & CO ALL RIGHT RESEVED.</address>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

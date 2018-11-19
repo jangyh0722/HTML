@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>미디어쿼리 이해하기</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+       
+        div {
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        .row{
+            width:70%;
+            height:100px;
+            background-color:#000;
+            margin:auto;
+        }
+        .col {
+            width: 7.378472222222222%;
+            height: 100px;
+            float: left;
+            margin-right: 1.041666666666667%; /*  (10*960/100)  */
+            background-color:#00ff21;
+        }
+        .col:last-child{margin-right:0;}
+        
+        @media screen and (max-width:960px){/*2줄에 6칸*/
+            .row{
+              
+                height:110px;}
+            .col {
+                width: 15.79861111111111%;
+                height: 50px;
+            }
+            .l-bot {margin-bottom: 10px;}
+            .col:nth-child(6){margin-right:0;}
+
+        }
+        @media screen and (max-width:768px){/*4줄에 3칸*/
+            .row{
+                
+                height:230px;
+            }
+            .col {
+                width: 32.63888888888889%;
+                height:50px;
+            }
+            .m-bot{margin-bottom:10px;}
+            .col:nth-child(3), .col:nth-child(9){margin-right:0;}
+        }
+        @media screen and (max-width:480px){/*12줄에*/
+           .row{width:96%; height:710px;}
+           .col{width:100%; height:50px;float:none; margin-right:0;}
+           .s-bot{margin-bottom:10px;}
+        }
+    </style>
+</head>
+<body>
+    <!--
+        960그리드를 이용한 가변그리드와 가변마진 설정하기
+        960:2줄에 6칸 구조(l-bot)
+        768:4줄에 3칸(m-bot)
+        480:1줄에 12칸 구조(s-bot)
+    -->
+    <div class="row">
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col l-bot m-bot s-bot"></div>
+        <div class="col m-bot s-bot"></div>
+        <div class="col m-bot s-bot"></div>
+        <div class="col m-bot s-bot"></div>
+        <div class="col s-bot"></div>
+        <div class="col s-bot"></div>
+        <div class="col s-bot"></div>
+    </div>
+</body>
+</html>

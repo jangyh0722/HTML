@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>박스 복습</title>
+
+    <style>
+        /*가장 큰 구조*/
+        .warp{
+            width:1030px;
+            height:310px;
+            background:#000000;
+            margin:0 auto;
+        }
+
+        .warp div{
+            float:left;
+        }
+        .left{
+            width:150px;
+            height:inherit;
+            background:#ff0000;
+            margin-right:10px;
+        }
+        .right {
+            width: 150px;
+            height: inherit;
+            background: #ff0000;
+            margin-right: 10px;
+        }
+        .center {
+            width: 350px;
+            height: inherit;
+            background: #ff0000;
+            margin-right: 10px;
+        }
+        .right2 {
+            width: 350px;
+            height: inherit;
+            background: #ff0000;
+        }
+        .top {
+            width: 150px;
+            height: 150px;
+            background: #ff0000;
+            margin-bottom: 10px;
+        }
+        .bottom {
+            width: 150px;
+            height: 150px;
+            background: #ff0000;
+
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="warp">
+        <div class="left">
+            <div class="top">1</div>
+            <div class="bottom">2</div>
+        </div>
+        <div class="right">
+            <div class="top2">3</div>
+            <div class="bottom2">4</div>
+        </div>
+        <div class="center">5</div>
+        <div class="right2">
+            <div class="top3">6</div>
+            <div class="bottom4">7</div>
+        </div>
+    </div>
+
+</body>
+</html>

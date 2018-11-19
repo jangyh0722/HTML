@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>box-model</title>
+
+    <style>
+        /*본문 div에서의 공통 스타일을 만들기위한 태그선택자*/
+
+        /*
+        div{
+            width:200px; 
+            height:200px;
+            display:inline-block; 요소의 속성을 바꿀때 사용되는 스타일*/
+        }
+        /*
+            박스가 갖는 전체 넓이 계산
+            사용자가 지정한 넓이+테두리의 좌우 값+padding 좌우값+margin좌우 값
+            200+20+40+40
+
+            -박스모델중 특정 좌표에 여백 및 테두리를 설정할 경우 이때를 대비해서 반드시 좌표의 위치는 시계방향으로 기억해야한다.
+
+            1.테두리 border
+            -4면에서 테두리의 값을 10px 공통으로 주고 싶다면
+            border:10px solid #ccc;
+            -만약 선택에서 해주고싶다면
+            border-left:1px dolid #ccc;
+            border-right:1px dolid #ccc;
+            border-bottom:1px dolid #ccc;
+
+            2.컨텐츠 기준 안쪽여백인 padding
+            -4면에서 테두리의 값을 10px 공통으로 주고 싶다면
+            padding:10px solid #ccc;
+            -만약 선택에서 해주고싶다면
+            padding-left:1px dolid #ccc;
+            padding-right:1px dolid #ccc;
+            padding-bottom:1px dolid #ccc;
+            -부분적으로 내가 원하는 값을 지정하고싶다면
+            padding:10px, 5px, 20px, 15px;
+            padding:10px, 5px, 20px;
+            padding:10px, 5px;
+
+             3.컨텐츠 기준 안쪽여백인 margin
+            -4면에서 테두리의 값을 10px 공통으로 주고 싶다면
+            margin:10px solid #ccc;
+            -만약 선택에서 해주고싶다면
+            margin-left:1px dolid #ccc;
+            margin-right:1px dolid #ccc;
+            margin-bottom:1px dolid #ccc;
+            -부분적으로 내가 원하는 값을 지정하고싶다면
+            margin:10px, 5px, 20px, 15px;
+            margin:10px, 5px, 20px;
+            margin:10px, 5px;
+
+
+        */
+        .test-box{
+            background:#ffd800;
+            margin:0 20px;
+            border:10px solid #000000;
+            padding:20px;
+
+        }
+            .test-box p{line-height:200px;}
+            .box {
+                background: #ff0000;
+            }
+
+            /*--------------*/
+
+            .title{
+                text-align:center;
+                font-size:16px;
+                font-weight:bold;
+                font-style:italic;
+                color:#333;
+                font-family:'Malgun Gothic';
+
+            }
+            .wrap{
+                width:600px; height:300px; margin:0 auto; background:#000000; padding:10px;
+            }
+
+
+        /*자식인 left와 right의 공통속성 만들기
+            .wrap .left, .wrap .right{}
+            .wrap > .left, .wrap > .right{}
+            .lefr, .right{}
+            .wrap > div{}
+            .wrap div{}
+           */
+
+                .wrap div {
+                    width: 295px;
+                    height: inherit; /*height:300px;*/
+                    text-align: center; /*박스안 텍스트위치*/
+                    line-height: 300px; /*구조안에서 텍스트가 한문장이거나 한단어일때는 수직의 중앙정렬로 쓸수있다. 이때 line-height의
+                        값은 텍스트를 감싸고 있는 박스의 높이값을 이용하면 된다.
+                    */
+                    float: left; /*
+                        띄워서 붙이다
+                        float:left;기준이 왼쪽으로 붙이다
+                        float:right; 기준이 오른쪽으로 붙이다
+                        clear:both; float을 해제할때 사용
+                    */
+                }
+                .wrap .left{
+                    background:#ff6a00;
+                    margin-right:10px;
+                }
+                .wrap .right{
+                    background:#b6ff00; 
+                    /*float:right;*/
+                    /*margin-left:10px;*/
+                }
+           
+
+    </style>
+
+</head>
+<body>
+
+    <!--
+        border:테두리(넓이, 색 스타일 지정가능)
+        padding:컨텐츠 기준 안쪽여백(인라인, 블럭) 배경색 없음
+        margin:컨텐츠 기준 바깥여백(인라인 좌측우측, 블럭) 배경색 없음
+    -->
+    <h1>박스모델 알아보기</h1>
+    <div class="test-box">
+        <p>테스트박스</p>
+    </div>
+    <div class="box"><p>테스트박스</p></div>
+    <hr />
+
+    <p class="title">칸 생성하기:div를 이용한 칸을 화면에 생성하는 방법은 만들 칸 갯수+1</p>
+
+    <div class="wrap">
+        <div class="left">왼쪽</div>
+        <div class="right">오른쪽</div>
+    </div>
+    
+
+</body>
+</html>

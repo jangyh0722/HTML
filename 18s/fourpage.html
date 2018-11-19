@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>carlabs-iframe[onepage]</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        /*
+            한글일반 : font-family: 'Nanum Gothic', sans-serif;
+            영문일반 : font-family: 'Montserrat', sans-serif;
+        */
+
+         html,body{height:100%; }
+        
+        /*웹폰트 및 본문 폰트 전체 지정 부분*/
+        body{font-size:14px; font-family:'Nanum Gothic', sans-serif; color:#666; background-color:#fff;}
+
+        /*본문 영문 서체 관련 스타일 지정*/
+        .eng{font-family:'Montserrat', sans-serif;}
+        h1, h2, h3, h4{font-weight:100;}
+        h1{font-size:50px;}
+        h2{font-size:32px;}
+        h3{font-size:24px;}
+        h4{font-size:16px;}
+        .content{width:900px; margin:auto; padding-top:50px; overflow:hidden;}
+        .content-txt{float:left; width:620px;}
+        .content-txt h3{margin-bottom:30px; color:#333;}
+        .content-txt p{line-height:19px; margin-bottom:15px;}
+        .content-txt span{font-size:12px; color:#ccc;}
+        .content-txt .cont-btn{padding-top:15px;}
+        .content-txt .cont-btn a{display:inline-block; color:#666; background-color:#e5e5e5; padding:5px 10px; font-size:12px;}
+        .content-img{float:right; width:200px; padding-top:40px;}
+        .content-img img{width:100%;}
+
+
+
+    </style>
+</head>
+<body>
+    <!--
+        frame: 큰화면 > iframe(아이프레임): 작은화면
+        
+        아이프레임의 특징
+        1. 정해진 공간안에서 업데이트를 자주해야 하는 부분이거나, 페이지가 동일한 형태를 이루는 것들은 
+           아이프레임으로 작업하면 효과적임.
+        2. 업데이트가 용이함.(아이프레임 페이지만 수정해도 다 바뀜.)
+        3. 페이지별 용량을 줄일수 있음.
+        4. 페이지에서 중복되는 부분을 효과적으로 바꿀수 있음.
+        5. 페이지 내에서 컨텐츠에 양이 정해진 것들은 효과적이나 컨텐츠 양이 다른것들은 디자인적으로 
+           고려해볼 필요가 있음.
+
+        아이프레임 형식
+
+        <iframe 
+               src="페이지주소" 
+               width="넓이" 
+               height="높이"
+               frameborder="화면의 테두리를 나타내는 부분으로 값은 0과 1을 적용. 0은 안쓴다. 1은 쓴다."
+               scrolling="스크롤 생성 auto(스크롤 자동생성), no(스크롤 없음), yes(무조건 스크롤 생성)"
+               name="현재 쓰고 있는 아이프레임 이름임과 동시에 a의 타겟으로 설정하는 부분. 그래서 
+                     name과 a의 target은 항상 동일 해야함"
+               ></iframe>
+
+        아이프레임 적용하는 방식
+        - 아이프레임은 미리 만들어진 화면을 다른 화면에서 불러들이는 방식으로 아이프레임을 적용할
+          페이지와 아이프레임 화면 페이지들을 따로 분리시켜서 작업하는게 일반적임.
+    -->
+    <div class="content">
+        <div class="content-txt">
+            <h3>네이버랩스, 만도와 자율주행기술 연구 협력</h3>
+            <p>
+                차량센서 분야에서 최고 레벨의 기술을 보유하고 있는 만도와 '자율주행기술 공동 연구개발'을
+                위한 전략적 파트너십을 시작합니다. 만도는 자동차부품기술 분야에서 훌륭한 기술과 역사를 
+                가진 회사입니다. 특히 ADAS 분야에서 레이더, 카메라 등 센싱기술과 데이터를 바탕으로 주요
+                영역에서 독자적인 위치를 구축하고 있으며, 전방 감지용 장거리 레이더 센서와 같은 자율주행차
+                핵심 원천기술을 내재화하여 양산하고 있기도 합니다. 2017년에는 국토교통부에서 부여하는 자율주행차
+                임시운행 허가를 받고 자체 개발한 센서를 장착한 자율주행차를 선보인 후 연구를 지속하고 있습니다.
+                2017년은 네이버랩스가 국내 IT업체 최초로 자율주행 임시운행 허가를 받은 해이기도 합니다.
+            </p>
+            <span class="eng">2018.05.25 Autonomous Driving</span>
+            <div class="cont-btn">
+                <a href="#" target="_self" class="eng">Company</a>
+                <a href="#" target="_self">자율주행</a>
+              
+            </div>
+        </div>
+        <div class="content-img">
+            <img src="images/career/sweet.png" alt="img" />
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+    <style type="text/css">
+        body{font-family:'Montserrat', sans-serif;}
+        .container{
+            width:100%;
+            height:480px;
+            background-color:#000;
+            animation:ani-bg 30s linear infinite;
+        }
+        .wrap{/*자동차, 빌딩의 좌표를 wrap안에쓰기 위한 스타일 속성*/
+            position:relative;
+            height:inherit;
+            width:inherit;
+        }
+        /*자식요소의 공통으로 적용될 스타일 부분*/
+        .wrap .title,
+        .wrap .bg,
+        .wrap .buildings,
+        .wrap .car1,
+        .wrap .car2{position:absolute;}
+
+        
+        .wrap .title{/*포지션 순서상 가장 윗부분에 위치*/
+            bottom:10px; right:20px;color:#ccc; font-size:16px; font-weight:100;z-index:99999;}
+        .wrap .bg{
+            top:80px;
+            left:0;
+            width:100%;
+            height:300px;
+            opacity:0.2;
+            filter:alpha(opacity=20);
+            z-index:9;
+        }
+        .wrap .buildings{
+            background-image:url("images/buildings.png");
+            
+            background-size:cover;
+            left:0;
+            bottom:0;
+            width:100%;
+            height:300px;
+            animation:animate 150s linear infinite;
+            z-index:99;
+        }
+        .wrap .car1{
+            top:360px;
+            left:-300px;
+            animation:car1 30s linear infinite;
+            z-index:9999;
+        }
+        .wrap .car2{
+            top:330px;
+            left:-300px;
+            animation:car2 60s linear infinite;
+            z-index:999;
+        }
+        /*애니메이션 만들기*/
+        @-webkit-keyframes ani-bg{/*container배경색*/
+            0%{background-color:#000;}
+            50%{background-color:#b2e4f2;}
+            100%{background-color:#000;}
+        }
+        @-webkit-keyframes animate {/*빌딩 애니매이션*/
+            0% {background-position:0px;}
+            100% {background-position:-5704px;}
+        }
+        @-webkit-keyframes car1 {/*자동차 1*/
+            0% {left:-300px;}
+            100% {left:1940px;}
+        }
+        @-webkit-keyframes car2 {/*자동차 2*/
+            0% {left:-300px;}
+            100% {left:1940px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <h1 class="title">
+                CSS Cloud Animation Effects
+            </h1>
+            <img src="images/back-buildings.png" alt="img" class="bg" />
+            <div class="buildings"></div>
+            <img src="images/car1.png" alt="car" class="car1" />
+            <img src="images/car2.png" alt="car" class="car2" />
+        </div>
+    </div>
+
+</body>
+</html>

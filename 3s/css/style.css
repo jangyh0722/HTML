@@ -1,0 +1,74 @@
+﻿/*초기화작업*/
+body, div, ul, li, h1, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    color: #303030;
+    font-family: 'Malgun Gothic';
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    background-color: #d3d3d3;
+}
+/*리스트 불릿 제거*/
+ul li {
+    list-style: none;
+}
+/*폰트 사이즈 지정*/
+h1 {
+    font-size: 32px;
+    text-align: center;
+    font-style: italic;
+    padding: 30px 0;
+}
+
+h3 {
+    font-size: 18px;
+}
+/*레이아웃 구상 스타일*/
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.content {
+    width: 260px;
+    float: left;
+    background-color: #fff;
+    padding: 15px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.two {
+    margin: 0 10px;
+}
+
+.content li {
+    width: 230px;
+    margin: 0 auto;
+    border-bottom: 1px dotted #ccc;
+    padding: 6px 0;
+}
+
+    .content li.last {
+        border-bottom: 0;
+    }
+
+    .content li p {
+        margin-left: 10px;
+    }
+
+    .content li.title {
+        border-bottom: 0;
+    }
+
+.content h3 {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 15px;
+}

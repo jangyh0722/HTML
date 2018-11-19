@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>페이지 구조만들기</title>
+    <style type="text/css">
+        /*초기화*/
+        body, div, h1, p, ul, li{margin:0; padding:0;}
+        body{
+           background-color:#fff;
+           font-size:12px;
+           font-family:'Arial';
+        }
+        ul li {list-style: none;}
+        h1{font-size:20px;}
+        a{text-decoration:none;color:#333;}
+        /*전체 레이아웃 공통 넓이*/
+        .row{width:100%;}
+        .center{width:1000px; margin:0 auto;}
+        /*헤더스타일*/
+        .header{margin-bottom:20px;}
+        .gnb, .navi-bar{width:1000px; margin:0 auto;}
+        .gnb{text-align:right; padding:10px 0;}
+        .gnb a{
+            text-transform:uppercase;
+            font-size:12px;
+            color:#999;
+            border-right:1px solid #ccc;
+            padding:0 5px;
+        }
+        .gnb a:nth-of-type(5){border:0;}
+        /*header > navi*/
+        /*
+            구조 안에서 요소의 위치를 수직에 middle에 맞추는 방법
+            1. 부모의 높이를 이용한 line-height
+              -한 단어이거나 한 문장일때만 적용이 가능(반응형에서 부적절)
+              -line-height의 값은 부모의 높이로 지정.
+            2.계산해서 적용하는 방법.
+              -(부모의 높이-자식의 높이)/2
+           
+        */
+        .navi{width:inherit; background-color:#ccc;}
+        .navi-bar{height:60px;}
+        .logo, .nav{float:left;}
+        .logo h1{padding-top:12px;}
+        .logo h1 span{font-size:10.5px; display:block;}
+        .nav{width:700px; float:right;}
+        .nav li{
+            width:140px; 
+            height:60px;
+            text-align:center;
+            line-height:60px;
+            float:left;
+        }
+        
+        /*섹션스타일*/
+        .section{margin-bottom:20px;}
+        .banner{
+            background-color:#d5d5d5; 
+            height:inherit;
+            margin-bottom:20px;
+        }
+        .banner .ma-ban{
+            text-align:center;
+            background-color:#333;
+            padding:150px 0;
+            font-size:40px;
+            color:#fff;
+            text-transform:uppercase;
+        }
+
+        /*section > product*/
+        .product{
+            overflow:hidden;
+            background-color:#d5d5d5;
+            margin-bottom:20px;
+        }
+        .product li{
+            float:left;
+            width:250px;
+            border:1px solid #999;
+            box-sizing:border-box;
+            text-align:center;
+            padding:80px 0;
+        }
+        .product li.line{border-right:0;}
+        .product li.bot{border-bottom:0;}
+
+        /*section menu cont의 공통스타일=content*/
+
+        .content{overflow:hidden;}
+        .content li{
+            float:left; 
+            background-color:#d5d5d5;
+            text-align:center;
+        }
+        .content li:first-child{width:200px;}
+        .content li:nth-child(2){width:200px; margin:0 10px;}
+       .content li:last-child{width:580px;}
+
+       /*section menu*/
+       .menu{border-top:1px solid #999;
+             border-bottom:1px solid #999;
+             margin-bottom:10px;
+       }
+       .menu li a{display:block;
+                  padding:7px 0;
+       }
+       /*section cont*/
+       .cont li{padding:100px 0;}
+
+       /*푸터 스타일*/
+       .footer{
+           background-color:#d5d5d5;
+           text-align:center;
+           padding:25px 0;
+       }
+
+    </style>
+</head>
+<body>
+    <!--상단구조-->
+    <div class="header row">
+        <div class="gnb">
+            <a href="#">login</a>
+            <a href="#">join us</a>
+            <a href="#">cart</a>
+            <a href="#">order</a>
+            <a href="#">site map</a>
+        </div>
+        <div class="navi"><!--로고와 메뉴 부분의 해상도 전체 배경 레이아웃-->
+            
+        <!--로고와 메뉴를 만들어줄 레이아웃-->
+        <div class="navi-bar">
+            <div class="logo">
+                <h1>
+                    <span>국내수제작원목가구의 리더</span>
+                    KAAREKLINT
+            </h1>
+            </div>
+            <ul class="nav">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">제품</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">이벤트</a></li>
+                <li><a href="#">공지사항</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <!--컨텐츠구조-->
+    <div class="section row">
+        <div class="banner">
+            <div class="ma-ban center">main banner</div>
+        </div>
+
+        <ul class="product center">
+            <li class="line bot">product1</li>
+            <li class="line bot">product2</li>
+            <li class="line bot">product3</li>
+            <li class="bot">product4</li>
+            <li class="line">product5</li>
+            <li class="line">product6</li>
+            <li class="line">product7</li>
+            <li>product8</li>
+        </ul>
+
+
+        <ul class="content menu center">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+        </ul>
+
+
+        <ul class="content cont center">
+            <li>content01</li>
+            <li>content02</li>
+            <li>content03</li>
+        </ul>
+    </div>
+
+    <!--관리자구조-->
+    <div class="footer row">
+        <p>copyright&nbsp;&copy;&nbsp;국내수제작 원목가구의리더 KAARE KLINT. All rights resered.</p>
+    </div>
+</body>
+</html>

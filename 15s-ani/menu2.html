@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style type="text/css">
+        body{background-color:#c3e8de;}
+        a{color:#fff;}
+        .wid{width:100%;background-color:#000000;}
+        .nav{width:1000px; height:40px; margin: 0 auto;}
+
+        .nav li {
+            background-color:#459c27;
+            border-right:1px solid #000;
+            text-align:center;
+            width:150px;
+            height:40px;
+            float: left;
+            line-height:40px;
+           position:relative;
+            }
+        ul li a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        .drop-menu {
+            height:0;
+            overflow:hidden;
+            background-color: #000;
+            position:absolute;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        .drop-content:hover .drop-menu {
+            height:120px;    
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wid">
+        <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li class="drop-content">
+                <a href="#">Home</a>
+                <ul class="drop-menu">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">연혁</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <img src="images/top-bg.jpg" alt="img">
+    </div>
+</body>
+</html>

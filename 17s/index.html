@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>스타일 컨파일러</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <style type="text/css">
+        /*
+            컨텐츠의 높이 중 해상도가 변해도 항상 보여지는 해상도의 100%의 높이를 
+            차지하기 위한 부모들의 높이를 100%로 설정해준 부분.
+            단위 : px, %, vh, vw
+        */
+        html, body{height:100%;}
+        body {font-size: 14px;color: #666;font-family: 'Nanum Gothic', sans-serif;}
+        .eng{font-family: 'Montserrat', sans-serif;}
+        .eng-title{font-family: 'Pacifico', cursive;}
+        /*top-content*/
+        .top-content{
+            width:100%;
+            /*
+                background-color:rgba(0,0,0,0); 부분: 해당 스타일이 들어가 있는 요소의
+                배경색만 투명과 같이 처리할 때 사용
+                opacity=1; 전체: 컨텐츠 안에있는 자식 컨텐츠 한테도 영향을 미침
+            */
+            background-color:rgba(0,0,0,0.8);
+            overflow:hidden;/*로고와 메뉴부분의 마스크 역할*/
+            position:fixed;/*로고와 메뉴를 상단에 고정*/
+            top:0;/*상단 고정 기준위치*/
+            left:0;/*상단 고정 기준위치*/
+            padding:10px 0;/*고정높이 사용하지 않고 컨텐츠 상광에 따라서 적절한 여백을 만들면서 사용할 수 있는 방법*/
+            z-index:11111;
+        }
+        .top-content .logo{/*logo는 a의 사용자 이름*/
+            color:#66e0ee; 
+            float:left;
+            margin-left:30px;}
+        .top-content .logo h1{
+            font-weight:100;/*제목태그의 특징은 기본적으로 bold가 적용 제목태그가 가지고 있는 bold속성을 100으로 설정*/
+            padding-top:15px;/*top-content안에서 수직에 중앙배치를 위한 값(요소검사를 이용해 확인)*/
+        }
+        .top-content .nav{
+            width:auto;/*넓이를 정확히 모를때 일반적으로 사용되는값*/
+            float:right;
+            margin-right:30px;
+        }
+        .top-content .nav li{/*인라인 블록 대신 사용할수있는 스타일
+                                 1.float:left;
+                                 2.display:inline-block; 부모요소에게는 text-algin:center;
+                             */
+            display:inline-block;}
+        .top-content .nav li a{color:#66e0ee; padding:15px 20px;}
+        .top-content .nav li:last-child{
+            border:1px solid #66e0ee; 
+            padding:15px;
+
+        }
+        .top-content .nav li:last-child .fa{color:#66e0ee;}
+        /*header*/
+        /*header안에서 넓이와 높이를 공통으로 갖고있는 선택자의 스타일*/
+        .v-header, .fullscreen-video, .header-overlay{
+            width:100%;height:100%;
+        }
+        /*
+            header안에서 좌표중 절대좌표를 사용하기 위한 선택자 공통 스타일
+            아래 부분과 같은 스타일에서 position:absolute는 현재는 해상도 좌표를
+            사용하는것.
+            현재와 같은 절대값(absolute)은 구조에서 한번만 사용 가능하며, 주로 넓이와 높이가 해상도와 같은 컨텐츠를 제작하고,
+            구조 중 제일 상단에 위치하는 header에서 사용됨.
+            현재와 같은 컨텐츠를 만들 때 배치하는 부분에서 반드시 z-index를 사용해야함, 그렇지 않으면 내가 원하는 부분에서의 
+            컨텐츠는 순번 상 밀리기 되기 때문에 화면에 나타나지 않는다.
+        */
+        .fullscreen-video, .header-overlay{position:absolute;}
+        .fullscreen-video{/*video의 좌표를 만든 부분으로 이떄는 넓이와 높이가 해상도와 같기때문에 좌표는 top, left가
+                              0좌표를 기준으로 만들어주면 됨.
+                          */
+            top:0;
+            left:0;
+            overflow:hidden;/*,영상이 구조이탈된 부분을 마스크 처리한 부분*/
+            z-index:11;
+        }
+        .header-overlay{/*비디오 위에서 배경처리를 해준 부분*/
+            background-color:rgba(0,212,156,0.7);
+            top:0;
+            left:0;
+            z-index:111;
+        }
+        .header-content {/*메인비쥬얼(배너)를 만들때 통상 같은 부분이 타이틀과 간단한 내용을 화면에 보여주는데
+                             이때 높이는 설정하지 말고, 넓이를 무조건 부모 요소안에서 100%로 잡아줌.
+                             그 다음 타이틀 요소가 중앙으로 배치 할 수 있게 부모에게 text-algin:center;를 적용
+                             높이만 해상도 전체 수직에 중앙이라면 top:50%; %값으로 맞추고 만약 고정 높이를 쓰면서 수직의
+                             중앙으로 맞춘다면 포지션 말고 계산하는 방법으로 맞춰도 상관 무.
+                         */
+            z-index: 1111;
+            width: 100%;/*해상도 넓이*/
+            text-align: center;
+            top: 50%;
+            position:absolute;/*절대좌표를 이용해 해상도가 바뀌더라도 항상 수직 중앙 배치되도록*/
+            /*
+                %를 이용한 봐표 정렬일때 해상도 안에서 %의 좌표는 다르게 보이는게
+                일반적이기 때문에 양수인 %값을 transform:translate의 음수 값을 활용해 수평과 수직의 구조를 맞춰줌
+            */
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .header-content h2{
+            color:#fff;
+            font-size:50px;
+            font-weight:100;
+            margin-bottom:30px;/*다음에 배치되는 요소와의 간격*/
+        }
+        .header-content p{color:#333;line-height:19px;margin-bottom:50px;}
+        .header-content a{/*앵커의 사이즈와 속성 부분*/
+            display:inline-block;
+            /* 
+                display:inline-block;를 사용한것은 부모요소 안에 적용된 text-align:center를 쓰기 위함.
+                만약 초기화 파일은 reset.css안에서 앵커의 초기화를 display:block으로 설정했다면 수평정렬 시
+                margin:auto; 또는 margin:0 auto를 써도 상관 없음
+            */
+            border:1px solid #fff;
+            padding:15px 0;
+            color:#fff; 
+            width:160px;
+
+        }
+        .header-content a:hover{background-color:#003f51;border:1px solid #003f51;}
+        /*section*/
+        .container{width:100%;}/*부모 해상도 넓이와 같게 설정*/
+        .container h3{
+            color:#333; 
+            font-size:20px; 
+            font-weight:100;
+            margin-bottom:30px;/*나로부터 다음에 오는 요소와의 간격 설정*/
+            text-align:center;
+        }
+        .video-text{width:inherit;}/*부모넓이를 상속받은 부분 inherit는 고정 넓이를 이용시 효과적이나
+            반응형일 경우 자식은 항상 부모안에서 존재하기 떄문에 부모의 넓이를 상속받는 순간 자식의 넓이가 부모안에서 100%
+            로 만들어지는 것이 아니라 부모넓이만큼 표현되기 때문에 작아실 수 있음
+        */
+        /*section의 구조에서 같은 넓이를 쓰고있는 선택자 공통 스타일*/
+        .txt, .video-text, .list{width:1010px; margin:auto;}
+        .one{padding:70px 0;}/*컨텐츠와 컨텐츠 사이에서의 여백을 부모높이로 활용해서 여백을 설정해준 부분*/
+        .one .txt{overflow:hidden;}
+        .one .txt li{
+            float:left; 
+            text-align:center;
+            border:1px solid #e5e5e5;
+            /*
+               *{ box-sizing:border-box;}
+                border와 padding이 구조에 넓이에 포함되지 않고 컨텐츠 안쪽으로 생성이 됨
+                바깥쪽 여백을 활용해 레이아웃을 설계해야함
+
+            */
+            box-sizing:border-box;
+            line-height:40px;
+            height:40px;
+            border-bottom:0;
+        }
+        .one .txt li.left{width:200px;border-left:0;}
+        .one .txt li.right{width:810px;border-left:0; border-right:0;}
+        .one .txt li.title{font-weight:bold;}
+        .one .txt li:nth-child(17), .one .txt li:last-child{
+            border-bottom:1px solid #e5e5e5;
+        }
+        .two{background-color:#e5e5e5; padding:70px 0;}
+        .two p{text-align:center; line-height:19px;margin-bottom:40px;}
+        .video-text{overflow:hidden;}
+        .video-text li{
+            box-sizing:border-box;
+            text-align:center;
+            line-height:40px;
+            height:40px;
+            border:1px solid #999;
+            float:left;
+            width:252.5px;
+            border-right:0;
+            border-bottom:0;
+        }
+            .video-text li:nth-child(4),
+            .video-text li:nth-child(8),
+            .video-text li:nth-child(12),
+            .video-text li:nth-child(16),
+            .video-text li:nth-child(20),
+            .video-text li:nth-child(24){border-right:1px solid #999;}
+            .video-text li:nth-child(21),
+            .video-text li:nth-child(22),
+            .video-text li:nth-child(23),
+            .video-text li:nth-child(24){border-bottom:1px solid #999;}
+
+            .three{padding:70px 0;}
+            .three p{text-align:center; margin-bottom:40px;}
+            .list{overflow:hidden;}
+            .list img{width:100%; margin-bottom:30px;}
+            /*li안에서 적용된 포지션은 position:relative 자식의 좌표이탈을 막고
+                현재 li안에서의 좌표를 제공하기 위한 스타일 부분
+            */
+            .list li{width:300px; float:left; position:relative;cursor:pointer;}
+            .list li.center{margin:0 55px;}
+            .list li .block{
+                padding:20px 0;
+            }
+            .list li h4{
+                text-align:center; 
+                color:#333; 
+                font-size:18px;
+                margin-bottom:20px;
+            }
+            .list li p{
+                line-height:19px;
+                text-align:left;
+                padding:0 15px;
+            }
+            .list li .hover {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0,0,0,0.1);
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    filter: alpha(opacity=0);
+                    -webkit-transition: all 0.5s ease;
+                    -moz-transition: all 0.5s ease;
+                    -o-transition: all 0.5s ease;
+                    transition: all 0.5s ease;
+                }
+            .list li .hover:hover{
+                opacity:1;
+                filter:alpha(opacity=100);
+            }
+            /*footer*/
+            footer{
+                background-color:#333;
+                width:100%;
+                padding:70px 0;
+            }
+            .sns{text-align:center;}
+            .sns a .fa{font-size:20px;color:#333;}
+            .sns a{
+                width:35px;
+                height:35px;
+                text-align:center;
+                line-height:40px;
+                border-radius:50%;
+                background-color:rgba(255,255,255,0.1);
+                display:inline-block;
+                margin:0 5px;
+            }
+            .sns a:hover{
+                background-color:#fff; color:#000;
+            }
+            address{
+                text-align:center;
+                padding-top:30px;
+                color:#666;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-content">
+        <a href="#" target="_self" class="logo">
+            <h1 class="eng-title">
+                Video FullScreen
+            </h1>
+        </a>
+        <ul class="nav">
+            <li><a href="#" target="_self" class="eng">Home</a></li>
+            <li><a href="#" target="_self" class="eng">About</a></li>
+            <li><a href="#" target="_self" class="eng">Business</a></li>
+            <li><a href="#" target="_self" class="eng">Projects</a></li>
+            <li><a href="#" target="_self" class="eng">Contact</a></li>
+            <li><i class="fa fa-search" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+    <header class="v-header">
+        <div class="fullscreen-video">
+            <video autoplay loop muted>
+                <source src="images/movie/bg.mp4" type="video/mp4" />
+                <source src="images/movie/bg.webm" type="video/webm" />
+                <source src="images/movie/bg.ogg" type="video/ogg" />
+            </video>
+        </div>
+        <div class="header-overlay">
+
+        </div>
+        <div class="header-content">
+            <h2 class="eng">Video FullScreen Background</h2>
+            <p>
+                We are using a background image that creates a 
+                glass like effect with a semi-transparent gradient.<br />
+                When you use some background pattern 
+                (like the wood in the demo) it creates a beautiful effect.
+            </p>
+            <a href="#" target="_self" class="eng">
+                Read More
+            </a>
+        </div>
+    </header>
+    <section class="container">
+        <div class="video-txt one">
+            <h3>비디오 태그의 요소들</h3>
+            <ul class="txt">
+                <li class="left title">속성</li>
+                <li class="right title">설명</li>
+                <li class="left title eng">autoplay</li>
+                <li class="right">비디오 실행 시 자동 재생</li>
+                <li class="left title eng">Controls</li>
+                <li class="right">재생을 제오하는 제어기 표시</li>
+                <li class="left title eng">loop</li>
+                <li class="right">비디오를 반복 재생</li>
+                <li class="left title eng">poster</li>
+                <li class="right">비디오를 다운로드 중일때 표시하는 이미지</li>
+                <li class="left title eng">preload</li>
+                <li class="right">전체 오디오를 다운로드하게 함</li>
+                <li class="left title eng">muted</li>
+                <li class="right">비디오의 오디오 출력을 중지</li>
+                <li class="left title eng">src</li>
+                <li class="right"><span class="eng">URL</span> 지정</li>
+                <li class="left title eng">width, height</li>     
+                <li class="right">비디오의 너비와 높이를 지정</li>
+            </ul>
+        </div>
+        <div class="video-txt two">
+            <h3>비디오를 지원하는 확장자 정리</h3>
+            <p>
+                웹브라우저마다 지원 가능한 비디오 확장자가 다르기 때문에 
+                브라우저 상 동영상의 문제가 발생될 수 있습니다.<br />
+                비디오 확장자는 크게 <span class="eng">mp4, web, ogg</span>가 있는데, 
+                웹 브라우저마다 지원하는 확장자는 다음과 같습니다.
+            </p>
+            <ul class="video-text">
+                <li>브라우저</li>
+                <li>MP4</li>
+                <li>Webm</li>
+                <li>ogg</li>
+                <li>인터넷익스플로러</li>
+                <li>O</li>
+                <li>X</li>
+                <li>X</li>
+                <li>크롬</li>
+                <li>O</li>
+                <li>O</li>
+                <li>O</li>
+                <li>파이어폭스</li>
+                <li>X</li>
+                <li>O</li>
+                <li>O</li>
+                <li>사파리</li>
+                <li>O</li>
+                <li>X</li>
+                <li>X</li>
+                <li>오페라</li>
+                <li>X</li>
+                <li>O</li>
+                <li>O</li>
+            </ul>
+        </div>
+        <div class="video-txt three">
+            <h3>모든 사람과 모든 곳을 위해 설계되었습니다.</h3>
+            <p>
+                부트스트랩은 프론트엔드 웹개발을 더 빠르고 쉽게 만들어줍니다. 모든 기술 수준의 사람들, 
+                모든 형태의 기기들, 모든 크기의 프로젝트들을 위해 만들어졌습니다.
+            </p>
+            <ul class="list">
+                <li>
+                    <div class="hover"></div>
+                    <div class="block">
+                        <img src="images/sass-less.png"alt="img" />
+                        <h4>프리프로세서</h4>
+                        <p>
+                            부트스트랩은 평범한 CSS 로 제공합니다만, 그것의 소스코드는 
+                            2개의 인기있는 CSS 프리프로세서인 Less 와 Sass 를 사용합니다.
+                            신속하게 프리컴파일된 CSS 로 시작하거나 소스를 빌드하세요.
+                        </p>
+                    </div>
+                </li>
+                <li class="center">
+                    <div class="hover"></div>
+                    <div class="block">
+                        <img src="images/devices.png" alt="img" />
+                        <h4>하나의 프레임워크, 모든 기기.</h4>
+                        <p>
+                            부트스트랩은 웹사이트와 어플리케이션을 단일 코드 베이스로 
+                            CSS 미디어 쿼리를 이용하여 휴대폰에서부터 태블릿, 데스크탑까지
+                            쉽고 효과적으로 크기를 조절합니다.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hover"></div>
+                    <div class="block">
+                        <img src="images/components.png" alt="img" />
+                        <h4>많은 기능들</h4>
+                        <p>
+                            부트스트랩과 함께, 보통의 HTML 요소들, 맞춤형 HTML 과 
+                            CSS 콤포넌트들, 그리고 놀라운 jQuery 플러그인들로 
+                            광범위하고 아름다운 문서들을 가질 수 있습니다.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="sns">
+            <a href="#" target="_blank">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            </a>
+        </div>
+        <address>copyright&copy;Video FullScreen Background Allrights Crop.</address>
+    </footer>
+</body>
+</html>

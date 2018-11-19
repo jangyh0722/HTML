@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>가상선택자</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style type="text/css">
+        body{background-color:#dedede;}
+        .box{
+            width:1000px;
+            margin:100px auto 0;
+        }
+        .img-hover li{
+            float:left;
+            width:250px;
+            height:250px;
+            border:1px solid #ccc;
+            box-sizing:border-box;
+            background-color:#fff;
+            line-height:250px;
+            text-align:center;
+        }
+        .img-hover li:last-child{
+            border-right:1px solid #ccc;
+        }
+        .img-hover li a{
+            position:relative; color:#666;
+        }
+        /*
+            마우스가 특정 컨텐츠 위에 위치하면 위로 컨텐츠가 위로 올라오면서 테두리를
+            내가 지정한 사이즈와 색으로 변경을 해주고 컨텐츠에 그림자를 처리해줌
+            -구조를 만들 때의 주의사항은 overflow:hidden;을 사용하게 되면 그림자가
+            잘려서 나옴
+        */
+
+            .img-hover li a:before { /*앵커 전에 내가 원하는 부분을 작성*/
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 5px solid rgba(0,0,0,0);
+                box-sizing: border-box;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+            /*마우스가 컨텐츠 위에 올라가면 이벤트를 실행 시킬 부분을 스타일로 작성
+                애니메니션이 실행되기 전의 과정 값은 현제 a안에서의 bofore 과정으로
+                속성을 잡아주었기 때문에 a:hover의 값을 bofore의 변할 값으로 지정만
+                해주면 hover가 만들어짐
+                이때 boder의 값을 다시 지정해서 만들어주고, 그림자의 위치를 컨텐츠로 부터
+                shadow의 값으로 만들어줌.
+                컨텐츠와 그림자의 간격이 멀어지면 컨텐츠는 떠있는 것처럼 표현할 수 있음.
+            */
+            .img-hover li a:hover:before{
+                content:"";
+                border:5px solid #521eea;
+                box-shadow:4px 5px 7px rgba(0,0,0,0.6);
+            }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="img-hover">
+            <li><a href="#">컨텐츠 영역입니다.</a></li>
+            <li><a href="#">컨텐츠 영역입니다.</a></li>
+            <li><a href="#">컨텐츠 영역입니다.</a></li>
+            <li><a href="#">컨텐츠 영역입니다.</a></li>
+        </ul>
+    </div>
+</body>
+</html>

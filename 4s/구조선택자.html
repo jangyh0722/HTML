@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .wrap li:first-child {background-color: #ffd800;}
+        .wrap li:nth-child(3) {
+            background-color: #ffd800;
+        }
+        
+        .container p:nth-of-type(3){color:red;}
+        
+    </style>
+</head>
+<body>
+    <!--
+        구조선택자:nth-child, nth-of-type
+        예시:
+        1.10개의 구조 중에서 나는 첫번째 구조만 선택하고 싶다.
+        ul li:nth-child(1){첫번째 구조 선택}
+        ul li:first-child{첫번째 구조 선택}
+
+        2.10개의 구조 중에서 나는 마지막번째 구조만 선택하고 싶다.
+        ul li:nth-child(10){마지막 구조 선택}
+        ul li:last-child{마지막 구조 선택}
+
+        3.10개의 구조 중에서 나는 세번째 구조만 선택하고 싶다.
+        ul li:nth-child(3){세번째 구조 선택}
+
+        4.10개의 구조 중에서 홀수 구조만 선택하고 싶다.
+        ul li:nth-child(2n+1){마지막 구조 선택}
+        ul li:nth-child(odd){마지막 구조 선택}
+
+        4.10개의 구조 중에서 짝수 구조만 선택하고 싶다.
+        ul li:nth-child(2n){마지막 구조 선택}
+        ul li:nth-child(even){마지막 구조 선택}
+    -->
+    <ul class="wrap">
+        <li class="box0">0.웹 표준 입니다.</li>
+        <li class="box1">1.웹 표준 입니다.</li>
+        <li class="box2">2.웹 표준 입니다.</li>
+        <li class="box3">3.웹 표준 입니다.</li>
+        <li class="box4">4.웹 표준 입니다.</li>
+    </ul>
+    <div class="container">
+        <p>포토샵</p>
+        <p>일러스트</p>
+        <h3>HTML5</h3>
+        <p>css</p>
+        <h3>javascript</h3>
+        <p>jQuery</p>
+        <h3>웹 퍼블리셔</h3>
+
+    </div>
+</body>
+</html>

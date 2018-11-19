@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            /*font-family: 'Dancing Script', cursive;*/
+        }
+        .eng {
+            font-family: 'Open Sans', sans-serif;
+        }    
+        .eng-title{font-family: 'Dancing Script', cursive;}
+       .header, .section, .footer{width:100%;}
+       .header{}
+       .gnb-navi{border-bottom:1px solid #ccc;}
+       .gnb, .main-top{width:1000px; margin:0 auto;}
+       .gnb{text-align:right; padding:15px 0;}
+       .gnb li{display:inline-block; font-size:12px; color:#999;}
+       .gnb li a{font-size:12px; color:#999; padding:0 15px;}
+       .main-top{overflow:hidden; padding:15px 0;}
+       .main-top img{float:left;}
+       .main-top .lnb{width:auto; float:right;}
+       .main-top .lnb li{display:inline-block;}
+       .main-top .lnb li a{font-size:16px; color:#666; padding:7px 20px;}
+       .main-top .lnb li:first-child a{color:#f19696;}
+       /*section*/
+       .cont-ui{background-color:#d4cac9; padding-bottom:80px;}
+       .cont-uibg, .ui-list{width:1000px; margin:0 auto;}
+       .cont-uibg{
+                                background-image:url("images/banner01.jpg");
+                                background-repeat:no-repeat;
+                                background-position:right top;
+                                height:560px;
+       }
+       .cont-uibg h2{
+                                font-size:90px;
+                                color:#fa5555;
+                                font-weight:100;
+                                margin-bottom:60px;
+                                padding-top:200px;
+       }
+       .cont-uibg p:nth-of-type(1){font-size:30px; color:#fa5555; margin-bottom:30px;}
+       .cont-uibg p:nth-of-type(2){font-size:30px; color:#fa5555;}
+       .cont-uibg p:nth-of-type(2) span{font-weight:bold; font-size:36px;}
+       .ui-list{overflow:hidden;}
+       .ui-list li{width:250px; height:250px; text-align:center; float:left;}
+       .ui-list li.table{display:table; background-color:#fa5555;}
+       .ui-list li.table .inner{display:table-cell; vertical-align:middle;}
+       .ui-list li.table .inner hr{width:15%; border-top:2px solid #fff; margin:0 auto 20px;}
+       .ui-list li.table .inner h3{font-size:24px; font-weight:100; color:#fff; margin-bottom:30px;}
+       .ui-list li.table .inner a{color:#fff; font-size:13px;}
+       .ui-list li:nth-child(3){background-color:#000;}
+       .ui-list li.bg{
+                                          background-repeat:no-repeat;
+                                          background-size:cover;
+       }
+       .ui-list li:nth-child(2){background-image:url("images/content01.png");}
+       .ui-list li:nth-child(4){background-image:url("images/content02.png");}
+       .ui-list li:nth-child(5){background-image:url("images/content03.png");}
+       .ui-list li:nth-child(7){background-image:url("images/content04.png");}
+    </style>
+</head>
+<body>
+    <!--//header-->   
+   <div class="header">
+       <div class="gnb-navi">
+           <ul class="gnb">
+               <li><a href="#">로그인</a></li>
+               <li>|</li>
+               <li><a href="#">홈</a></li>
+               <li>|</li>
+               <li><a href="#">사이트맵</a></li>
+           </ul>
+       </div>
+       <div class="main-top">
+           <img src="images/logo.png" alt="logo" />
+           <ul class="lnb">
+               <li><a href="#">뷰티엔코</a></li>
+               <li><a href="#">서비스</a></li>
+               <li><a href="#">스페셜</a></li>
+               <li><a href="#">예약</a></li>
+               <li><a href="#">문의</a></li>
+           </ul>
+       </div>
+   </div>
+    <!--//section-->
+    <div class="section">
+        <div class="cont-ui">
+            <div class="cont-uibg">
+                <h2 class="eng-title">welcome to</h2>
+                <p>착한뷰티서비스!</p>
+                <p>
+                    <span class="big">뷰티엔코</span>에 오신걸
+                    <span class="big">환영</span>합니다.
+                </p>
+            </div>
+            <ul class="ui-list">
+                <li class="table">
+                    <div class="inner">
+                        <hr />
+                        <h3 class="eng">FACIALS</h3>
+                        <a href="#">예약하기 ></a>
+                    </div>
+                </li>
+                <li class="bg"></li>
+                <li class="table">
+                    <div class="inner">
+                        <hr />
+                        <h3 class="eng">MAKE UP</h3>
+                        <a href="#">예약하기 ></a>
+                    </div>
+                </li>
+                <li class="bg"></li>
+                <li class="bg"></li>
+                <li class="table">
+                    <div class="inner">
+                        <hr />
+                        <h3 class="eng">HAIR STYLING</h3>
+                        <a href="#">예약하기 ></a>
+                    </div>
+                </li>
+                <li class="bg"></li>
+                <li class="table">
+                    <div class="inner">
+                        <hr />
+                        <h3 class="eng">NAILS</h3>
+                        <a href="#">예약하기 ></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="cont-info"></div>
+    </div>
+    <!--//footer-->   
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>포지션</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style type="text/css">
+
+        body{background-image:url("images/bg.png")}
+        .bg {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+        .two{
+            background-color:#b6ff00;
+            position:relative;
+            top:40px;
+            left:40px;
+        }
+        .three{
+            background-color:#808080;
+            position:relative;
+               top:80px;
+               left:80px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        포지션의 속성들.
+        1. static(기본값. 값을 지정하지 않았을 때 요소가 위치하는 값. 포지션을 해제할 때도 사용됨. 반응형에서 사용)
+        2. absolute 절대좌표.(구조 안에서 내가 원하는 위치에 요소를 배치시키고자 할때는 반드시 내가 위치하는 곳에서의
+        좌표를 자식요소에게 알려줘야 함. 부모한테는 position:relative, 자식 position:absolute;)
+        3.relative : 내가 static인 곳에서의 좌표를 이용하는 방법.
+        4.pixed : 요소를 고정시킬 때 사용하는 방법.
+    -->
+    <div class="bg one"></div>
+    <div class="bg two"></div>
+    <div class="bg three"></div>
+
+</body>
+</html>

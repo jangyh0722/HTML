@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>join</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+        * {
+            cursor: pointer;
+            outline: none;
+            background-color: transparent;
+        }
+        html, body{height:100%;}
+        body {font-family: 'Nanum Gothic', sans-serif; font-size:14px; color:#999; background-color:#fff;}
+        .eg {font-family: 'Open Sans', sans-serif;}
+         /*header*/
+         .header{border-bottom:1px solid #aeaeae;}
+         .top-head{
+             width:100%;
+             background-color:#000;
+         }
+         .top-head-nav{width:1260px; margin:0 auto;}
+         .brand-navi li{display:inline-block;}
+         .brand-navi li a{padding:5px 25px; color:#000; }
+         .brand-navi li:first-child a{background-color:#fff; padding-left:40px;}
+         strong, span{font-size:12px;}
+         strong{letter-spacing:7px;}
+         span{color:#aeaeae; letter-spacing:15px;}
+
+
+        .bott-head{width:1260px; margin:0 auto; padding: 20px 0;}
+        .left-navi, .rig-navi, .left-navi li, .rig-navi li{display:inline-block; vertical-align:middle;}
+        .left-navi li a, .rig-navi li a{color:#000; font-weight:600;}
+        .left-navi li a span{line-height:30px;}
+        .rig-navi{float:right;}
+        .left-navi li a{padding: 30px 25px;}
+        .left-navi li:first-child a{font-weight:100; }
+        .left-navi li a > strong, .left-navi li a > span{font-size:20px;}
+        .left-navi li a > strong{letter-spacing:10px;}
+        .left-navi li a > span{color:#aeaeae; letter-spacing:23px;}
+        .rig-navi li a{padding: 38px 10px; color:#808080; font-size:12px;}
+        /*section*/
+        .section h1{text-align:center; margin: 80px 0; font-size:25px; color:#000;}
+        .step-bg{width:100%; margin:0 auto; background-color:#f6f6f6; }
+        .step{width:1260px; margin:0 auto; padding:30px 0;}
+        .step-list li{display:inline-block;vertical-align:middle;}
+        .step-list li:nth-child(8){color:#000;}
+        .step-list {
+            margin: 0 200px;
+        }
+        .img-step{margin-right:10px;}
+        .img-step:last-child{margin-right:0;}
+        .arrow{margin: 0 50px;}
+
+        .form{width:1260px; margin:0 auto; padding-top:50px; }
+        .form ul li:first-child{color:#000;}
+        .form-tit p{margin-bottom:20px;}
+        .form-tit p:first-child{float:left; color:#000;}
+        .form-tit p:last-child{float:right; font-size:12px; color:#969696;}
+        .form-tit{border-bottom:2px solid #000; overflow:hidden;}
+        .star{color:#ff0000; margin-right:-10px;}
+        .form ul li {display: inline-block; vertical-align:middle;}
+        .form ul{border-bottom:1px solid #aeaeae; padding:30px 0; }
+        .addr input[type=text]{margin-bottom:10px;}
+        .addr input[type=submit]{margin-top:-10px;}
+        input[type=text], input[type=password] {
+            width: 300px;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #999;
+            box-sizing: border-box;
+        }
+        select, input[type=submit] {
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #999;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            background-color: #333;
+            color: #fff;
+            box-sizing: border-box;
+            margin-top:-1px;
+        }
+        .bir-date li p, .mar-agr li p{padding-top:15px; color:#000;}
+        .list-form{width:200px;}
+
+        .step-btn {width: 470px;margin: 0 auto;padding: 60px 0;}
+        .step-btn a{padding:15px 100px; border:1px solid #000; color:#000; }
+        .step-btn p:last-child a{background-color:#000; color:#fff; border:1px solid #000;}
+        .step-btn p{display:inline-block;}
+        .mar-agr span{margin-right:50px; color:#000;}
+
+        /*footer*/
+        .footer{background-color:#f6f6f6;}
+        .foot-top, .foot-bott {
+            width: 1260px;
+            margin: 0 auto;
+            overflow: hidden;   
+        }
+        .foot-top{padding:20px 0;}
+        .foot-bott{border-top: 1px solid #999;}
+        .foot-top ul li a{color:#000;}
+        .foot-top ul li{display:inline-block; margin-right:20px;}
+        .foot-nav{float:left;margin-top:4px;}
+        .foot-fam{float:right;}
+        .foot-fam li{float:left; }
+        .foot-fam li:first-child a{ padding-top:4px; margin:0 20px; color:#666;}
+        .foot-bott li{margin:30px 0; color:#000;}
+        .foot-txt li strong, .foot-txt span{font-size:20px;}
+        .foot-txt li strong{color:#000; margin-right:10px;}
+        .foot-txt img{float:left; margin-right:15px;}
+        .foot-txt li:nth-child(3) p{padding-top:7.5px; color:#999;}
+    </style>
+</head>
+<body>
+    <div class="header row">
+        <div class="top-head">
+            <div class="top-head-nav">
+                <ul class="brand-navi">
+                    <li><a href="#" class="eng"><strong>TOPTEN</strong><br /> <span>MALL</span></a></li>
+                    <li><a href="#"><img src="images/gnb-img/andz.png" /></a></li>
+                    <li><a href="#"><img src="images/gnb-img/edition.png" /></a></li>
+                    <li><a href="#"><img src="images/gnb-img/olzen.png" /></a></li>
+                    <li><a href="#"><img src="images/gnb-img/top.png" /></a></li>
+                    <li><a href="#"><img src="images/gnb-img/topten.png" /></a></li>
+                    <li><a href="#"><img src="images/gnb-img/ziozia.png" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bott-head">
+            <ul class="left-navi">
+                <li><a href="#" class="eng"><strong>TOPTEN</strong><br /> <span>MALL</span></a></li>
+                <li><a href="#" class="eng">NEW IN</a></li>
+                <li><a href="#" class="eng">MEN</a></li>
+                <li><a href="#" class="eng">BOYS</a></li>
+                <li><a href="#" class="eng">GIRLS</a></li>
+                <li><a href="#" class="eng">EVENT</a></li>
+                <li><a href="#" class="eng">SALE</a></li>
+                <li><a href="#" class="eng">MAGAZINE</a></li>
+            </ul>
+            <ul class="rig-navi">
+                <li><a href="#" class="eng">LOGIN</a></li>
+                <li>|</li>
+                <li><a href="#" class="eng">CART</a></li>
+                <li>|</li>
+                <li><a href="#" class="eng">SEARCH</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section row">
+        <h1>회원가입</h1>
+        <div class="step-bg">
+            <div class="step">
+                <ul class="step-list">
+                    <li class="img-step"><img src="images/icon/step1.png" /></li>
+                    <li class="img-step">본인인증</li>
+                    <li class="arrow"><img src="images/icon/arrow.png" /></li>
+                    <li class="img-step"><img src="images/icon/step2.png" /></li>
+                    <li class="img-step">약관동의</li>
+                    <li class="arrow"><img src="images/icon/arrow.png" /></li>
+                    <li class="img-step"><img src="images/icon/step3.png" /></li>
+                    <li class="img-step">정보입력</li>
+                    <li class="arrow"><img src="images/icon/arrow.png" /></li>
+                    <li class="img-step"><img src="images/icon/step4.png" /></li>
+                    <li class="img-step">가입완료</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form">
+            <div class="form-tit">
+                <p>기본 정보를 입력해주세요</p>
+                <p><span class="star">*</span>필수 입력 항목</p>
+            </div>
+            <ul class="id">
+                <li><div class="list-form"><span class="star">*</span>아이디</div></li>
+                <li>
+                    <label for="id">
+                        <input type="text" id="id" mame="id" placeholder="6~20자의 영문,숫자가능" />
+                    </label>
+                </li>
+                <li>
+                    <input type="submit" value="중복확인" />
+                </li>
+            </ul>
+            <ul class="pass">
+                <li><div class="list-form"><span class="star">*</span>비밀번호</div></li>
+                <li>
+                    <label for="pass">
+                        <input type="password" id="pass" name="password" placeholder=" 8~16자의 영문, 숫자, 특수문자 중 2가지 조합" />
+                    </label>
+                </li>
+            </ul>
+            <ul class="pass-con">
+                <li><div class="list-form"><span class="star">*</span>비밀번호 확인</div></li>
+                <li>
+                    <label for="pass-con">
+                        <input type="password" id="pass-con" name="pass-con" placeholder="비밀번호 다시 입력" />
+                    </label>
+                </li>
+            </ul>
+            <ul class="name">
+                <li><div class="list-form"><span class="star">*</span>이름</div></li>
+                <li>
+                    <label for="name">
+                        <input type="text" id="name" name="name" />
+                    </label>
+                </li>
+            </ul>
+            <ul class="bir-date gender">
+                <li><div class="list-form">생년월일/성별</div></li>
+
+                <li>
+                    <label for="bir-date">
+                        <input type="text" id="bir-date" name="bir-date" />
+                    </label>
+                        <select id="gender">
+                            <option value="gender">성별</option>
+                            <option value="gender">남자</option>
+                            <option value="gender">여자</option>
+                        </select>
+                    <p>
+                    &#8251;생년월일을 입력하시면 7일전 생일축하쿠폰이 지급됩니다.
+                    </p>
+                </li>
+                
+            </ul>
+            <ul class="phon">
+                <li><div class="list-form"><span class="star">*</span>휴대전화번호</div></li>
+                <li>
+                    <select id="phon-sel">
+                        <option value="010">010</option>
+                        <option value="070">070</option>
+                        <option value="018">018</option>
+                    </select>
+                </li>
+                <li>-</li>
+                <li>
+                    <label for="phon">
+                            <input type="text" id="phon" name="phon" />
+                    </label>
+                </li>
+                <li>-</li>
+                <li>
+                    <label for="phon">
+                            <input type="text" id="phon" name="phon" />
+                    </label>
+                </li>
+            </ul>
+            <ul class="phon-home">
+                <li><div class="list-form">연락처</div></li>
+                <li>
+                    <select id="phon-home">
+                        <option value="phon-home">02</option>
+                        <option value="phon-home">031</option>
+                        <option value="phon-home">033</option>
+                    </select>
+                </li>
+                <li>-</li>
+                <li>
+                    <label for="phon">
+                        <input type="text" id="phon" name="phon" />
+                    </label>
+                </li>
+                <li>-</li>
+                <li>
+                    <label for="phon">
+                        <input type="text" id="phon" name="phon" />
+                    </label>
+                </li>
+            </ul>
+            <ul class="addr">
+                <li><div class="list-form"><span class="star">*</span>주소</div></li>
+                <li>
+                    <input type="text" id="addr1" name="addr1" />
+                    <input type="submit" value="우편번호" />
+                    <br />
+                    <input type="text" id="addr2" name="addr2" />
+                    <br />
+                    <input type="text" id="addr3" name="addr3" />
+                </li>
+            </ul>
+
+            <ul class="email">
+                <li><div class="list-form"><span class="star">*</span>이메일</div></li>
+                <li>
+                    <label for="email">
+                        <input type="text" id="email" name="email" placeholder="sdaaa" />
+                    </label>
+                </li>
+                <li>@</li>
+                <li>
+                    <label for="email">
+                        <input type="text" id="email" name="email" placeholder="naver.com" />
+                    </label>
+                </li>
+                <li>
+                    <select id="email">
+                        <option value="직접선택">직접선택</option>
+                        <option value="네이버">hanmail.net</option>
+                        <option value="다음">gmail.com</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="submit" value="중복확인" />
+                </li>
+            </ul>
+            <ul class="mar-agr">
+                <li><div class="list-form">마케팅정보 수신동의</div></li>
+                <li>
+                    <label for="sms-agr">
+                        <input type="checkbox" id="sms-agr" name="sms-agr" /><span>SMS</span>
+                    </label>
+                    <label for="mail-agr">
+                        <input type="checkbox" id="mail-agr" name="mail-agr" /><span>이메일</span>
+                    </label>
+                    <p>&#8251;공지, 이벤트, 상품 소개 등 쇼핑 혜택에 대한 정보 수신에 동의합니다.</p>
+                </li>
+
+                
+            </ul>
+            <ul class="fien-id">
+                <li><div class="list-form">추천인 ID</div></li>
+                <li>
+                    <label for="fien-id">
+                        <input type="text" id="fien-id" name="fien-id" />
+                    </label>
+                </li>
+            </ul>
+            <div class="step-btn">
+                <p><a href="#">이전</a></p>
+                <p><a href="#">다음</a></p>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer row">
+        <div class="foot-top">
+            <ul class="foot-nav">
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">매장안내</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+            </ul>
+            <ul class="foot-fam">
+                <li><a href="#">패밀리 사이트</a></li>
+                <li><a href="#"><img src="images/polham.png" /></a></li>
+            </ul>
+        </div>
+        <div class="foot-bott">
+            <ul class="foot-txt">
+                <li class="eng"><strong>TOPTEN</strong> <span>MALL</span></li>
+                <li><p>
+                    신성통상(주) / 대표자 : 황대규<br />
+                    주소 : 서울 강동구 풍성로63길 84 신성빌딩 / 대표전화 : 1600-3424 / 팩스 : 0504-340-3424<br />
+                    통신판매업 신고번호 : 2015-서울강동-1890 / 사업자등록번호 : 104-81-01106<u>사업자 정보확인</u>
+                    </p>
+                </li>
+                <li><img src="images/escrow.png" />
+                    <p>
+                    고객님은 안전거래를 위해 결제 시 저희 사이트에서 가입한<br />
+                    KG이니시스의 에스크로 서비스를 이용하실 수 있습니다. <u>가입확인</u>
+                    </p>
+                </li>
+                <li><address>ⓒ 2018 TOPTEN MALL. ALL RIGHTS RESERVED</address></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

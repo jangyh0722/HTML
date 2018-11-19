@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Keywords" content="웹표준, html5, 반응형" />
+    <meta name="description" content="검색에서 노출되는 설명부분입니다." />
+    <meta name ="author" content="사이트주소를 적는 부분입니다." />
+    <!--mediaQuery viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Responsiv Web</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        /*
+            기본 브라우져 폰트 사이즈: 16px
+            html{font-size:14px;}
+        */
+       body{
+           font-family:'Montserrt',sans-serif;
+           background-color:#e6f4f8;
+       }
+       /*본문 텍스트 관련 태그*/
+       div, ul, h1, h2, h3, h4, p {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+       h1, h2, h3{
+           font-weight:100;
+       }
+        h1, h2, h3, h4{color:#fff;}
+       h1{font-size:3.75rem;}
+       h2{font-size:2.5rem;}
+       h3{font-size:1.5rem;}
+       h4{font-size:1.125rem;}
+       img{width:100%;}
+
+       /*구조의 사이즈 부분에 공통으로 적용될 식별자*/
+       .rows{width:70%; margin:auto;}
+       /*구조의 버튼에 공통으로 적용될 식별자*/
+       .btn{
+           color:#fff;
+           border:1px solid #fff;
+           border-radius:50px;
+       }
+       .btn:hover{background-color:#fff; color:#333;}
+       /*header style*/
+       .header {overflow: hidden;padding: 6.25rem 0;}
+       .header .logo{/*logo는 a의 선택자명 자식의 넓이를 이용하는 방식으로 가변 그리드를 만들어주면 됨.*/
+                     width:20%;/*이미지 사이즈 (192px / 960px)*100= 값*/
+                     float:left;
+       }
+       .header .nav{
+           width:auto;
+           float:right;
+       }
+       .header .nav li{
+           /*float:left를 적용하는 방법과 display:inline-block;*/
+           display:inline-block;
+       }
+       .header .nav li a{
+           color:#333;
+           padding:1.125rem 1.25rem;
+       }
+        .header .nav li a:hover{color:#ccc; text-decoration:underline;}
+       /*section style*/
+       .section{}
+       /*section안에 구조의 여백은 1%로 전부 지정하기 위한 값.*/
+       .banner, .site-info, .pic-list{margin-bottom:1%;}
+       .content{width:100%;}
+       /*배너는 포지션 적용할 부분의 레이아웃. 자식의 좌표를 배너안에서의 좌표로 적용해죽; 위해서는 배너는 
+           상대적 좌표인 position:relative
+       */
+       .banner{position:relative;}
+        .banner .caption {
+            /*
+               현재와 같은 구조에서 이미지 위에 타이틀이 올라가는 구조라면 수직의 중앙 정렬만
+              고민을 하고 타이틀의 수평의 중앙은 포지션 값이 아니더라도 쉽게 정렬이 가능함.
+               이유는 타이틀을 감싸고 있는 박스의 넓이를 100%로 지정하고, 그 안에서 text-align:center;
+               를 이용해 텍스트를 중앙으로 보내는 구조를 만들 수 있기 때문.
+                현재는 y축을 포지션을  활용한 방법으로 좌표를 지정하여 수직에 중앙정렬한 방법이며
+                다른 방법으로는 table을 이용한 방법도 있음 이떄는 포지션 좌표를 
+                top:0;, left:0;, width:100%; height:100%로 설정 한 후 table방식으로도 중앙정렬이 가능함.
+           */
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+        }
+       .banner .caption h3{margin-bottom:9rem;}
+       .banner .caption h4{margin-bottom:2rem;}
+       .banner .caption h1{margin-bottom:9rem;}
+       .banner .caption .caption-btn{width:20%; padding:0.75rem 0; margin:auto;}
+
+       /*가변패딩을 적용하기 위한 부모에게 포지션 값을 지정해줌 position:relative;*/
+       .site-info{position:relative;}
+       .site-info:before{
+           /*
+               자식 컨텐츠의 높이를 320px로 지정
+           */
+           content:"";
+           display:block;
+           padding-top:33.33333333333333%;
+           /*
+               padding-top의 값은
+               자식의 높이 320/부모의 넓이960 * 100
+           */
+       }
+       /*site-info안에서의 두개의 자식의 공통 선택자 이름*/
+       .site{
+           position:absolute;
+           top:0;
+           width:49.5%;
+           height:100%;
+       }
+       .info-left{background-color:#b9a88e;}
+       .info-right{background-color:#2d2d35; left:50.5%;}
+       .info-outer{
+           /*구조의 속성을 table로 변경해서 수직 정렬을 해줌*/
+           display:table; 
+           width:100%; 
+           height:100%;
+           text-align:center;
+       }
+       .info-outer .info-inner{
+           display:table-cell;
+           vertical-align:middle;
+       }
+       .info-inner h2{margin-bottom:1.875rem;}
+       .info-inner p{color:#fff; font-size:1.125rem; margin-bottom:3.125rem;}
+       .info-inner p span{display:block; padding-bottom:3px;}
+       .info-inner .info-btn{width:35%; padding:0.75rem 0; margin:auto;}
+
+       .pic-list{overflow:hidden;}
+       /*li와 li 사이의 여백은 1% 컨텐츠가 4개이므로 여백은 3%*/
+       .pic-list li{
+           width:24.25%; 
+           float:left; 
+           margin-right:1%;
+           background-color:#000;
+           overflow:hidden;
+       }
+       .pic-list li:last-child{margin-right:0;}
+       .pic-list li img {/*애니메니션 적용시 과정에 대한 부분을 만들고 ...*/
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            
+        }
+        .pic-list li:hover img { /*
+                                     애니메이션 적용 시 결과의 부분을 만듦
+                                     이미지가 커지면 투명도가 적용되는 애니메이션, 이미지가 li밖으로 이탈되기 떄문에
+                                     이를 해결하기 위해서는 li속성을 마스크 처리 
+                                 */
+            opacity: 0.5;
+            filter: alpha(opacity=0);
+            -webkit-transform: scale(1.3);
+            -moz-transform: scale(1.3);
+            -o-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+       /*footer style*/
+       .footer{width:100%; background-color:#b0d1db;padding:1.875rem 0;}
+       .foot-navi, .foot-admin{width:70%; margin: auto;}
+       .foot-navi{margin-bottom:1.875rem;}
+       .foot-navi, .foot-admin{overflow:hidden;}
+       .foot-navi ul{width:auto;}
+       .foot-navi .foot-nav li, .foot-navi .foot-sns li{display:inline-block;}
+       .foot-navi .foot-nav{float:left;}
+       .foot-navi .foot-sns{float:right;}
+       .foot-navi .foot-nav li a, .foot-navi .foot-sns li a{color:#333; padding:0 5px;}
+       .foot-navi .foot-nav li a{font-weight:bold;}
+       .foot-navi .foot-sns li a{font-size:1.25rem;}
+       .foot-admin .copyright{width:68%; float:left;}
+       .foot-admin .sub-copy{width:30%; float:right; text-align:right;}
+       
+
+       /*media style*/
+
+        @media screen and (max-width:1280px){
+        html{font-size:14px;}
+        h1{font-size:2.5rem;}/*40px*/
+        h2{font-size:2.5rem;}/*32px*/
+        h3{font-size:1.25rem;}/**/
+        h4{font-size:1.142857142857143rem;}
+        p{font-size:1rem;}
+        .header{padding: 5rem 0;}/*70px*/
+        .header .logo{width:19%; padding-top:0.6rem;}
+        .banner .caption h3{margin-bottom:7rem;}
+        .banner .caption h4{margin-bottom:1.5rem;}
+        .banner .caption h1{margin-bottom:7rem;}
+        .info-inner h2{margin-bottom:1.5rem;}
+        }
+        @media screen and (max-width:960px){
+        .rows{width:80%;}
+        h2{font-size:1.5rem;}
+        .banner .caption h3{margin-bottom:6rem;}
+        .banner .caption h1{margin-bottom:6rem;}
+        .foot-navi, .foot-admin{width:80%;}
+        }
+        @media screen and (max-width:768px){
+        .rows{width:90%;}
+        h1{font-size:2rem;}
+        h2{font-size:1.285714285714286rem;}
+        p{font-size:0.857rem;}
+        .header{padding: 5rem 0;}
+        .header .logo{width:19%; padding-top:0; float:none; margin:0 auto 1.4rem;}
+        .header .nav{width:100%;float:none; text-align:center;}
+        .banner .caption h3{margin-bottom:4rem;}
+        .banner .caption h1{margin-bottom:4rem;}
+        .banner .caption .caption-btn{width:30%; padding:0.75rem 0;font-size:0.857rem;}
+        .info-inner .info-btn{width:45%; padding:0.71rem 0;font-size:0.857rem;}
+        .info-inner p{font-size:0.857rem; margin-bottom:2rem;}
+        .pic-list li{width:49.5%;}
+        .pic-list li:first-child, .pic-list li:nth-child(2){margin-bottom:1%;}
+        .pic-list li:nth-child(2){margin-right:0;}
+        .foot-navi, .foot-admin{width:90%;}
+        .foot-navi ul{width:100%; text-align:center;}
+        .foot-navi .foot-nav{float:none; margin-bottom:1.5rem;}
+        .foot-navi .foot-sns{float:none;}
+        .foot-navi .foot-nav li a{font-size:0.857rem;}
+        .foot-admin p{font-size:0.857rem;}
+        .foot-admin .copyright{width:100%; float:none; text-align:center;margin:1.5rem;}
+        .foot-admin .sub-copy{width:100%; float:none; text-align:center;}
+        }
+        @media screen and (max-width:480px){
+       .rows{width:100%;}
+        h1{font-size:2rem;}
+        h2{font-size:1.285714285714286rem;}
+        h3{font-size:1.142857142857143rem;}
+        h4{}
+        .header{padding: 3rem 0;}
+        .header .logo{width:20%;}
+        .header .nav li{display:block;}
+        .banner, .site-info, .pic-list{margin-bottom:0;}
+        .site-info:before{padding-top:90%;}
+        .site{width:100%;height:50%;}
+        .info-right{top:50%; left:0;}
+        .pic-list li{width:100%; float:none; margin-right:0;}
+        .pic-list li:first-child, .pic-list li:nth-child(2){margin-bottom:0%;}
+        .banner .caption .caption-btn{width:35%; padding:0.65rem 0;}
+        .info-inner .info-btn{width:35%; padding:0.65rem 0;}
+        .info-inner h2{margin-bottom:1rem;}
+        .info-inner p{margin-bottom:1.3rem;}
+        .banner .caption h3{margin-bottom:2rem;}
+        .banner .caption h1{margin-bottom:2rem;}
+        .banner .caption h4{margin-bottom:1rem; font-size:0.857rem;}
+        .foot-navi .foot-nav li{display:block;}
+        .foot-navi .foot-nav li a{padding:1rem 0;}
+        }
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div class="header rows">
+        <a href="#" class="logo"><!--이미지의 넓이를 이용해서 앵커의 가변크기로 적용-->
+            <img src="Prism-Assets/logo.png" alt="logo" width="192" />
+        </a>
+        <ul class="nav">
+            <li><a href="#">ARCHITECTURE</a></li>
+            <li><a href="#">TRAVEL</a></li>
+            <li><a href="#">ART</a></li>
+            <li><a href="#">FOOD</a></li>
+        </ul>
+    </div>
+    <!--section-->
+    <div class="section rows">
+        <!--content는 section안에서의 두번째 구조의 공통 넓이 식별자-->
+        <div class="banner content">
+            <img src="Prism-Assets/hero.jpg" alt="banner" />
+            <div class="caption">
+                <h3>EDITOR’S CHOICE</h3>
+                <h4>Sebastian Weiss</h4>
+                <h1>URBAN STROKES</h1>
+                <a href="#" class="btn caption-btn">Read more</a>
+            </div>
+        </div>
+        <div class="site-info content">
+            <!--
+                1.비율 유지를 위해서 가상선택자를 이용한 방법 선택
+                2.자식 요소들의 텍스트 정렬을 하기 위해서 구조의 table변경
+            -->
+            <div class="info-left site">
+                <div class="info-outer">
+                    <div class="info-inner">
+                        <h2>INSPIRING READS</h2>
+                        <p>
+                            <span>The future is in lightening our</span> <!--짧은 문장의 경우 사용, 자동개행, 활용도 높음-->
+                            <span>footprints and brightening our lives.</span>
+                        </p>
+                        <a href="#" class="btn info-btn">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="info-right site">
+                    <div class="info-outer">
+                        <div class="info-inner">
+                            <h2>REFLECTIONS</h2>
+                            <p>
+                                <span>Stylish ways to bounce the heat </span>
+                                <span>off a roof and the planet.</span>
+                            </p>
+                            <a href="#" class="btn info-btn">Read more</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <ul class="pic-list content">
+            <li><a href="#"><img src="Prism-Assets/gallery-1.jpg" alt="pic" /></a></li>
+            <li><a href="#"><img src="Prism-Assets/gallery-2.jpg" alt="pic" /></a></li>
+            <li><a href="#"><img src="Prism-Assets/gallery-3.jpg" alt="pic" /></a></li>
+            <li><a href="#"><img src="Prism-Assets/gallery-4.jpg" alt="pic" /></a></li>
+        </ul>
+    </div>
+    <!--footer-->
+    <div class="footer">
+        <div class="foot-navi">
+            <ul class="foot-nav">
+                <li><a href="#">Terms & conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Distributors</a></li>
+            </ul>
+            <ul class="foot-sns">
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="foot-admin">
+            <div class="copyright">
+                <p>
+                    &copy;2015 Adobe Systems Incorporated. All rights reserved. Any reference to Prism or any associated logos
+                    is for demonstration purposes only and is not intended to refer to any actual organization or event.
+                </p>
+            </div>
+            <div class="sub-copy">
+                <p>
+                    Website design by <strong>Serge Vasil</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--javascript library file-->
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/ie-checker-min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/respond.min.js"></script>
+</body>
+</html>
+<!--
+    폰트의 사이즈
+    브라우저 기준 폰트는 16px=1em=100%=12pt=1rem
+
+    px과 pt는 절대크기:어떠한 상황에도 변하는 값.
+
+    em:유동값(w3c에서 권장하는 단위) 부모의 사이즈를 상속받아서 사용
+    em을 계산하는 방법: 적용하고자 하는 픽셀 값 / 16px=값em
+
+    %:유동값
+    rem(root em):root는 최상위 요소인 html{font-size:14px;}
+    rem의 계산하는 방법:적용할 픽셀 값/16px,  32px/16=2rem
+    1rem=16px
+    2rem=32px
+
+    html, bodt{height:100%;}구버전 방식으로 특별히 지원 안되는 브라우저가 없다.
+
+    신버전이긴 하지만 구버전 브라우저에 대한 브라우저 접두사가 필요.
+    vw(viewport width):100을 기준으로 1vw=1%
+    vh(viewport height):100을 기준으로 1vh=1%
+-->

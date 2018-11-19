@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>복습</title>
+</head>
+<body>
+    <!--
+        1.구조선택자의 2가지 종류
+        -nth-child(구조의 번호), first-child, last-child
+         nth-chuld(2n)=nth-child(odd)
+         nth-child(2n+1)=nth-child(odd)
+        -nth-of-type(순번)
+
+        예시)
+        10개의 구조중에서 첫번째 구조를 선택하고 싶다.
+        div:nth-child(1)=div:first-child
+
+        10개의 구조중에서 마지막 구조를 선택하고 싶다.
+        div:nth-child(1)=div:last-child
+
+        10개의 구조중 3번째 구조를 선택하고 싶다.
+        div:nth-child(3)
+
+        10개의 구조중 짝수 구조를 선택하고 싶다.
+        div:nth-child(2n)=div:nth-child(even)
+
+        10개의 구조중 홀수 구조를 선택하고 싶다.
+        div:nth-child(2n+1)=div:nth-child(odd)
+
+
+        2.nth-of-type
+        예시)p태그 3번째 구조를 선택하고 싶다면..
+
+        div p:nth-type(3){속성:값;}
+
+        <div>
+         <p>1</p>
+         <p>3</p>
+         <h2>1</h2>
+         <p>3</p>
+         <h2>2</h2>
+        </div>
+
+
+        3. overflow속성(구조 안에서 float을 해제시킬때 사용되는 기능.)
+        -visible, hidden, scroll, auto, overflow-x, overflow-y
+
+
+        4.float을 해제하는 방법:float속성을 적용시 float이 적용된 부분에서 하위에 오는 요소들이
+        float의 영향을 받아 구조가 위로 올라가거나 깨지는 현상이 발생함.
+        정확한 사이즈 안에서 float이 적용되면 이러한 현상을 발생되지 않는다.
+        정확한 사이즈는 (넓이 또는 높이가 있다면..)
+        -float이 적용될 자식을 감싸고 있는 부모요소에게 높이를 같이 주는 방법. 컨텐츠 양에 따라서
+        높이를 줄 수 없기 때문에 맞추기 힘듦.
+        -clear:both;
+        <div>float이 적용될 박스</div>
+        <div class="clear"></div>
+        <div>컨텐츠</div>
+        <style>
+          .clear{clear:both;}
+          .clear:after{content:""; display:block; clear:both;}
+        </style>
+
+        하위요소에게 위에서 적용된 float의 영향을 받지 않게 float을 해제시킬 수 있는 스타일 작성해줌.
+        -overflow:hidden;
+        float이 적용될 자식을 감싸는 부모 요소에게 적용해줌, 가장 안정적이며, 컨텐츠 양에따라 높이나
+        여백을 걱정하지 않고 내가 원하는 방향으로 사이트를 만들어 갈 수 있음.
+        -가상선택자
+        
+
+        -->
+</body>
+</html>

@@ -1,0 +1,623 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Open+Sans');
+        /*
+            kr:font-family: 'Nanum Gothic', sans-serif;
+            eng:font-family: 'Open Sans', sans-serif;
+        */
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 14px;
+            color: #e4e4e4;
+            letter-spacing: 1px;
+            background-image: url("images/best-bg.gif");
+        }
+        .eng {font-family: 'Open Sans', sans-serif;}
+        a {color: #b8b8b8;}
+        .row {width: 100%;}
+        /*header*/
+        .header{}
+        .top-header{height:60px; border-bottom:1px solid #dbdbdb;}
+        .wid {
+            width: 1400px;
+            margin: 0 auto;
+
+        }
+        .top-header li, .inter-txt{display:inline-block;}
+        .left-gnb, .left-gnb-img {
+            float: left;
+        }
+        .right-gnb{float:right;}
+        .inter {
+            border: 1px solid #dbdbdb;
+            padding: 7px 8px;
+            text-transform: uppercase;
+            border-radius: 10px;
+            margin-top:14.85px;
+            color:#000;
+            font-size:12px;
+        }
+        .left-gnb li{
+            width: 31px;
+            height: 32px;
+            background-color: #bcbcbc;
+        }
+        .left-gnb li {
+            margin-top: 13.8px;
+        }
+        .left-gnb-img {
+            width: 14px;
+            height: 12px;
+            background-color: #bcbcbc;
+        }
+        .sns li:first-child {
+            margin: 0 4px 0 11px;
+        }
+        .right-gnb{
+            margin-top:22.85px; 
+            font-size:12px;
+            font-weight:100;
+        }
+        .bott-header h1 {
+            float: left;
+            margin:27.5px 0;
+        }
+        .navi {
+            display: inline-block;
+            margin: 37.1px 0 37.1px 215.5px;
+        }
+        .nav li {
+            font-size: 16px;
+            font-weight:500;
+            display: inline-block;
+            padding-right:43px;
+        }
+        .nav li:last-child{padding-right:0;}
+        .nav a {
+            color: #000000;
+        }
+        .nav a:hover {
+            color: #c40f39;
+        }
+        .logo-nav{display:inline-block;}
+        .logo-nav, .logo-nav li {
+            float: right;
+
+        }
+            .logo-nav li {
+                margin: 34.3px 0 34.3px 40px;
+                width: 20px;
+                height: 20px;
+                background-color: #bcbcbc;
+            }
+        /*section*/
+
+        .banner {
+            height:652px;
+            width:100%;
+            background-color:#bcbcbc;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-bottom:89px;
+        }
+
+        /*=========================    NEW 수정해야할 영역    ======================*/
+        .row-new{width:1200px; margin:0 auto; overflow:hidden; padding-bottom:75px;}
+        .arrival-right-bot1 img{float:right; width:786px;}
+        .new, .arrival-right-bot1{display:inline-block;}
+        .arrival-right-bot1{float:right;}
+        .arrival-right li{display:inline-block;}
+        .title{margin-bottom:39px;}
+        .new li:nth-child(2) img{width:392px;}
+
+        .new-left{margin-bottom:18px;}
+        .arrival-left1 {width: 392px;margin-right:22px;height:292.09px; background-color:#bcbcbc;}
+        .arrival-right li {display: inline-block;float:left; }
+        .new li:nth-child(2){width:392px; height:206.5px; background-color:#bcbcbc;}
+        .arrival-right-bot1{width:786px; height:361.05px; background-color:#bcbcbc;}
+        .arrival-left2{width:450px; height:444.28px; background-color:#bcbcbc;margin-right:22px;}
+        .arrival-left3{width:314px; height:295px; background-color:#bcbcbc;margin-right:0;}
+        /*각 타이틀의 텍스트 스타일*/
+        .title h2 {
+            color: #000;
+            font-size: 32px;
+            letter-spacing: 2px;
+            line-height: 120%;
+        }
+        .notice-title h2, .inquiry-ui h2 {
+            color: #000;
+            font-size: 20px;
+            letter-spacing: 2px;
+            line-height: 120%;
+        }
+        /*타이틀 하단 빨간 사각 포인트 스타일*/
+        .title hr, .notice-title hr, .inquiry-ui hr {
+            display: inline-block;
+            width: 26px;
+            height: 4px;
+            margin: 10px 0 0;
+            background: #c40f39;
+        }
+        .title p {
+            color: #b8b8b8;
+            font-size: 13px;
+            color: #6e6e6e;
+            margin-top: 10px;
+        }
+
+
+
+
+        /*best teb*/
+        .best{
+            width:100%;
+            background-color:#eee;
+            padding: 70px 0;
+
+        }
+ 
+        .best-txt h2 {
+            color: #000;
+            font-size: 32px;
+            letter-spacing: 2px;
+            line-height: 120%;
+            text-align: center;
+        }
+
+        .best-txt hr {
+            display: inline-block;
+            width: 26px;
+            height: 4px;
+            margin: 10px auto;
+            background: #c40f39;
+            margin:13px 938.5px;
+        }
+
+        .best-txt p {
+            color: #b8b8b8;
+            font-size: 13px;
+            color: #6e6e6e;
+            text-align: center;
+        }
+        .teb-list li, .teb-list {
+            display: inline-block;
+            margin-right: -1px;
+        }
+        .teb-list li:nth-child(1) a{
+            padding:11.2px 60.22px; 
+            border:2px solid #c40f39;
+            color:#c40f39;
+        }
+        .teb-list{padding:0 668.9px; margin:40px 0;}
+        .teb-list li:nth-child(2) a{padding:11.2px 53.135px;}
+        .teb-list li:nth-child(3) a{padding:11.2px 46.055px;}
+        .teb-list li:nth-child(4) a{padding:11.2px 38.975px;}
+        .teb-list a{border:2px solid #bcbcbc; box-sizing:border-box;}
+        .teb-list a:hover{border:2px solid #c40f39; color:#c40f39;}
+        .prod-list{margin-bottom:40px;}
+        .prod-list img {width:266px;}
+        .prod-list li{display:inline-block; margin-right: 9px;}
+        .prod-list li:last-child{margin-right:-5px;}
+        .prod-list li img{height:100%;}
+            .prod-list li {
+                width: 266px;
+                height: 470px;
+                background-color: #bcbcbc;
+                overflow: hidden;
+            }
+            .prod-list li:nth-child(7) img {
+                height: 100%;
+            }
+        .prod-list li:last-child {
+                width: 224px;
+                 overflow: hidden;
+            }
+        .prod-info {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 0 100px;
+            background-color: #eee;
+            width: 24px;
+            height: 30px;
+            background-color: #bcbcbc;
+        }
+        .hr-ri, .hr-le{
+            display: inline-block;
+        }
+        .hr-le hr, .hr-ri hr {
+            display: inline-block;
+            width: 839.5px;
+            height: 1px;
+            margin: 10px 0 0;
+            background: #ccc;
+        }
+        .hr-le{float:left;}
+        .hr-ri{float:right;}
+        .prod-info-all p {
+            margin-top:30px;
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            text-align:center;
+        }
+
+
+        .video {
+            width: 100%;
+            height: 570px;
+            background-color: #bcbcbc;
+        }
+        .video-txt h2 {
+            color: #fff;
+            font-size: 32px;
+            letter-spacing: 2px;
+            line-height: 120%;
+            text-align: center;
+
+        }
+        .video-txt p {
+            color: #b8b8b8;
+            font-size: 13px;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+        }
+        .video-txt{
+            padding:259px 0;
+        }
+
+        .news {
+            background: #f8f8f8;
+            border-bottom: 1px solid #b8b8b8;
+
+        }
+        .notice {
+            height: 355px;
+            line-height: 170%;
+           
+        }
+
+
+        .notice-title {
+            padding: 45px 0 30px 0;
+        }
+        .notice-title h2, .notice-title p{display:inline-block;}
+        .notice-title p{float:right; border-bottom:1px solid #000; padding-bottom:3px; margin-right:22px;}
+        .notice-title hr{display:block}
+        .notice-left{width:700px; color:#000; display:inline-block;}
+        .cont-ui-txt, .date{display:inline-block; padding:0 22px;  float:right;}
+        .cont-ui hr {
+            margin: 10px 20px 10px 0;
+            border-color: #bcbcbc;
+            height: 1px;
+        }
+        .cont-ui-img {
+            width: 173px;
+            height: 122px;
+            background-color: #bcbcbc;
+            display: inline-block;
+        }
+
+        .notice-cont li:nth-child(2) p {
+            display: inline-block;
+        }
+        .notice-cont li:nth-child(3) p{display:inline-block;}
+        .notice-cont li:nth-child(4) p{display:inline-block;}
+        .cont-ui-txt h3{font-size:20px; margin:7px 0;}
+        .ri-ma{padding:0;}
+        .inquiry{display:inline-block; width:350px; height:inherit; background-color:#ddd}
+        .inquiry-ui{margin-top:65px;}
+        .inquiry-ui li img{margin:0 147px;}
+        .inquiry-ui li{text-align:center; color:#000;}
+        .inquiry-ui li:nth-child(3) p{margin-bottom:45px;}
+        .inquiry-ui a {
+            line-height: 40px;
+            margin: 0 91.5px;
+            width: 167px;
+            height: 39px;
+            border: 2px solid #c40f39;
+            color: #c40f39;
+        }
+        .familyshop{background-color:#eee;}
+        .inquiry{float:right;}
+        .notice-left, .inquiry {
+            border-right: 1px solid #b8b8b8;
+            box-sizing:border-box;
+        }
+        .inquiry  a:hover{
+            background-color:#c40f39;
+            color:#fff;
+        }
+
+        .section-bott{width:1400px;padding:45px 0;}
+        .section-bott .bott-logo li{display:inline-block; margin-right:7px;}
+
+        .bott-logo li:nth-child(1) a{padding:18.3px 54px ;}
+        .bott-logo li:nth-child(2) a{padding: 18.8px 58.5px;}
+        .bott-logo li:nth-child(3) a{padding:21.8px 48.5px ;}
+        .bott-logo li:nth-child(4) a{padding: 22.8px 44px;}
+        .bott-logo li:nth-child(5) a{padding: 15.5px 67.5px; margin-right:-4px;}
+
+
+        .bott-logo li {
+            vertical-align: middle;
+            width: 269px;
+            height: 77.59px;
+            background-color: #bcbcbc;
+        }
+
+        /*footer*/
+        .footer {
+            background-color: #111;
+            padding-bottom: 65px;
+        }
+        .foot-nav, .foot-nav li{display:inline-block;}
+        .foot-nav{float:right;}
+        .footer-top{padding-top:65px;}
+        .footer-top hr{margin:25px 0; border-color:#6e6e6e;}
+        .blo{display:inline-block;}
+        .familysite{float:right;}
+        .familysite a{padding:11.2px 10px; border:1px solid #6e6e6e;}
+        .footer-info {color:#6e6e6e;}
+        .footer-info h2, .footer-custo h2{margin-bottom:15px; font-size:14px; color:#fff; font-weight:100;}
+        .footer-info {line-height: 180%; font-size:12px;}
+        .footer-custo p{font-size:20px; color: rgba(255,255,255,0.5);}
+        .footer-custo{text-align:center; margin:0 60px;}
+
+
+    </style>
+        </head >
+        <body >
+            <div class="header row">
+                <div class="top-header row">
+                    <div class="wid">
+                        <a href="#">
+                            <div class="left-gnb inter">
+                                <div class="left-gnb-img"></div>
+                                <div class="inter-txt">
+                                    <p class="eng">&nbsp;kor&nbsp;&or;</p>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="left-gnb sns">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                        <ul class="right-gnb">
+                            <li><a href="#" class="eng">HOME</a></li>
+                            <li>|</li>
+                            <li><a href="#" class="eng">SITE MAP</a></li>
+                            <li>|</li>
+                            <li><a href="#" class="eng">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="bott-header wid">
+                        <h1><a href="#"><img src="images/logo.png" /></a></h1>
+                        <div class="navi">
+                            <ul class="nav">
+                                <li><a href="#">모나미소개</a></li>
+                                <li><a href="#">모나미제품</a></li>
+                                <li><a href="#">문구박물관</a></li>
+                                <li><a href="#">고객지원</a></li>
+                                <li><a href="#">NEWS&nbsp;&amp;&nbsp;VIDEO</a></li>
+                            </ul>
+                        </div>
+                            <ul class="logo-nav">
+                                <li><a href="#"></a></li>
+                                <li><a href="#"></a></li>
+                            </ul>
+                    </div>
+                
+            </div>
+            <div class="section row">
+                <div class="banner">
+                </div>
+                <div class="row-new">
+                    <div class="new-left">
+                        <ul class="new">
+                            <li class="arrival-left">
+                                <div class="title">
+                                    <h2 class="eng">NEW<br />ARRIVALS</h2>
+                                    <hr />
+                                    <P>가장 먼저 만나는 설레는 기다림</P>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">                                   
+                                </a>
+                            </li>
+                        </ul>
+                            <div class="arrival-right-bot1">
+                                <a href="#">
+                                </a>
+                            </div>      
+                    </div>
+                    <div class="new-right">
+                        <ul class="arrival-right">
+                            <li class="arrival-left1">
+                                <a href="#">
+                                   <img src="" />
+                                </a>
+                            </li>
+                            <li class="arrival-left2">
+                                <a href="#">
+                                    <img src="" />
+                                </a>
+                            </li>
+                            <li class="arrival-left3">
+                                <a href="#">
+                                    <img src="" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="best">
+                    <div class="best-txt">
+                        <h2>BEST PRODUCT</h2>
+                        <hr />
+                        <P>언제 어디서나 생활속에 함께하는 모나미</P>
+
+                        <div class="bset-teb">
+                            <ul class="teb-list">
+                                <li><a href="#">펜</a></li>
+                                <li><a href="#">마카</a></li>
+                                <li><a href="#">형광펜</a></li>
+                                <li><a href="#">회화구류</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <ul class="prod-list">
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+
+                    <div class="prod-info-all">
+                        <div class="hr-le">
+                            <hr />
+                        </div>
+                        <div class="hr-ri">
+                            <hr />
+                        </div>
+                        <div class="prod-info">
+                            
+                        </div>
+                        <p>DRAG&nbsp&amp;&nbsp;SCROLL</p>
+                    </div>
+                </div>
+                    <div class="video">
+                        <div class="video-txt">      
+                            <h2>VIDEO</h2>
+                            <p>즐거운 경험의 시작</p>
+                        </div>
+                    </div>
+
+                <div class="news row ">
+                    <div class="notice wid">
+                        <div class="notice-left">
+                            <div class="notice-title">
+                                <h2>MONAMI NEWS</h2>
+                                <p>more</p>
+                                <hr />
+
+                            </div>
+                            <ul class="notice-cont">
+                                <li>
+                                    <div class="cont-ui">
+                                        <div class="cont-ui-img"></div>
+                                        <div class="cont-ui-txt">
+                                            <h3>
+                                                모나미, 여행용 여권 오거나이저 세트 출시
+                                            </h3>
+                                            <p>
+                                                모나미, 여행용 여권 오거나이저 세트 출시- 고급스러운 블랙 컬러와  충분한<br />
+                                                수납공간으로 실용성 극대화한 디..
+                                            </p>
+                                            <span class="date ri-ma">2018-08-09</span>
+                                        </div>
+                                        <hr />
+                                    </div>
+                                </li>
+                                <li><p>- 모나미, 여름방학 맞은 초등학생들을 위한 체험 프로그램 개최</p><span class="date">2018-09-09</span></li>
+                                <li><p>- 제 42 회 모나미 환경사랑 어린이 미술대회 개최</p><span class="date">2018-09-09</span></li>
+                                <li><p>- 모나르떼, 2018 <span class="eng">Splash of Talent</span> 서머 캠프 운영</p><span class="date">2018-09-09</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="inquiry familyshop">
+
+                            <ul class="inquiry-ui">
+                                <li class="inquiry-img">
+                                    
+                                </li>
+                                <li><h2>FAMILY SHOP</h2><hr /></li>
+                                <li>
+                                    <p>
+                                        패밀리샵은 모나미와 함께 협력하는 문구
+                                        <br />소매 매장입니다. 주변 패밀리샵을 찾아보세요.
+                                    </p>
+                                </li>
+                                <li><a href="#"><p>FIND SHOP</p></a></li>
+                            </ul>
+
+                        </div>
+                        <div class="inquiry">
+                            <ul class="inquiry-ui">
+                                <li class="inquiry-img">
+                                    
+                                </li>
+                                <li><h2>inquiry</h2><hr /></li>
+                                <li><p>언제나 소중한 의견에 귀 기울이겠습니다.<br />궁금한 사항은 문의하세요.</p></li>
+                                <li><a href="#"><p>INQUIRY NOW</p></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="section-bott wid">
+                    <ul class="bott-logo">
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="footer row">
+                <div class="footer-top wid">
+                    <img src="images/footlogo.png" />
+                    <ul class="foot-nav">
+                        <li><a href="#">회사소개</a></li>
+                        <li>|</li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li>|</li>
+                        <li><a href="#">이메일무단수집거부</a></li>
+
+                    </ul>
+                    <hr />
+                </div>
+                <div class="foot-bott wid">
+                    <div class="footer-info blo">
+                        <h2 class="eng">INFO</h2>
+                        <p>
+                            <span class="eng">ADDRESS</span> : 경기도 용인시 수지구 손곡로 17 l
+                            <span class="eng">TEL</span> : 031-216-0153 l
+                            <span class="eng">FAX</span> : 031-270-5154<br />
+                            <address class="eng">COPYRIGHT(C) 2017 MONAMI.CO.,LTD. ALL RIGHTS RESERVED.</address>
+                        </p>
+                    </div>
+                    <div class="footer-custo blo">
+                        <h2 class="eng">CUSTOMER CENTER</h2>
+                        <p>080-022-0153</p>
+                    </div>
+                    <div class="familysite blo">
+                        <a href="#">
+                            FAMILY SITE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&or;
+                        </a>
+                    </div>
+                </div>
+                    
+                </div>
+        </body >
+        </html >

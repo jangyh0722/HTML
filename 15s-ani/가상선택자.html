@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">  
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        /*float에 초기화
+        .clear{clear:both;}
+        .clear:before{content:""; display:block; clear:both;}
+        */
+        /*
+           구조에서 수평과 수직정렬
+           float을 해제하는 방법
+           div가 갖는 화면에서의 실제 넓이 구하기
+
+           *float을 해제하는 방법
+           1.float이 적용될 자식을 감싸는 부모요소에게 높이를 지정.
+           2.마스크(overflow:hidden;)
+           3.clear:both; (float이 적용된 부분에서 다음에 오는 컨텐츠에게 적용)
+           4.가상선택자 활용
+           - :before(전), :after(후)
+       */
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #666;
+        }
+       .box{background:#ccc;}
+       .box > div{width:400px; float:left; background:#ff6a00;}
+       .box > div:last-child{float:right;}
+
+       .content:before{
+           content:"";
+           display:block;
+           clear:both;
+       }
+        
+    </style>
+</head>
+<body>
+   <div class="container">
+       <div class="box">
+           <div class="left">left-content</div>
+           <div class="right">right-content</div>
+       </div>
+       <div class="content">
+           <p>
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+               Mauris vel leo sem. Sed nec quam sit amet lorem volutpat ullamcorper ut sed massa. 
+               Sed vel felis velit. Nullam et turpis sed dui auctor vehicula quis a dui.
+           </p>
+       </div>
+   </div>
+</body>
+</html>

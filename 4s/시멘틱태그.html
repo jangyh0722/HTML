@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>시멘틱 태그</title>
+    <!--
+
+    시멘틱 태그란 전세계적으로 웹표준을 지향하는 사이트를 만들면서
+        사이트 구조시 변하지 않고 각각의 위치에서 컨텐츠가 있는 부분에
+        이름을 주기 우해 신설된 태그로 header, nav, section, article
+        aside, footer가 있습니다.
+        해당 부분이 각각의 컨텐츠가 위치한 식별자가 됩니다.
+        
+        시멘틱 태그 및 구조
+        <header></header>
+        <nav></nav>
+        <section>
+        <article></article>
+        <aside></aside>
+        </section>
+        <footer></footer>
+    -->
+
+    <style>
+        .row{width:980px; 
+             margin:0 auto 10px; 
+             border:1px solid #333;
+             padding:0 10px;
+             text-align:center;
+        }
+        .bott{margin-bottom:0;}
+        #header, #nav, #footer{padding-top:20px; padding-bottom:20px;}
+        .content {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height:400px;
+        }
+        .left, .right {
+            width: 485px;
+            height: inherit;
+            border: 1px solid #333;
+            box-sizing: border-box;
+            float: left;
+            line-height: 400px;
+        }
+        .right{float:right;}
+    </style>
+
+</head>
+<body>
+
+    <div id="header" class="row">
+        <p>header:사이트 상단에 위치하는 컨텐츠 영역</p>
+    </div>
+    <div id="nav" class="row">
+        <p>nav:사이트에서 메뉴에 관련된 컨텐츠 영역</p>
+    </div>
+    <div id="section" class="row content">
+        <div id="article" class="left">
+            <p>article:컨텐츠 영역</p>
+        </div>
+        <div id="aside" class="right">
+            <p>aside:컨텐츠 영역</p>
+            </div>
+        </div>
+    <div id="footer" class="row bott">
+        <p>footer:사이트 하단에 위치하는 관리자 정보 영역</p>
+    </div>
+</body>
+</html>
